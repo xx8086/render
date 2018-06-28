@@ -1,0 +1,15 @@
+//
+//  ViewController.h
+//  lhgl
+//
+//  Created by liu on 2018/6/26.
+//  Copyright © 2018年 redliu. All rights reserved.
+//
+
+//#import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
+@interface ViewController : GLKViewController
+
+
+@end
+
