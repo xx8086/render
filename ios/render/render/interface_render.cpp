@@ -11,9 +11,9 @@
 #include "gl_triangle.hpp"
 #include "bones.hpp"
 
-CTriangle* get_render(){
-    return Singleton<CTriangle>::get_instance();
-    //return Singleton<CBones>::get_instance();
+CBones* get_render(){
+    //return Singleton<CTriangle>::get_instance();
+    return Singleton<CBones>::get_instance();
 }
 
 CInterfaceRender::CInterfaceRender(){

@@ -24,6 +24,7 @@ public:
     GLboolean loadshader(const char*dir, const char* vs_file_name, const char* fs_file_name);
     const GLuint& programid() const;
     void use();
+    void unuse();
     void setbool(GLint location, bool value) const;
     void setfloat(GLint location, float value) const;
     void setint(GLint location, int value) const;

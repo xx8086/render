@@ -128,6 +128,10 @@ void CShader::use(){
     glUseProgram(_program);
 }
 
+void CShader::unuse(){
+    glUseProgram(0);
+}
+
 void CShader::setbool(GLint location, bool value) const{
     glUniform1i(location, (int)value);
 }

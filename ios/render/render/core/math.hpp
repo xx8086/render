@@ -21,7 +21,6 @@
 #include "assimp/vector3.h"
 #include "assimp/matrix4x4.h"
 #include "assimp/matrix3x3.h"
-#include "glm.hpp"
 
 #define M_PI (3.1415926f)
 #define ToRadian(x) (float)(((x) * M_PI / 180.0f))
@@ -244,6 +243,7 @@ public:
     {
     }
     
+    /*
     Matrix4f(const glm::mat4& glm_mat4)
     {
         m[0][0] = glm_mat4[0][0]; m[0][1] = glm_mat4[0][1]; m[0][2] = glm_mat4[0][2]; m[0][3] = glm_mat4[0][3];
@@ -251,7 +251,7 @@ public:
         m[2][0] = glm_mat4[2][0]; m[2][1] = glm_mat4[2][1]; m[2][2] = glm_mat4[2][2]; m[2][3] = glm_mat4[2][3];
         m[3][0] = glm_mat4[3][0]; m[3][1] = glm_mat4[3][1]; m[3][2] = glm_mat4[3][2]; m[3][3] = glm_mat4[3][3];
     }
-    
+    */
     // constructor from Assimp matrix
     Matrix4f(const aiMatrix4x4& AssimpMatrix)
     {
@@ -269,11 +269,6 @@ public:
         m[3][0] = 0.0f           ; m[3][1] = 0.0f           ; m[3][2] = 0.0f           ; m[3][3] = 1.0f;
     }
     
-    Matrix4f operator= (const glm::mat4& glm_mat4) const
-    {
-        Matrix4f Ret(glm_mat4);
-        return Ret;
-    }
     Matrix4f operator= (const aiMatrix4x4& AssimpMatrix) const
     {
         Matrix4f Ret(AssimpMatrix);

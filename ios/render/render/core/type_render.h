@@ -8,13 +8,6 @@
 
 #ifndef type_render_h
 #define type_render_h
-//#include "glm.hpp"
-//typedef glm::mat4 Mat4f;
-//typedef glm::mat3 Mat3f;
-//typedef glm::mat2 Mat2f;
-//typedef glm::vec4 Vec4f;
-//typedef glm::vec3 Vec3f;
-//typedef glm::vec2 Vec2f;
 
 #include "math.hpp"
 typedef Matrix4f Mat4f;

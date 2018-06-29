@@ -40,7 +40,7 @@ private:
     struct VertexBonedata{
         unsigned int ids[NUM_BONES_PER_VEREX] = {0};
         float weights[NUM_BONES_PER_VEREX] = {0};
-        void add_bonedata(unsigned int boneid, float weight);
+        void add_bonedata(unsigned int, float);
     };
     struct MeshEntry{
         unsigned int num_indices = 0;
@@ -61,9 +61,9 @@ private:
     void CalcInterpolatedScaling(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
     void CalcInterpolatedRotation(aiQuaternion& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
     void CalcInterpolatedPosition(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
-    uint FindScaling(float AnimationTime, const aiNodeAnim* pNodeAnim);
-    uint FindRotation(float AnimationTime, const aiNodeAnim* pNodeAnim);
-    uint FindPosition(float AnimationTime, const aiNodeAnim* pNodeAnim);
+    unsigned int FindScaling(float AnimationTime, const aiNodeAnim* pNodeAnim);
+    unsigned int FindRotation(float AnimationTime, const aiNodeAnim* pNodeAnim);
+    unsigned int FindPosition(float AnimationTime, const aiNodeAnim* pNodeAnim);
     const aiNodeAnim* FindNodeAnim(const aiAnimation* pAnimation, const char* nodename);
     void ReadNodeHeirarchy(float AnimationTime, const aiNode* pNode, const Mat4f& ParentTransform);
     bool InitFromScene(const aiScene* pScene, const char* filename);
@@ -76,7 +76,7 @@ private:
                   std::vector<unsigned int>& Indices);
     void LoadBones(unsigned int MeshIndex, const aiMesh* paiMesh, std::vector<VertexBonedata>& Bones);
     bool InitMaterials(const aiScene* pScene, const char* filename);
-    void Clear();
+    void clear();
 private:
     unsigned int _num_bones = 0;
     unsigned int _vao = 0;

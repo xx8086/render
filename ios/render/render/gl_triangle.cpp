@@ -7,6 +7,7 @@
 //
 
 #include "gl_triangle.hpp"
+#include "pipeline.hpp"
 
 CTriangle::CTriangle(){
 }
@@ -43,7 +44,7 @@ void CTriangle::release(){
 void CTriangle::resize(unsigned int w, unsigned int h){
     _width = w;
     _height = h;
-    _camera->resize(w, h, 0.1, 100);
+    _camera->resize(w, h);
 }
 
 void CTriangle::draw(){
@@ -51,16 +52,15 @@ void CTriangle::draw(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     _shader.use();
-    _shader.setmat4(_shader.getuniformlocation("projection"), _camera->get_projection());
-    _shader.setmat4(_shader.getuniformlocation("view"), _camera->get_view_matrix());
-
-    glm::mat4 model;
     static float angle = 0.0f;
-    angle += 0.1f;
-    model = glm::translate(model, glm::vec3(0.0f, -1.5f, -2.0f));
-    model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
-    model = glm::rotate(model, angle, glm::vec3(0.0f, 1.0f, 0.0f));
-    _shader.setmat4(_shader.getuniformlocation("model"), Mat4f(model));
+    angle += 1.0f;
+    Pipeline p;
+    p.set_camera(_camera->get_postion(), _camera->get_target(), _camera->get_up());
+    p.set_perspective_proj(_camera->get_proj_info());
+    p.scale(0.1);
+    p.rotate(angle, 0, 0);
+    p.world_pos(0.0f, 0.0f, 6.0f);
+    _shader.setmat4(_shader.getuniformlocation("wvp"), p.get_wvp_trans());
     _model->Draw(_shader.programid());
 }
 
@@ -80,9 +80,16 @@ int CTriangle::esMain (ESContext *esContext){
     std::string strmodel(esContext->appdir);
     strmodel.append("/nanosuit.obj");
     
-    init();
-    _camera = new Camera(Vec3f(0.0f, 0.0f, 3.0f));
+    _camera = new Camera(Vec3f(0.0f, 3.0f, -1.0f));
     _model = new Model(strmodel.c_str());
+    init();
     resize(esContext->width, esContext->height);
+    PersProjInfo sp;
+    sp.FOV = 60;
+    sp.Width = esContext->width;
+    sp.Height = esContext->height;
+    sp.zFar = 100;
+    sp.zNear = 0.1;
+    _camera->set_proj_info(sp);
     return GL_TRUE;
 }

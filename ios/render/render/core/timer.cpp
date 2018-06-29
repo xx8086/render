@@ -15,10 +15,10 @@ Timer::~Timer(){
     ;
 }
 
-unsigned int Timer::interval_ms(){
+float Timer::interval_ms(){
     auto end = std::chrono::system_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - _aysnc_ms_count);
-    return static_cast<unsigned int>(duration.count()) ;
+    return static_cast<float>(duration.count()) ;
 }
 
 void Timer::set_count_time(int ms) {

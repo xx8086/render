@@ -18,7 +18,7 @@ public:
     Timer();
     ~Timer();
 public:
-    unsigned int interval_ms();
+    float interval_ms();
     void set_count_time(int ms);
     bool count_time();//每隔ms毫秒返回true,在ms时间内返回都是false
     bool count_time_loop();

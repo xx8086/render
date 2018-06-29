@@ -8,12 +8,11 @@ layout (location = 3) in ivec4 BoneIDs;
 layout (location = 4) in vec4 Weights;
 
 out vec2 TexCoord0;
-out vec3 Normal0;
-out vec3 WorldPos0;
+//out vec3 Normal0;
+//out vec3 WorldPos0;
 const int MAX_BONES = 100;
-uniform mat4 projection;
-uniform mat4 model;
-uniform mat4 view;
+uniform mat4 pvw;
+//uniform mat4 model;
 uniform mat4 gBones[MAX_BONES];
 
 void main(){
@@ -23,9 +22,9 @@ void main(){
     BoneTransform     += gBones[BoneIDs[3]] * Weights[3];
 
     vec4 PosL    = BoneTransform * vec4(Position, 1.0);
-    gl_Position  = model * view * projection * PosL;
+    gl_Position  = pvw * PosL;
     TexCoord0    = TexCoord;
-    vec4 NormalL = BoneTransform * vec4(Normal, 0.0);
-    Normal0      = (model * NormalL).xyz;
-    WorldPos0    = (model * PosL).xyz;
+    //vec4 NormalL = BoneTransform * vec4(Normal, 0.0);
+    //Normal0      = (model * NormalL).xyz;
+    //WorldPos0    = (model * PosL).xyz;
 }

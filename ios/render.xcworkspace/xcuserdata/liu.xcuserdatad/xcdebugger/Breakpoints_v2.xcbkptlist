@@ -9,28 +9,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "render/render/bones.cpp"
-            timestampString = "551846058.462409"
+            filePath = "render/render/gl_triangle.cpp"
+            timestampString = "551868799.337961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "CBones::draw()"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "CTriangle::draw()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "render/render/bones.cpp"
-            timestampString = "551846058.463199"
+            filePath = "render/render/core/bones_mesh.cpp"
+            timestampString = "551951454.325633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89">
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "BonesMesh::InitMesh(uint MeshIndex, const aiMesh* paiMesh, std::vector&lt;Vec3f&gt;&amp; Positions, std::vector&lt;Vec3f&gt;&amp; Normals, std::vector&lt;Vec2f&gt;&amp; TexCoords, std::vector&lt;VertexBonedata&gt;&amp; Bones, std::vector&lt;unsigned int&gt;&amp; Indices)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
