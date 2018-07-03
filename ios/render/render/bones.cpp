@@ -7,7 +7,6 @@
 //
 
 #include "bones.hpp"
-#include "timer.hpp"
 #include "pipeline.hpp"
 
 CBones::CBones(){
@@ -55,8 +54,7 @@ void CBones::draw(){
     _shader.use();
 
     std::vector<Mat4f> transform;
-    static Timer seconds;
-    _bones_mesh->bone_transform(seconds.interval_ms()/1000.0f, transform);
+    _bones_mesh->bone_transform(_time.interval_ms()/1000.0f, transform);
     for (unsigned int i = 0 ; i < transform.size() ; i++) {
         _shader.set_bones_uniformlocation(i, transform[i]);
     }
@@ -66,7 +64,7 @@ void CBones::draw(){
     p.set_perspective_proj(_camera->get_proj_info());
     p.scale(0.1);
     p.rotate(270.0, 180.0, 0.0);
-    p.world_pos(2.0f, 0.0f, 0.0f);
+    p.world_pos(0.0f, -2.0f, 0.0f);
     _shader.setmat4(_shader.getuniformlocation("pvw"), p.get_pvw_trans(), GL_TRUE);
     //_shader.setmat4(_shader.getuniformlocation("model"), p.get_world_trans());
     _bones_mesh->render();
@@ -93,7 +91,7 @@ int CBones::esMain (ESContext *esContext){
     init();
     _camera = new Camera(Vec3f(0.0f, 0.0f, -10.0f));
     _bones_mesh = new BonesMesh();
-    _bones_mesh->loadmesh(strmodel.c_str());
+    _bones_mesh->load_mesh(strmodel);
     _shader.set_bones_counts(_bones_mesh->num_bones());
     _shader.bone_uniformlocation();
     _shader.setint(_shader.getuniformlocation("gColorMap"), 0);

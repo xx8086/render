@@ -16,38 +16,69 @@
 #include "assimp/Importer.hpp"
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
-#include "math.hpp"
+#include "type_render.h"
 
 class BonesMesh{
 public:
     BonesMesh();
     ~BonesMesh();
-public:
-    bool loadmesh(const char*);
+    
+    bool load_mesh(const std::string& Filename);
     void render();
-    unsigned int num_bones()const{return _num_bones;};
-    void bone_transform(float seconds, std::vector<Mat4f>& transforms);
+    unsigned int num_bones() const{ return _num_bones;}
+    void bone_transform(float, std::vector<Mat4f>&);
+    
 private:
-    #define NUM_BONES_PER_VEREX 4
+#define NUM_BONES_PER_VEREX 4
+    
     struct BoneInfo{
-        Mat4f bone_offset;
-        Mat4f final_transformation;
+        Mat4f BoneOffset;
+        Mat4f FinalTransformation;
+        
         BoneInfo(){
-            bone_offset.SetZero();
-            final_transformation.SetZero();
+            BoneOffset.SetZero();
+            FinalTransformation.SetZero();
         }
     };
-    struct VertexBonedata{
-        unsigned int ids[NUM_BONES_PER_VEREX] = {0};
-        float weights[NUM_BONES_PER_VEREX] = {0};
-        void add_bonedata(unsigned int, float);
+    
+    struct VertexBoneData
+    {
+        unsigned int ids[NUM_BONES_PER_VEREX];
+        float weights[NUM_BONES_PER_VEREX];
+        VertexBoneData(){
+            reset();
+        };
+        
+        void reset(){
+            memset(ids, 0, sizeof(ids));
+            memset(weights, 0, sizeof(weights));
+        }
+        
+        void add_bone_data(unsigned int, float);
     };
-    struct MeshEntry{
-        unsigned int num_indices = 0;
-        unsigned int base_vertex = 0;
-        unsigned int base_index = 0;
-        unsigned int material_index = 0;
-    };
+    
+    void CalcInterpolatedScaling(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
+    void CalcInterpolatedRotation(aiQuaternion& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
+    void CalcInterpolatedPosition(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
+    uint find_scaling(float, const aiNodeAnim*);
+    uint find_rotation(float, const aiNodeAnim*);
+    uint find_position(float, const aiNodeAnim*);
+    const aiNodeAnim* find_node_anim(const aiAnimation*, const std::string);
+    void read_node_heirarchy(float, const aiNode*, const Matrix4f&);
+    bool load_scene(const aiScene*, const std::string&);
+    void load_mesh(unsigned int,
+                  const aiMesh*,
+                  std::vector<Vec3f>&,
+                  std::vector<Vec3f>&,
+                  std::vector<Vec2f>&,
+                  std::vector<VertexBoneData>&,
+                  std::vector<unsigned int>&);
+    void load_bones(unsigned int, const aiMesh*, std::vector<VertexBoneData>&);
+    bool load_materials(const aiScene*, const std::string&);
+    void clear();
+    
+#define INVALID_MATERIAL 0xFFFFFFFF
+    
     enum VB_TYPES {
         INDEX_BUFFER,
         POS_VB,
@@ -57,37 +88,33 @@ private:
         NUM_VBs
     };
     
-private:
-    void CalcInterpolatedScaling(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
-    void CalcInterpolatedRotation(aiQuaternion& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
-    void CalcInterpolatedPosition(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
-    unsigned int FindScaling(float AnimationTime, const aiNodeAnim* pNodeAnim);
-    unsigned int FindRotation(float AnimationTime, const aiNodeAnim* pNodeAnim);
-    unsigned int FindPosition(float AnimationTime, const aiNodeAnim* pNodeAnim);
-    const aiNodeAnim* FindNodeAnim(const aiAnimation* pAnimation, const char* nodename);
-    void ReadNodeHeirarchy(float AnimationTime, const aiNode* pNode, const Mat4f& ParentTransform);
-    bool InitFromScene(const aiScene* pScene, const char* filename);
-    void InitMesh(uint MeshIndex,
-                  const aiMesh* paiMesh,
-                  std::vector<Vec3f>& Positions,
-                  std::vector<Vec3f>& Normals,
-                  std::vector<Vec2f>& TexCoords,
-                  std::vector<VertexBonedata>& Bones,
-                  std::vector<unsigned int>& Indices);
-    void LoadBones(unsigned int MeshIndex, const aiMesh* paiMesh, std::vector<VertexBonedata>& Bones);
-    bool InitMaterials(const aiScene* pScene, const char* filename);
-    void clear();
-private:
-    unsigned int _num_bones = 0;
-    unsigned int _vao = 0;
-    unsigned int _vbos[NUM_VBs] = {0};
+    GLuint _vao;
+    GLuint _vbos[NUM_VBs];
+    
+    struct MeshEntry {
+        MeshEntry()
+        {
+            num_indices    = 0;
+            base_vertex    = 0;
+            base_index     = 0;
+            material_index = INVALID_MATERIAL;
+        }
+        
+        unsigned int num_indices;
+        unsigned int base_vertex;
+        unsigned int base_index;
+        unsigned int material_index;
+    };
+    
     std::vector<MeshEntry> _entries;
-    std::vector<TexureGl*> _textures;
-    std::map<std::string, unsigned int> _bones_map;
-    std::vector<BoneInfo> _bones_info;
+    std::vector<TextureGl*> _textures;
+    std::map<std::string,unsigned int> _bone_mapping;
+    unsigned int _num_bones;
+    std::vector<BoneInfo> _bone_info;
     Mat4f _global_inverse_transform;
-    Assimp::Importer _importer;
+    
     const aiScene* _scene;
+    Assimp::Importer _importer;
 };
 
 #endif /* bones_mesh_hpp */

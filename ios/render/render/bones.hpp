@@ -16,6 +16,7 @@
 #include "rander.hpp"
 #include "bones_mesh.hpp"
 #include "camera.hpp"
+#include "timer.hpp"
 
 class CBones: public CRender{
 public:
@@ -35,6 +36,7 @@ private:
     BonesMesh* _bones_mesh = nullptr;
     Camera* _camera = nullptr;
     BonesShader _shader;
+    Timer _time;
 };
 
 #endif /* bones_hpp */

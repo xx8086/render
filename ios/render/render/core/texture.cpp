@@ -11,12 +11,12 @@
 #include "stb_image.h"
 #include <OpenGLES/ES3/gl.h>
 
-void TexureGl::bind(unsigned int texture_unit){
+void TextureGl::bind(unsigned int texture_unit){
     glActiveTexture(texture_unit);
     glBindTexture(GL_TEXTURE_2D, _texture_id);
 }
 
-unsigned int TexureGl::load_texture(const std::string &filename, bool gamma){
+unsigned int TextureGl::load_texture(const std::string &filename, bool gamma){
     //std::string filename = std::string(path);
     //filename = directory + '/' + filename;
     

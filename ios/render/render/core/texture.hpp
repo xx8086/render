@@ -26,7 +26,7 @@ struct Texture {
     std::string path;
 };
 
-class TexureGl: protected Texture{
+class TextureGl: protected Texture{
 public:
     void bind(unsigned int texture_unit);
     unsigned int load_texture(const std::string &filename, bool gamma = false);

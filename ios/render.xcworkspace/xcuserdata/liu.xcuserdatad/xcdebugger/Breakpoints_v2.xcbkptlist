@@ -26,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "render/render/core/bones_mesh.cpp"
-            timestampString = "551951454.325633"
+            timestampString = "552281831.052382"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "BonesMesh::InitMesh(uint MeshIndex, const aiMesh* paiMesh, std::vector&lt;Vec3f&gt;&amp; Positions, std::vector&lt;Vec3f&gt;&amp; Normals, std::vector&lt;Vec2f&gt;&amp; TexCoords, std::vector&lt;VertexBonedata&gt;&amp; Bones, std::vector&lt;unsigned int&gt;&amp; Indices)"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "BonesMesh::load_mesh(const std::string&amp; Filename)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "render/render/core/bones_mesh.cpp"
+            timestampString = "552281831.05287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "BonesMesh::load_bones(unsigned int mesh_index, const aiMesh* mesh, std::vector&lt;VertexBoneData&gt;&amp; bones)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
