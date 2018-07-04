@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:megranate/megranate.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:render/render.xcodeproj">
    </FileRef>
    <FileRef

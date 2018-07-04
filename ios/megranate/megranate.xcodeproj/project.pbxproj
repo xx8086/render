@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5AE9E47220EC988D00304307 /* megranate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E47120EC988D00304307 /* megranate.m */; };
+		5AE9E47320EC988D00304307 /* megranate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5AE9E47020EC988D00304307 /* megranate.h */; };
+		5AE9E47C20EC9CB000304307 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E47A20EC9CB000304307 /* scene.cpp */; };
+		5AE9E47F20EC9CE700304307 /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E47D20EC9CE700304307 /* component.cpp */; };
+		5AE9E48220EC9CF700304307 /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E48020EC9CF700304307 /* entity.cpp */; };
+		5AE9E48620ECA60800304307 /* ref_counted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E48420ECA60800304307 /* ref_counted.cpp */; };
+		5AE9E48B20ECB1B800304307 /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E48920ECB1B800304307 /* object.cpp */; };
+		5AE9E48E20ECB37100304307 /* string_hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E48C20ECB37100304307 /* string_hash.cpp */; };
+		5AE9E49220ECC9CE00304307 /* context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E49020ECC9CE00304307 /* context.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5AE9E46B20EC988D00304307 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				5AE9E47320EC988D00304307 /* megranate.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5AE9E46D20EC988D00304307 /* libmegranate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmegranate.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AE9E47020EC988D00304307 /* megranate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = megranate.h; sourceTree = "<group>"; };
+		5AE9E47120EC988D00304307 /* megranate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = megranate.m; sourceTree = "<group>"; };
+		5AE9E47A20EC9CB000304307 /* scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = scene.cpp; sourceTree = "<group>"; };
+		5AE9E47B20EC9CB000304307 /* scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = scene.hpp; sourceTree = "<group>"; };
+		5AE9E47D20EC9CE700304307 /* component.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = component.cpp; sourceTree = "<group>"; };
+		5AE9E47E20EC9CE700304307 /* component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = component.hpp; sourceTree = "<group>"; };
+		5AE9E48020EC9CF700304307 /* entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = entity.cpp; sourceTree = "<group>"; };
+		5AE9E48120EC9CF700304307 /* entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = entity.hpp; sourceTree = "<group>"; };
+		5AE9E48420ECA60800304307 /* ref_counted.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ref_counted.cpp; sourceTree = "<group>"; };
+		5AE9E48520ECA60800304307 /* ref_counted.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ref_counted.hpp; sourceTree = "<group>"; };
+		5AE9E48720ECA6F400304307 /* base_type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base_type.h; sourceTree = "<group>"; };
+		5AE9E48820ECAECA00304307 /* debug_new.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug_new.h; sourceTree = "<group>"; };
+		5AE9E48920ECB1B800304307 /* object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = object.cpp; sourceTree = "<group>"; };
+		5AE9E48A20ECB1B800304307 /* object.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = object.h; sourceTree = "<group>"; };
+		5AE9E48C20ECB37100304307 /* string_hash.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = string_hash.cpp; sourceTree = "<group>"; };
+		5AE9E48D20ECB37100304307 /* string_hash.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = string_hash.hpp; sourceTree = "<group>"; };
+		5AE9E49020ECC9CE00304307 /* context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = context.cpp; sourceTree = "<group>"; };
+		5AE9E49120ECC9CE00304307 /* context.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = context.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AE9E46A20EC988D00304307 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5AE9E46420EC988D00304307 = {
+			isa = PBXGroup;
+			children = (
+				5AE9E46F20EC988D00304307 /* megranate */,
+				5AE9E46E20EC988D00304307 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5AE9E46E20EC988D00304307 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9E46D20EC988D00304307 /* libmegranate.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AE9E46F20EC988D00304307 /* megranate */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9E48320ECA39200304307 /* base */,
+				5AE9E47920EC9C2000304307 /* scene */,
+				5AE9E47020EC988D00304307 /* megranate.h */,
+				5AE9E47120EC988D00304307 /* megranate.m */,
+			);
+			path = megranate;
+			sourceTree = "<group>";
+		};
+		5AE9E47920EC9C2000304307 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9E47A20EC9CB000304307 /* scene.cpp */,
+				5AE9E47B20EC9CB000304307 /* scene.hpp */,
+				5AE9E47D20EC9CE700304307 /* component.cpp */,
+				5AE9E47E20EC9CE700304307 /* component.hpp */,
+				5AE9E48020EC9CF700304307 /* entity.cpp */,
+				5AE9E48120EC9CF700304307 /* entity.hpp */,
+			);
+			path = scene;
+			sourceTree = "<group>";
+		};
+		5AE9E48320ECA39200304307 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9E48720ECA6F400304307 /* base_type.h */,
+				5AE9E48420ECA60800304307 /* ref_counted.cpp */,
+				5AE9E48520ECA60800304307 /* ref_counted.hpp */,
+				5AE9E48820ECAECA00304307 /* debug_new.h */,
+				5AE9E48920ECB1B800304307 /* object.cpp */,
+				5AE9E48A20ECB1B800304307 /* object.h */,
+				5AE9E48C20ECB37100304307 /* string_hash.cpp */,
+				5AE9E48D20ECB37100304307 /* string_hash.hpp */,
+				5AE9E49020ECC9CE00304307 /* context.cpp */,
+				5AE9E49120ECC9CE00304307 /* context.h */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AE9E46C20EC988D00304307 /* megranate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AE9E47620EC988D00304307 /* Build configuration list for PBXNativeTarget "megranate" */;
+			buildPhases = (
+				5AE9E46920EC988D00304307 /* Sources */,
+				5AE9E46A20EC988D00304307 /* Frameworks */,
+				5AE9E46B20EC988D00304307 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = megranate;
+			productName = megranate;
+			productReference = 5AE9E46D20EC988D00304307 /* libmegranate.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AE9E46520EC988D00304307 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = hanliu;
+				TargetAttributes = {
+					5AE9E46C20EC988D00304307 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5AE9E46820EC988D00304307 /* Build configuration list for PBXProject "megranate" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5AE9E46420EC988D00304307;
+			productRefGroup = 5AE9E46E20EC988D00304307 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AE9E46C20EC988D00304307 /* megranate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AE9E46920EC988D00304307 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AE9E48620ECA60800304307 /* ref_counted.cpp in Sources */,
+				5AE9E49220ECC9CE00304307 /* context.cpp in Sources */,
+				5AE9E48220EC9CF700304307 /* entity.cpp in Sources */,
+				5AE9E48E20ECB37100304307 /* string_hash.cpp in Sources */,
+				5AE9E47C20EC9CB000304307 /* scene.cpp in Sources */,
+				5AE9E47220EC988D00304307 /* megranate.m in Sources */,
+				5AE9E48B20ECB1B800304307 /* object.cpp in Sources */,
+				5AE9E47F20EC9CE700304307 /* component.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5AE9E47420EC988D00304307 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5AE9E47520EC988D00304307 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AE9E47720EC988D00304307 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CONFIGURATION_BUILD_DIR = "~/render_bin";
+				CONFIGURATION_TEMP_DIR = "~/render_bin";
+				DEVELOPMENT_TEAM = 9846B32FFU;
+				HEADER_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AE9E47820EC988D00304307 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CONFIGURATION_BUILD_DIR = "~/render_bin";
+				CONFIGURATION_TEMP_DIR = "~/render_bin";
+				DEVELOPMENT_TEAM = 9846B32FFU;
+				HEADER_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AE9E46820EC988D00304307 /* Build configuration list for PBXProject "megranate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AE9E47420EC988D00304307 /* Debug */,
+				5AE9E47520EC988D00304307 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AE9E47620EC988D00304307 /* Build configuration list for PBXNativeTarget "megranate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AE9E47720EC988D00304307 /* Debug */,
+				5AE9E47820EC988D00304307 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AE9E46520EC988D00304307 /* Project object */;
+}
