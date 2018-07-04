@@ -366,12 +366,13 @@
 				DEVELOPMENT_TEAM = 9846B32FFU;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/\"",
-					"\"$(SRCROOT)/../3rd/assimp\"",
+					"\"$(SRCROOT)/../3rd/\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)",
+					"\"$(SRCROOT)/../3rd\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -389,12 +390,13 @@
 				DEVELOPMENT_TEAM = 9846B32FFU;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/\"",
-					"\"$(SRCROOT)/../3rd/assimp\"",
+					"\"$(SRCROOT)/../3rd/\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)",
+					"\"$(SRCROOT)/../3rd\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
