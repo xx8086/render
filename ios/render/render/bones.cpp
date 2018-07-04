@@ -17,7 +17,6 @@ CBones::~CBones(){
 }
 
 void CBones::init(){
-    glViewport (0, 0, _width, _height);
     glEnable(GL_DEPTH_TEST);
 }
 
@@ -45,12 +44,12 @@ void CBones::resize(unsigned int w, unsigned int h){
     _width = w;
     _height = h;
     _camera->resize(w, h);
+    glViewport (0, 0, _width, _height);
 }
 
 void CBones::draw(){
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
     _shader.use();
 
     std::vector<Mat4f> transform;
@@ -64,7 +63,7 @@ void CBones::draw(){
     p.set_perspective_proj(_camera->get_proj_info());
     p.scale(0.1);
     p.rotate(270.0, 180.0, 0.0);
-    p.world_pos(0.0f, -2.0f, 0.0f);
+    p.world_pos(0.0f, -2.5f, 0.0f);
     _shader.setmat4(_shader.getuniformlocation("pvw"), p.get_pvw_trans(), GL_TRUE);
     //_shader.setmat4(_shader.getuniformlocation("model"), p.get_world_trans());
     _bones_mesh->render();
@@ -87,7 +86,7 @@ int CBones::esMain (ESContext *esContext){
     
     std::string strmodel(esContext->appdir);
     strmodel.append("/boblampclean.md5mesh");
-    
+    //strmodel.append("/Hyperspace_Madness_Killamari_Minion2.fbx");
     init();
     _camera = new Camera(Vec3f(0.0f, 0.0f, -10.0f));
     _bones_mesh = new BonesMesh();

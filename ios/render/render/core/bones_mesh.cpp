@@ -145,7 +145,7 @@ bool BonesMesh::load_scene(const aiScene* pScene, const std::string& strfile)
     glEnableVertexAttribArray(BONE_ID_LOCATION);
     glVertexAttribIPointer(BONE_ID_LOCATION, 4, GL_INT, sizeof(VertexBoneData), (const GLvoid*)0);
     glEnableVertexAttribArray(BONE_WEIGHT_LOCATION);
-    glVertexAttribPointer(BONE_WEIGHT_LOCATION, 4, GL_FLOAT, GL_FALSE, sizeof(VertexBoneData), (const GLvoid*)16);
+    glVertexAttribPointer(BONE_WEIGHT_LOCATION, 4, GL_FLOAT, GL_FALSE, sizeof(VertexBoneData), (const GLvoid*)(sizeof(unsigned int)*NUM_BONES_PER_VEREX) );
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbos[INDEX_BUFFER]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), &indices[0], GL_STATIC_DRAW);

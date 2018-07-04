@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "render/render/core/bones_mesh.cpp"
-            timestampString = "552281831.052382"
+            timestampString = "552305760.5409369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "BonesMesh::load_mesh(const std::string&amp; Filename)"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "BonesMesh::load_bones(unsigned int mesh_index, const aiMesh* mesh, std::vector&lt;VertexBoneData&gt;&amp; bones)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "render/render/core/bones_mesh.cpp"
-            timestampString = "552281831.05287"
+            timestampString = "552305760.541507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
-            landmarkName = "BonesMesh::load_bones(unsigned int mesh_index, const aiMesh* mesh, std::vector&lt;VertexBoneData&gt;&amp; bones)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "BonesMesh::load_scene(const aiScene* pScene, const std::string&amp; strfile)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

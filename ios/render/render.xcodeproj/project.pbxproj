@@ -366,8 +366,7 @@
 				DEVELOPMENT_TEAM = 9846B32FFU;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/\"",
-					"\"$(SRCROOT)/../assimp\"",
-					"\"$(SRCROOT)/../assimp/assimp\"",
+					"\"$(SRCROOT)/../3rd/assimp\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,8 +389,7 @@
 				DEVELOPMENT_TEAM = 9846B32FFU;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/\"",
-					"\"$(SRCROOT)/../assimp\"",
-					"\"$(SRCROOT)/../assimp/assimp\"",
+					"\"$(SRCROOT)/../3rd/assimp\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -110,11 +110,11 @@ CInterfaceRender _triangle;
     [EAGLContext setCurrentContext:self.context];
     memset(&_esContext, 0, sizeof(_esContext));
     NSString *dir = [[NSBundle mainBundle] bundlePath];
-    //NSString *model_path = [[NSBundle mainBundle] pathForResource:@"boblampclean" ofType:@"md5mesh"];
+    //NSString *model_path = [[NSBundle mainBundle] pathForResource:@"CS_02" ofType:@"fbx"];
     //_esContext.srcfile = [model_path cStringUsingEncoding:NSASCIIStringEncoding];
     _esContext.appdir = [dir cStringUsingEncoding:NSASCIIStringEncoding];
-    _esContext.width = 240;
-    _esContext.height = 320;
+    _esContext.width = 80;
+    _esContext.height = 110;
     _triangle.esMain(&_esContext);
 }
 - (void)tearDownGL

@@ -29,7 +29,7 @@ public:
     void bone_transform(float, std::vector<Mat4f>&);
     
 private:
-#define NUM_BONES_PER_VEREX 4
+#define NUM_BONES_PER_VEREX 24
     
     struct BoneInfo{
         Mat4f BoneOffset;

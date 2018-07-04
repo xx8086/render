@@ -7,19 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A02B66420E47EA20022AAF7 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A02B66620E47EA20022AAF7 /* libassimp.a */; };
-		5A02B66520E47EA20022AAF7 /* librender.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A02B66720E47EA20022AAF7 /* librender.a */; };
 		5A34FA8120E37620009D8EBF /* skinning.fs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7D20E37604009D8EBF /* skinning.fs */; };
 		5A34FA8220E37620009D8EBF /* skinning.vs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7E20E37604009D8EBF /* skinning.vs */; };
 		5A34FA8320E37620009D8EBF /* triangle.fs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7F20E37604009D8EBF /* triangle.fs */; };
 		5A34FA8420E37620009D8EBF /* triangle.vs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA8020E37604009D8EBF /* triangle.vs */; };
-		5A360B7320E4ACC50063A9FC /* boblampclean.md5anim in Resources */ = {isa = PBXBuildFile; fileRef = 5A360B6C20E4ACAC0063A9FC /* boblampclean.md5anim */; };
-		5A360B7420E4ACC50063A9FC /* boblampclean.md5mesh in Resources */ = {isa = PBXBuildFile; fileRef = 5A360B6D20E4ACAC0063A9FC /* boblampclean.md5mesh */; };
-		5A360B7520E4ACC50063A9FC /* guard1_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5A360B6E20E4ACAC0063A9FC /* guard1_body.tga */; };
-		5A360B7620E4ACC50063A9FC /* guard1_face.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5A360B6F20E4ACAC0063A9FC /* guard1_face.tga */; };
-		5A360B7720E4ACC50063A9FC /* guard1_helmet.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5A360B7020E4ACAC0063A9FC /* guard1_helmet.tga */; };
-		5A360B7820E4ACC50063A9FC /* iron_grill.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5A360B7120E4ACAC0063A9FC /* iron_grill.tga */; };
-		5A360B7920E4ACC50063A9FC /* round_grill.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5A360B7220E4ACAC0063A9FC /* round_grill.tga */; };
 		5A594A3720E1E36900888446 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A594A3620E1E36900888446 /* AppDelegate.m */; };
 		5A594A3A20E1E36900888446 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5A594A3920E1E36900888446 /* ViewController.mm */; };
 		5A594A3D20E1E36900888446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A594A3B20E1E36900888446 /* Main.storyboard */; };
@@ -28,6 +19,15 @@
 		5A594A4520E1E36900888446 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A594A4420E1E36900888446 /* main.m */; };
 		5A8C70DF20E1FEC900B421FD /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A594A6E20E1E54D00888446 /* GLKit.framework */; };
 		5A8C719220E2596000B421FD /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8C719120E2596000B421FD /* libz.1.tbd */; };
+		5AA3CDFE20EB896200078596 /* boblampclean.md5mesh in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDF720EB896200078596 /* boblampclean.md5mesh */; };
+		5AA3CDFF20EB896200078596 /* guard1_face.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDF820EB896200078596 /* guard1_face.tga */; };
+		5AA3CE0020EB896200078596 /* round_grill.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDF920EB896200078596 /* round_grill.tga */; };
+		5AA3CE0120EB896200078596 /* iron_grill.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFA20EB896200078596 /* iron_grill.tga */; };
+		5AA3CE0220EB896200078596 /* boblampclean.md5anim in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFB20EB896200078596 /* boblampclean.md5anim */; };
+		5AA3CE0320EB896200078596 /* guard1_helmet.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFC20EB896200078596 /* guard1_helmet.tga */; };
+		5AA3CE0420EB896200078596 /* guard1_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFD20EB896200078596 /* guard1_body.tga */; };
+		5AD986BC20EC64BA004256D0 /* librender.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD986BD20EC64BA004256D0 /* librender.a */; };
+		5AD986C120EC6588004256D0 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD986C020EC6588004256D0 /* libassimp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,19 +51,10 @@
 		5A02B66120E473890022AAF7 /* context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = context.hpp; sourceTree = "<group>"; };
 		5A02B66220E473890022AAF7 /* interface_render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interface_render.hpp; sourceTree = "<group>"; };
 		5A02B66320E473890022AAF7 /* rander.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rander.hpp; sourceTree = "<group>"; };
-		5A02B66620E47EA20022AAF7 /* libassimp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libassimp.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A02B66720E47EA20022AAF7 /* librender.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librender.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A34FA7D20E37604009D8EBF /* skinning.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skinning.fs; sourceTree = "<group>"; };
 		5A34FA7E20E37604009D8EBF /* skinning.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skinning.vs; sourceTree = "<group>"; };
 		5A34FA7F20E37604009D8EBF /* triangle.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = triangle.fs; sourceTree = "<group>"; };
 		5A34FA8020E37604009D8EBF /* triangle.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = triangle.vs; sourceTree = "<group>"; };
-		5A360B6C20E4ACAC0063A9FC /* boblampclean.md5anim */ = {isa = PBXFileReference; lastKnownFileType = text; path = boblampclean.md5anim; sourceTree = "<group>"; };
-		5A360B6D20E4ACAC0063A9FC /* boblampclean.md5mesh */ = {isa = PBXFileReference; lastKnownFileType = text; path = boblampclean.md5mesh; sourceTree = "<group>"; };
-		5A360B6E20E4ACAC0063A9FC /* guard1_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_body.tga; sourceTree = "<group>"; };
-		5A360B6F20E4ACAC0063A9FC /* guard1_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_face.tga; sourceTree = "<group>"; };
-		5A360B7020E4ACAC0063A9FC /* guard1_helmet.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_helmet.tga; sourceTree = "<group>"; };
-		5A360B7120E4ACAC0063A9FC /* iron_grill.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = iron_grill.tga; sourceTree = "<group>"; };
-		5A360B7220E4ACAC0063A9FC /* round_grill.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = round_grill.tga; sourceTree = "<group>"; };
 		5A594A3220E1E36900888446 /* lhgl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lhgl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A594A3520E1E36900888446 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A594A3620E1E36900888446 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,6 +70,15 @@
 		5A594A6E20E1E54D00888446 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		5A8C70EC20E2035D00B421FD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		5A8C719120E2596000B421FD /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		5AA3CDF720EB896200078596 /* boblampclean.md5mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = boblampclean.md5mesh; sourceTree = "<group>"; };
+		5AA3CDF820EB896200078596 /* guard1_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_face.tga; sourceTree = "<group>"; };
+		5AA3CDF920EB896200078596 /* round_grill.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = round_grill.tga; sourceTree = "<group>"; };
+		5AA3CDFA20EB896200078596 /* iron_grill.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = iron_grill.tga; sourceTree = "<group>"; };
+		5AA3CDFB20EB896200078596 /* boblampclean.md5anim */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = boblampclean.md5anim; sourceTree = "<group>"; };
+		5AA3CDFC20EB896200078596 /* guard1_helmet.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_helmet.tga; sourceTree = "<group>"; };
+		5AA3CDFD20EB896200078596 /* guard1_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_body.tga; sourceTree = "<group>"; };
+		5AD986BD20EC64BA004256D0 /* librender.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librender.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD986C020EC6588004256D0 /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = ../3rd/libassimp.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A02B66420E47EA20022AAF7 /* libassimp.a in Frameworks */,
-				5A02B66520E47EA20022AAF7 /* librender.a in Frameworks */,
+				5AD986C120EC6588004256D0 /* libassimp.a in Frameworks */,
+				5AD986BC20EC64BA004256D0 /* librender.a in Frameworks */,
 				5A8C719220E2596000B421FD /* libz.1.tbd in Frameworks */,
 				5A8C70DF20E1FEC900B421FD /* GLKit.framework in Frameworks */,
 			);
@@ -133,33 +133,10 @@
 			path = ../shader;
 			sourceTree = "<group>";
 		};
-		5A360B6A20E4ACAC0063A9FC /* res */ = {
-			isa = PBXGroup;
-			children = (
-				5A360B6B20E4ACAC0063A9FC /* md5 */,
-			);
-			name = res;
-			path = ../../res;
-			sourceTree = "<group>";
-		};
-		5A360B6B20E4ACAC0063A9FC /* md5 */ = {
-			isa = PBXGroup;
-			children = (
-				5A360B6C20E4ACAC0063A9FC /* boblampclean.md5anim */,
-				5A360B6D20E4ACAC0063A9FC /* boblampclean.md5mesh */,
-				5A360B6E20E4ACAC0063A9FC /* guard1_body.tga */,
-				5A360B6F20E4ACAC0063A9FC /* guard1_face.tga */,
-				5A360B7020E4ACAC0063A9FC /* guard1_helmet.tga */,
-				5A360B7120E4ACAC0063A9FC /* iron_grill.tga */,
-				5A360B7220E4ACAC0063A9FC /* round_grill.tga */,
-			);
-			path = md5;
-			sourceTree = "<group>";
-		};
 		5A594A2920E1E36900888446 = {
 			isa = PBXGroup;
 			children = (
-				5A360B6A20E4ACAC0063A9FC /* res */,
+				5AA3CDE920EB76D300078596 /* res */,
 				5A02B66020E473890022AAF7 /* include */,
 				5A34FA7C20E37604009D8EBF /* shader */,
 				5A594A3420E1E36900888446 /* lhgl */,
@@ -197,13 +174,44 @@
 		5A594A6C20E1E4DB00888446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A02B66620E47EA20022AAF7 /* libassimp.a */,
-				5A02B66720E47EA20022AAF7 /* librender.a */,
+				5AD986C020EC6588004256D0 /* libassimp.a */,
+				5AD986BD20EC64BA004256D0 /* librender.a */,
 				5A8C719120E2596000B421FD /* libz.1.tbd */,
 				5A8C70EC20E2035D00B421FD /* OpenGLES.framework */,
 				5A594A6E20E1E54D00888446 /* GLKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5AA3CDE920EB76D300078596 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				5AA3CDEA20EB76D300078596 /* fbx */,
+				5AA3CDEE20EB76D300078596 /* md5 */,
+			);
+			name = res;
+			path = ../../res;
+			sourceTree = "<group>";
+		};
+		5AA3CDEA20EB76D300078596 /* fbx */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = fbx;
+			sourceTree = "<group>";
+		};
+		5AA3CDEE20EB76D300078596 /* md5 */ = {
+			isa = PBXGroup;
+			children = (
+				5AA3CDFB20EB896200078596 /* boblampclean.md5anim */,
+				5AA3CDF720EB896200078596 /* boblampclean.md5mesh */,
+				5AA3CDFD20EB896200078596 /* guard1_body.tga */,
+				5AA3CDF820EB896200078596 /* guard1_face.tga */,
+				5AA3CDFC20EB896200078596 /* guard1_helmet.tga */,
+				5AA3CDFA20EB896200078596 /* iron_grill.tga */,
+				5AA3CDF920EB896200078596 /* round_grill.tga */,
+			);
+			path = md5;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,20 +320,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AA3CE0420EB896200078596 /* guard1_body.tga in Resources */,
 				5A594A4220E1E36900888446 /* LaunchScreen.storyboard in Resources */,
 				5A594A3F20E1E36900888446 /* Assets.xcassets in Resources */,
+				5AA3CE0320EB896200078596 /* guard1_helmet.tga in Resources */,
+				5AA3CDFF20EB896200078596 /* guard1_face.tga in Resources */,
+				5AA3CE0120EB896200078596 /* iron_grill.tga in Resources */,
 				5A594A3D20E1E36900888446 /* Main.storyboard in Resources */,
+				5AA3CE0220EB896200078596 /* boblampclean.md5anim in Resources */,
+				5AA3CE0020EB896200078596 /* round_grill.tga in Resources */,
 				5A34FA8120E37620009D8EBF /* skinning.fs in Resources */,
 				5A34FA8220E37620009D8EBF /* skinning.vs in Resources */,
+				5AA3CDFE20EB896200078596 /* boblampclean.md5mesh in Resources */,
 				5A34FA8320E37620009D8EBF /* triangle.fs in Resources */,
 				5A34FA8420E37620009D8EBF /* triangle.vs in Resources */,
-				5A360B7320E4ACC50063A9FC /* boblampclean.md5anim in Resources */,
-				5A360B7420E4ACC50063A9FC /* boblampclean.md5mesh in Resources */,
-				5A360B7520E4ACC50063A9FC /* guard1_body.tga in Resources */,
-				5A360B7620E4ACC50063A9FC /* guard1_face.tga in Resources */,
-				5A360B7720E4ACC50063A9FC /* guard1_helmet.tga in Resources */,
-				5A360B7820E4ACC50063A9FC /* iron_grill.tga in Resources */,
-				5A360B7920E4ACC50063A9FC /* round_grill.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

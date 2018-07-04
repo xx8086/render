@@ -45,6 +45,7 @@
         void *platformData;
         //void *userData;
         const char* appdir;
+        const char* srcfile;
         CRender* render = nullptr;
         GLint width;
         GLint height;
