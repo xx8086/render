@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AA4B6D220EDACBB003F61F1 /* matrix.inl in Sources */ = {isa = PBXBuildFile; fileRef = 5AA4B6D020EDACBB003F61F1 /* matrix.inl */; };
 		5AE9E47220EC988D00304307 /* megranate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E47120EC988D00304307 /* megranate.m */; };
 		5AE9E47320EC988D00304307 /* megranate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5AE9E47020EC988D00304307 /* megranate.h */; };
 		5AE9E47C20EC9CB000304307 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E47A20EC9CB000304307 /* scene.cpp */; };
@@ -32,6 +33,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A5455A720EF3AB000EC1AA4 /* math_type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = math_type.h; sourceTree = "<group>"; };
+		5AA4B6D020EDACBB003F61F1 /* matrix.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = matrix.inl; sourceTree = "<group>"; };
+		5AA4B6D120EDACBB003F61F1 /* matrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = matrix.hpp; sourceTree = "<group>"; };
+		5AA4B6D520EDD826003F61F1 /* vertex.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vertex.hpp; sourceTree = "<group>"; };
+		5AA4B6D720EDD8E5003F61F1 /* vertex.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex.inl; sourceTree = "<group>"; };
+		5AA4B6D820EDD9B9003F61F1 /* vertex_binary.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex_binary.inl; sourceTree = "<group>"; };
+		5AA4B6DA20EDDF79003F61F1 /* precision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = precision.h; sourceTree = "<group>"; };
+		5ADC277220F1AC7400B77B88 /* traits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = traits.h; sourceTree = "<group>"; };
+		5ADC277320F1ACB300B77B88 /* policy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = policy.h; sourceTree = "<group>"; };
+		5ADC277420F1BA2E00B77B88 /* matrix_binary.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = matrix_binary.inl; sourceTree = "<group>"; };
 		5AE9E46D20EC988D00304307 /* libmegranate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmegranate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE9E47020EC988D00304307 /* megranate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = megranate.h; sourceTree = "<group>"; };
 		5AE9E47120EC988D00304307 /* megranate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = megranate.m; sourceTree = "<group>"; };
@@ -64,6 +75,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AA4B6CF20EDAC5F003F61F1 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				5AA4B6D120EDACBB003F61F1 /* matrix.hpp */,
+				5ADC277420F1BA2E00B77B88 /* matrix_binary.inl */,
+				5AA4B6D020EDACBB003F61F1 /* matrix.inl */,
+				5AA4B6D520EDD826003F61F1 /* vertex.hpp */,
+				5AA4B6D820EDD9B9003F61F1 /* vertex_binary.inl */,
+				5AA4B6D720EDD8E5003F61F1 /* vertex.inl */,
+				5AA4B6DA20EDDF79003F61F1 /* precision.h */,
+				5A5455A720EF3AB000EC1AA4 /* math_type.h */,
+				5ADC277220F1AC7400B77B88 /* traits.h */,
+				5ADC277320F1ACB300B77B88 /* policy.h */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
 		5AE9E46420EC988D00304307 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +111,7 @@
 		5AE9E46F20EC988D00304307 /* megranate */ = {
 			isa = PBXGroup;
 			children = (
+				5AA4B6CF20EDAC5F003F61F1 /* math */,
 				5AE9E48320ECA39200304307 /* base */,
 				5AE9E47920EC9C2000304307 /* scene */,
 				5AE9E47020EC988D00304307 /* megranate.h */,
@@ -183,6 +212,7 @@
 				5AE9E48220EC9CF700304307 /* entity.cpp in Sources */,
 				5AE9E48E20ECB37100304307 /* string_hash.cpp in Sources */,
 				5AE9E47C20EC9CB000304307 /* scene.cpp in Sources */,
+				5AA4B6D220EDACBB003F61F1 /* matrix.inl in Sources */,
 				5AE9E47220EC988D00304307 /* megranate.m in Sources */,
 				5AE9E48B20ECB1B800304307 /* object.cpp in Sources */,
 				5AE9E47F20EC9CE700304307 /* component.cpp in Sources */,
