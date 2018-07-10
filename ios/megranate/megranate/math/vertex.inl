@@ -8,12 +8,11 @@
 
 #ifndef vertex_h
 #define vertex_h
-#include <math.h>
+
 #include <assert.h>
-#include "precision.h"
+#include <math.h>
 
 namespace megranate {
-
     TEMPLARE_MG_VERTEX
     MgVertex<T, N, AP, AT>::MgVertex() {
         for (unsigned int i = 0; i < N; i++) {
@@ -50,25 +49,62 @@ namespace megranate {
     T MgVertex<T, N, AP, AT>::dot(MgVertex<T, N> const& other) {
         assert(N > 0);
         T t = T(0);
-        for (int i = 1; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             t = AP::ride(TraitsN<T, N>::_datas[i], other._datas[i]);
+        }
+        return t;
+    }
+    TEMPLARE_MG_VERTEX
+    void MgVertex<T, N, AP, AT>::normalize() {
+        T length = length_squared();
+        if (length > AT::zero() &&
+            !AP::equal(length, AT::one())) {
+            T invlen = AP::divide(AT::one(), length);
+            for (int i = 0; i < N; i++) {
+                TraitsN<T, N>::_datas[i] = AP::ride(TraitsN<T, N>::_datas[i], invlen);
+            }
+        }
+    }
+    
+    TEMPLARE_MG_VERTEX
+    MgVertex<T, N> MgVertex<T, N, AP, AT>::normalized() const{
+        T length = length_squared();
+        if (length > AT::zero() &&
+            !AP::equal(length, AT::one())) {
+            T invlen = AP::divide(AT::one(), length);
+            return *this * invlen;
+        }
+        return *this;
+    }
+    
+    TEMPLARE_MG_VERTEX
+    T MgVertex<T, N, AP, AT>::length_squared() const{
+        T t = T(0);
+        for (int i = 0; i < N; i++) {
+            t = AP::ride(TraitsN<T, N>::_datas[i], TraitsN<T, N>::_datas[i]);
         }
         return t;
     }
     
     TEMPLARE_MG_VERTEX
-    bool MgVertex<T, N, AP, AT>::normalize() {
-        const float length = sqrtf(static_cast<float>(dot(*this)));
-        if (length > MG_FLOAT_ZERO) {
-            for (int i = 1; i < N; i++) {
-                TraitsN<T, N>::_datas[i] = AP::divide(TraitsN<T, N>::_datas[i], length);
-            }
+    T MgVertex<T, N, AP, AT>::length() const{
+        T t = T(0);
+        for (int i = 0; i < N; i++) {
+            t = AP::ride(TraitsN<T, N>::_datas[i], TraitsN<T, N>::_datas[i]);
         }
-        else {
-            return false;
-        }
-        return true;
+        return sqrtf(t);
     }
+    
+    TEMPLARE_MG_VERTEX
+    MgVertex<T, N> MgVertex<T, N, AP, AT>::lerp(const MgVertex<T, N>& other, T f){
+        return *this * (AT::one() - f) + other;
+    }
+    
+    TEMPLARE_MG_VERTEX
+    T MgVertex<T, N, AP, AT>::angle(const MgVertex<T, N>& other){
+        return cosf(dot(other) / (length() * other.length()));
+    }
+
 }
 
 #endif /* vertex_h */

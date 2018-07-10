@@ -17,6 +17,7 @@ namespace megranate {
     public:
         typedef float TraitsType;
         static TraitsType const zero(){ return 0.0f;}
+        static TraitsType const one(){ return 1.0f;}
         //一般在类内部只能对整形或枚举类型初始化静态成员变量，所以使用静态函数。
     };
     
@@ -25,6 +26,7 @@ namespace megranate {
     public:
         typedef int TraitsType;
         static TraitsType const zero(){ return 0;}
+        static TraitsType const one(){ return 1;}
     };
     
     template<>
@@ -32,6 +34,7 @@ namespace megranate {
     public:
         typedef double TraitsType;
         static TraitsType const zero(){ return 0.0;}
+        static TraitsType const one(){ return 1.0;}
     };
     
 //-----------

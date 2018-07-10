@@ -22,9 +22,8 @@
 #include "assimp/matrix4x4.h"
 #include "assimp/matrix3x3.h"
 
-#define M_PI (3.1415926f)
-#define ToRadian(x) (float)(((x) * M_PI / 180.0f))
-#define ToDegree(x) (float)(((x) * 180.0f / M_PI))
+#define ToRadian(x) (float)(((x) * 3.1415926f / 180.0f))
+#define ToDegree(x) (float)(((x) * 180.0f / 3.1415926f))
 #define FloatToInt(f) (static_cast<int>(f + 0.5f))
 #define FloatAccuracy (0.0001f)
 

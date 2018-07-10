@@ -12,22 +12,28 @@
 #include "policy.h"
 
 namespace megranate {
-    #define TEMPLARE_MG_MATRIX template <typename T, unsigned int N, typename AP, typename AT>
+    #define TEMPLARE_MG_MATRIX template <typename T, unsigned int M, unsigned int N, typename AP, typename AT>
+    
     template <typename T,
+    unsigned int M,
     unsigned int N,
     typename AP = ArithmeticalPolicy<T>,
     typename AT = Traits<T> >
-    class MgVertex{
+    class MgMatrix{
     public:
-        ~MgMatrix() {}
+        ~MgMatrix();
         MgMatrix();
         MgMatrix(MgMatrix<T, M, N> const & other);
-        MgVertex(T t);
-        MgVertex(T t1, T t2, T t3, T t4,
+        MgMatrix(T t);
+        MgMatrix(T t1, T t2, T t3, T t4,
                  T t5 = AT::zero(), T t6 = AT::zero(), T t7 = AT::zero(), T t8 = AT::zero(),
                  T t9 = AT::zero(), T t10 = AT::zero(), T t11 = AT::zero(), T t12 = AT::zero(),
                  T t13 = AT::zero(), T t14 = AT::zero(), T t15 = AT::zero(), T t16 = AT::zero());
     public:
+        MgMatrix<T, M, N> transpose() const;
+        void identity();
+        void set_zero();
+        
         bool operator== (MgMatrix<T, M, N> const&);
         MgMatrix<T, M, N>& operator= (MgMatrix<T, M, N> const&);
         
@@ -52,12 +58,15 @@ namespace megranate {
         MgMatrix<T, M, N>& operator/= (T const&);
         MgMatrix<T, M, N>& operator%= (T const&);
     public:
+        union{
         T _m[M][N];
+        T m[M][N];
+        };
     };
-    
-    
-    #include "matrix.inl"
-    #include "matrix_binary.inl"
+
 }
+
+#include "matrix.inl"
+#include "matrix_binary.inl"
 
 #endif /* matrix_hpp */

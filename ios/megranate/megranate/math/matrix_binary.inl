@@ -10,17 +10,20 @@
 #define matrix_binary_inl
 
 namespace megranate {
-    TEMPLARE_MG_MATRIXb
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator= (MgMatrix<T, M, N> const & other){
+
+    TEMPLARE_MG_MATRIX
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator= (MgMatrix<T, M, N> const& other){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = other._m[line][col];
             }
         }
+        return *this;
     }
     
+    
     TEMPLARE_MG_MATRIX
-    bool MgMatrix<T, M, N>::operator== (MgMatrix<T, M, N> const&){
+    bool MgMatrix<T, M, N, AP, AT>::operator== (MgMatrix<T, M, N> const& other){
         bool rt = true;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -34,7 +37,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator+ (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator+ (MgMatrix<T, M, N> const& other){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -45,7 +48,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator- (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator- (MgMatrix<T, M, N> const& other){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -57,7 +60,7 @@ namespace megranate {
     
 
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator* (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator* (MgMatrix<T, M, N> const& other){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -68,7 +71,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator/ (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator/ (MgMatrix<T, M, N> const& other){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -79,7 +82,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator% (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator% (MgMatrix<T, M, N> const& other){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -90,7 +93,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator+ (T const& t){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator+ (T const& t){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -101,7 +104,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator- (T const& t){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator- (T const& t){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -112,7 +115,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator* (T const& t){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator* (T const& t){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -123,7 +126,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator/ (T const& t){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator/ (T const& t){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -134,7 +137,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N>::operator% (T const& t){
+    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator% (T const& t){
         MgMatrix<T, M, N> temp;
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
@@ -145,7 +148,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator+= (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator+= (MgMatrix<T, M, N> const& other){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::add(_m[line][col], other._m[line][col]);
@@ -155,7 +158,7 @@ namespace megranate {
     }
 
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator-= (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator-= (MgMatrix<T, M, N> const& other){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::sub(_m[line][col], other._m[line][col]);
@@ -165,7 +168,7 @@ namespace megranate {
     }
 
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator*= (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator*= (MgMatrix<T, M, N> const& other){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::ride(_m[line][col], other._m[line][col]);
@@ -175,7 +178,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator/= (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator/= (MgMatrix<T, M, N> const& other){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::divide(_m[line][col], other._m[line][col]);
@@ -185,7 +188,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator%= (MgMatrix<T, M, N> const& other){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator%= (MgMatrix<T, M, N> const& other){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::mod(_m[line][col], other._m[line][col]);
@@ -195,7 +198,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator+= (T const& t){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator+= (T const& t){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::add(_m[line][col], t);
@@ -205,7 +208,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator-= (T const& t){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator-= (T const& t){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::sub(_m[line][col], t);
@@ -215,7 +218,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator*= (T const& t){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator*= (T const& t){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::ride(_m[line][col], t);
@@ -225,7 +228,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator/= (T const& t){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator/= (T const& t){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::divide(_m[line][col], t);
@@ -235,7 +238,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N>::operator%= (T const& t){
+    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator%= (T const& t){
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::mod(_m[line][col], t);
@@ -246,4 +249,4 @@ namespace megranate {
 
 }
 
-#endif /* matrix_binary_h */
+#endif /* matrix_binary_inl */

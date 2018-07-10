@@ -26,8 +26,13 @@ namespace megranate {
         
         MgVertex(T t1, T t2 = AT::zero(), T t3 = AT::zero(), T t4 = AT::zero(), T t5 = AT::zero());
     public:
-        T dot(MgVertex<T, N> const& other);
-        bool normalize();
+        MgVertex<T, N> lerp(MgVertex<T, N> const&, T);
+        T angle(MgVertex<T, N> const&);
+        T dot(MgVertex<T, N> const&);
+        T length() const;
+        T length_squared() const;
+        void normalize();
+        MgVertex<T, N> normalized() const;
         
         MgVertex<T, N>& operator= (MgVertex<T, N> const&);
         bool operator== (MgVertex<T, N> const&);
@@ -37,11 +42,11 @@ namespace megranate {
         MgVertex<T, N> operator* (MgVertex<T, N> const&);
         MgVertex<T, N> operator/ (MgVertex<T, N> const&);
         MgVertex<T, N> operator% (MgVertex<T, N> const&);
-        MgVertex<T, N> operator+ (T const&);
-        MgVertex<T, N> operator- (T const&);
-        MgVertex<T, N> operator* (T const&);
-        MgVertex<T, N> operator/ (T const&);
-        MgVertex<T, N> operator% (T const&);
+        MgVertex<T, N> operator+ (T const&) const;
+        MgVertex<T, N> operator- (T const&) const;
+        MgVertex<T, N> operator* (T const&) const;
+        MgVertex<T, N> operator/ (T const&) const;
+        MgVertex<T, N> operator% (T const&) const;
         MgVertex<T, N>& operator+= (MgVertex<T, N> const&);
         MgVertex<T, N>& operator-= (MgVertex<T, N> const&);
         MgVertex<T, N>& operator*= (MgVertex<T, N> const&);
@@ -54,9 +59,10 @@ namespace megranate {
         MgVertex<T, N>& operator%= (T const&);
         
     };
-    
+}
+
 #include "vertex.inl"
 #include "vertex_binary.inl"
-}
+
 
 #endif /* vertex_hpp */

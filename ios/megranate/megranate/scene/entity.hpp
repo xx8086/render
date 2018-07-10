@@ -10,6 +10,8 @@
 #define entity_hpp
 
 #include "object.h"
+//#include "animatable.hpp"
+#include "type_render.h"
 #include <vector>
 namespace megranate {
     class Entity : public Object{
@@ -24,9 +26,15 @@ namespace megranate {
         void set_visible(mg_bool v){_visible = v;}
         
     private:
+        mg_uint  _id;
+        
         mg_bool _visible = false;
         Entity* _father = nullptr;
         std::vector<Entity*> _children;
+        
+        Vec3f _postion;
+        Vec3f _scale;
+        
     };
 }
 

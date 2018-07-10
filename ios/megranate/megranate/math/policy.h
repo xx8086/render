@@ -8,6 +8,8 @@
 
 #ifndef policy_h
 #define policy_h
+
+#include <limits>
 namespace megranate {
     
     template<typename T>
@@ -33,8 +35,8 @@ namespace megranate {
             return (a % b);
         }
         
-        inline static bool equal(const T& a, const T& b){
-            return a == b;
+        inline static bool equal(const T& lhs, const T& rhs){
+            return lhs + std::numeric_limits<T>::epsilon() >= rhs && lhs - std::numeric_limits<T>::epsilon() <= rhs;
         }
         
         inline static bool than(const T& a, const T& b){

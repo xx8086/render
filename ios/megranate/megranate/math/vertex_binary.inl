@@ -79,7 +79,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator+ (T const& t){
+    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator+ (T const& t) const{
         MgVertex<T, N> temp;
         for (unsigned int i = 0; i < N; i++) {
             temp._datas[i] = AP::add(TraitsN<T, N>::_datas[i], t);
@@ -88,7 +88,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator- (T const& t){
+    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator- (T const& t) const{
         MgVertex<T, N> temp;
         for (unsigned int i = 0; i < N; i++) {
             temp._datas[i] = AP::sub(TraitsN<T, N>::_datas[i], t);
@@ -97,7 +97,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator* (T const& t){
+    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator* (T const& t) const{
         MgVertex<T, N> temp;
         for (unsigned int i = 0; i < N; i++) {
             temp._datas[i] = AP::ride(TraitsN<T, N>::_datas[i], t);
@@ -106,7 +106,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator/ (T const& t){
+    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator/ (T const& t) const{
         MgVertex<T, N> temp;
         for (unsigned int i = 0; i < N; i++) {
             temp._datas[i] = AP::divide(TraitsN<T, N>::_datas[i], t);
@@ -115,7 +115,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator% (T const& t){
+    MgVertex<T, N> MgVertex<T, N, AP, AT>::operator% (T const& t) const{
         MgVertex<T, N> temp;
         for (unsigned int i = 0; i < N; i++) {
             temp._datas[i] = AP::mod(TraitsN<T, N>::_datas[i], t);
@@ -165,7 +165,7 @@ namespace megranate {
 
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator+ (T const& t){
+    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator+= (T const& t){
         for (unsigned int i = 0; i < N; i++) {
             TraitsN<T, N>::_datas[i] = AP::add(TraitsN<T, N>::_datas[i], t);
         }
@@ -173,7 +173,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator- (T const& t){
+    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator-= (T const& t){
         for (unsigned int i = 0; i < N; i++) {
             TraitsN<T, N>::_datas[i] = AP::sub(TraitsN<T, N>::_datas[i], t);
         }
@@ -181,7 +181,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator* (T const& t){
+    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator*= (T const& t){
         for (unsigned int i = 0; i < N; i++) {
             TraitsN<T, N>::_datas[i] = AP::ride(TraitsN<T, N>::_datas[i], t);
         }
@@ -189,7 +189,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator/ (T const& t){
+    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator/= (T const& t){
         for (unsigned int i = 0; i < N; i++) {
             TraitsN<T, N>::_datas[i] = AP::divide(TraitsN<T, N>::_datas[i], t);
         }
@@ -197,7 +197,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator% (T const& t){
+    MgVertex<T, N>& MgVertex<T, N, AP, AT>::operator%= (T const& t){
         for (unsigned int i = 0; i < N; i++) {
             TraitsN<T, N>::_datas[i] = AP::mod(TraitsN<T, N>::_datas[i], t);
         }
