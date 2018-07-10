@@ -186,9 +186,11 @@ namespace megranate {
         return Mat3f(  1.0f - 2.0f * y * y - 2.0f * z * z,
                        2.0f * x * y - 2.0f * w * z,
                        2.0f * x * z + 2.0f * w * y,
+                     
                        2.0f * x * y + 2.0f * w * z,
                        1.0f - 2.0f * x * x - 2.0f * z * z,
                        2.0f * y * z - 2.0f * w * x,
+                     
                        2.0f * x * z - 2.0f * w * y,
                        2.0f * y * z + 2.0f * w * x,
                        1.0f - 2.0f * x * x - 2.0f * y * y);
@@ -264,6 +266,17 @@ namespace megranate {
             result = (*this) + ((rhs - (*this)) * t);
         result.normalize();
         return result;
+    }
+    
+    Vec3f Quaternion::operator* (const Vec3f& rhs) const{
+        Vec3f qvec(x, y, z);
+        Vec3f cross1(cross(qvec, rhs));
+        Vec3f cross2(cross(qvec, cross1));
+        cross1 *= w;
+        cross1 += cross2;
+        cross1 *= 2.0f;
+        cross1 += rhs;
+        return cross1;
     }
 
 }

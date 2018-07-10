@@ -9,20 +9,22 @@
 #ifndef type_render_h
 #define type_render_h
 
-#include "vertex.hpp"
-#include "matrix.hpp"
-namespace megranate {
-typedef  megranate::MgVertex<float, 2> Vec2f;
-typedef  megranate::MgVertex<float, 3> Vec3f;
-typedef  megranate::MgVertex<float, 4> Vec4f;
-typedef  megranate::MgVertex<int, 2> Vec2i;
-typedef  megranate::MgVertex<int, 3> Vec3i;
-typedef  megranate::MgVertex<int, 4> Vec4i;
+#include "../math/vertex.hpp"
+#include "../math/matrix.hpp"
 
-typedef megranate::MgMatrix<float, 3, 3> Mat3f;
-typedef megranate::MgMatrix<float, 4, 4> Mat4f;
-typedef megranate::MgMatrix<int, 3, 3> Mat3i;
-typedef megranate::MgMatrix<int, 4, 4> Mat4i;
+namespace megranate {
+typedef  MgVertex<float, 2> Vec2f;
+typedef  MgVertex<float, 3> Vec3f;
+typedef  MgVertex<float, 4> Vec4f;
+typedef  MgVertex<int, 2> Vec2i;
+typedef  MgVertex<int, 3> Vec3i;
+typedef  MgVertex<int, 4> Vec4i;
+
+typedef MgMatrix<float, 3, 3> Mat3f;
+typedef MgMatrix<float, 4, 4> Mat4f;
+typedef MgMatrix<float, 3, 4> Mat3x4f;
+typedef MgMatrix<int, 3, 3> Mat3i;
+typedef MgMatrix<int, 4, 4> Mat4i;
 
     
     /// Zero vector.

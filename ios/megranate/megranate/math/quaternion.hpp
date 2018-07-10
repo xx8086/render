@@ -46,7 +46,9 @@ namespace megranate {
             from_axes(xAxis, yAxis, zAxis);
         }
     public:
-        Quaternion operator *(const float t) const{
+        Vec3f operator* (const Vec3f& rhs) const;
+        
+        Quaternion operator* (const float t) const{
             return Quaternion(t*w, t*x, t* y, t*z);
         }
         

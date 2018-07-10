@@ -31,4 +31,19 @@ namespace megranate {
     mg_bool Scene::update(){
         return _root->update();
     }
+    
+    Entity* Scene::create_child(std::string name, CreateMode mode, unsigned int id, bool temporary){
+        Entity* entity;
+        return entity;
+    }
+    
+    
+    Entity* Scene::create_child(unsigned id, CreateMode mode, bool temporary){
+        Entity* entity;
+        return entity;
+    }
+    
+    mg_void add_child(Entity* e, unsigned int index){
+        ;
+    }
 }

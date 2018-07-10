@@ -51,14 +51,13 @@ static const megranate::TypeInfo* get_type_info_static() { static const megranat
 
     
     class Object : public RefCounted{
-        //friend class Context;
     public:
         Object(Context* context);
         virtual ~Object();
         
     public:
         virtual StringHash get_type() const = 0;
-        virtual const StringHash& get_type_name() const = 0;
+        virtual const std::string& get_type_name() const = 0;
         virtual const TypeInfo* get_type_info() const = 0;
         static const TypeInfo* get_type_info_static(){return nullptr;}
         

@@ -13,6 +13,7 @@
 #include "../base/type_render.h"
 namespace megranate {
 Vec3f cross(const Vec3f&, const Vec3f&);
-
+Mat4f Mat3to4(const Mat3f&);
+Mat3x4f Mat3to3_4(const Mat3f&);
 }
 #endif /* math_common_hpp */

@@ -15,6 +15,7 @@ namespace megranate {
         ;
     }
     
+    
     TEMPLARE_MG_MATRIX
     MgMatrix<T, M, N, AP, AT>::MgMatrix(){
         for(unsigned int i = 0; i < M; i ++){
@@ -93,6 +94,7 @@ namespace megranate {
             }
         }
     }
+
 }
 
 #endif /* matrix_inl */

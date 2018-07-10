@@ -12,6 +12,7 @@
 
 namespace megranate {
     class Animatable : public Object{
+        //MEGRANATE_OBJECT(Animatable, Object);
     public:
         Animatable(Context*);
         virtual ~Animatable();

@@ -21,6 +21,13 @@ namespace megranate {
     typename AT = Traits<T> >
     class MgMatrix{
     public:
+        /*
+         0 1 2 ....N
+         1
+         2
+         :
+         M
+         */
         ~MgMatrix();
         MgMatrix();
         MgMatrix(MgMatrix<T, M, N> const & other);
@@ -31,8 +38,13 @@ namespace megranate {
                  T t13 = AT::zero(), T t14 = AT::zero(), T t15 = AT::zero(), T t16 = AT::zero());
     public:
         MgMatrix<T, M, N> transpose() const;
+        MgMatrix<T, M, N> inverse() const;
+        void sacled(MgVertex<T, N> const &) const;
+        void set_rotation(MgVertex<T, N> const &) const;
+        void set_translation(MgVertex<T, N> const &) const;
         void identity();
         void set_zero();
+        
         
         bool operator== (MgMatrix<T, M, N> const&);
         MgMatrix<T, M, N>& operator= (MgMatrix<T, M, N> const&);
@@ -68,5 +80,6 @@ namespace megranate {
 
 #include "matrix.inl"
 #include "matrix_binary.inl"
+#include "matrix_specialization.inl"
 
 #endif /* matrix_hpp */
