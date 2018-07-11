@@ -12,7 +12,7 @@
 
 namespace megranate {
     class Entity;
-    
+    class Object;
     class Component : public Object{
         MEGRANATE_OBJECT(Component, Object);
         

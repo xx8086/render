@@ -26,6 +26,12 @@ static const float M_DEGTORAD = M_PI / 180.0f;
 static const float M_DEGTORAD_2 = M_PI / 360.0f;    // M_DEGTORAD / 2.f
 static const float M_RADTODEG = 1.0f / M_DEGTORAD;
 
+    
+static const unsigned int FIRST_REPLICATED_ID = 0x1;
+static const unsigned int LAST_REPLICATED_ID = 0xffffff;
+static const unsigned int FIRST_LOCAL_ID = 0x01000000;
+static const unsigned int LAST_LOCAL_ID = 0xffffffff;
+    
 #define ARRAY_SIZE_IN_ELEMENTS(a) (sizeof(a)/sizeof(a[0]))
 #define SAFE_DELETE(ptr) \
 if(nullptr != ptr){\

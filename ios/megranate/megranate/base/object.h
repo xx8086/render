@@ -11,9 +11,10 @@
 
 #include "ref_counted.hpp"
 #include "string_hash.hpp"
-#include "context.h"
+//#include "context.h"
 
 namespace megranate {
+    class Context;
     
     class TypeInfo{
     public:
@@ -40,6 +41,7 @@ public: \
 typedef typeName ClassName; \
 typedef baseTypeName BaseClassName; \
 \
+virtual void register_object(){_context->register_factory<ClassName>();};\
 virtual megranate::StringHash get_type() const { return get_type_info_static()->get_type(); } \
 virtual const std::string& get_type_name() const { return get_type_info_static()->get_type_name(); } \
 virtual const megranate::TypeInfo* get_type_info() const { return get_type_info_static(); } \
@@ -56,6 +58,7 @@ static const megranate::TypeInfo* get_type_info_static() { static const megranat
         virtual ~Object();
         
     public:
+        virtual void register_object() = 0;
         virtual StringHash get_type() const = 0;
         virtual const std::string& get_type_name() const = 0;
         virtual const TypeInfo* get_type_info() const = 0;
@@ -75,6 +78,36 @@ static const megranate::TypeInfo* get_type_info_static() { static const megranat
     };
     
     template <typename T> T* Object::get_sub_system() const { return static_cast<T*>(get_sub_system(T::get_type_static())); }
+    
+    class ObjectFactory : public RefCounted{
+    public:
+        ObjectFactory(Context* context) :
+        _context(context){
+            //assert(_context);
+        }
+        
+        virtual Object* create_object() = 0;
+        Context* get_context() const { return _context; }
+        const TypeInfo* get_type_info() const { return _type_info; }
+        StringHash get_type() const { return _type_info->get_type(); }
+        const std::string& get_type_name() const { return _type_info->get_type_name(); }
+    protected:
+        Context* _context;
+        const TypeInfo* _type_info;
+    };
+    
+    
+    template<typename T>
+    class ObjectFactoryImpl : public ObjectFactory{
+    public:
+        ObjectFactoryImpl(Context* context):
+        ObjectFactory(context){
+            _type_info = T::get_type_info_static();
+        }
+        virtual Object* create_object() {
+            return dynamic_cast<Object*>(new T(_context));
+        }
+    };
 }
 
 #endif /* object_hpp */

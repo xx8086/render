@@ -79,6 +79,11 @@ namespace megranate {
         switch(space){
             case TS_LOCAL:
                 _postion += _rotation * delta;
+                break;
+            case TS_PARENT:
+                break;
+            case TS_WORLD:
+                break;
         }
     }
     
@@ -96,7 +101,7 @@ namespace megranate {
         }
         
         if(nullptr == comp && recursive){
-            for(std::vector<Entity*>::iterator iter = _children.begin();
+            for (std::vector<Entity*>::iterator iter = _children.begin();
                 iter != _children.end();
                 iter++){
                 comp = (*iter)->get_component(hash, true);
@@ -106,6 +111,31 @@ namespace megranate {
             }
         }
         return comp;
+    }
+    
+    void Entity::remove_component(StringHash type){
+        for (auto iter = _components.begin();
+            iter != _components.end();
+            iter++){
+            if ((*iter)->get_type() == type){
+                _components.erase(iter);
+                break;
+            }
+        }
+    }
+    
+    Component* Entity::create_component(StringHash type, CreateMode mode, unsigned int id){
+        if (id > FIRST_LOCAL_ID && mode == REPLICATED){
+            id = LOCAL;
+        }
+        
+        Component* new_component = dynamic_cast<Component*>(_context->create_object(type));
+        add_compoent(new_component);
+        return new_component;
+    }
+    
+    void Entity::add_compoent(Component* comp){
+        _components.emplace_back(comp);
     }
     
     

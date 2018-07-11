@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0FD4C820F5D8F500AA504F /* lights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FD4C620F5D8F500AA504F /* lights.cpp */; };
 		5A1BB46920F30CAA00D59845 /* math_common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1BB46720F30CAA00D59845 /* math_common.cpp */; };
 		5AA4B6D220EDACBB003F61F1 /* matrix.inl in Sources */ = {isa = PBXBuildFile; fileRef = 5AA4B6D020EDACBB003F61F1 /* matrix.inl */; };
 		5ADC277B20F1EE3700B77B88 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC277620F1EE3600B77B88 /* timer.cpp */; };
@@ -41,6 +42,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A0FD4C620F5D8F500AA504F /* lights.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lights.cpp; sourceTree = "<group>"; };
+		5A0FD4C720F5D8F500AA504F /* lights.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = lights.hpp; sourceTree = "<group>"; };
 		5A1BB46720F30CAA00D59845 /* math_common.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = math_common.cpp; sourceTree = "<group>"; };
 		5A1BB46820F30CAA00D59845 /* math_common.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = math_common.hpp; sourceTree = "<group>"; };
 		5A705A7F20F4E3CB000AFB16 /* matrix_specialization.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = matrix_specialization.inl; sourceTree = "<group>"; };
@@ -99,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A0FD4C520F5D8DF00AA504F /* render */ = {
+			isa = PBXGroup;
+			children = (
+				5A0FD4C620F5D8F500AA504F /* lights.cpp */,
+				5A0FD4C720F5D8F500AA504F /* lights.hpp */,
+			);
+			path = render;
+			sourceTree = "<group>";
+		};
 		5AA4B6CF20EDAC5F003F61F1 /* math */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +160,7 @@
 		5AE9E46F20EC988D00304307 /* megranate */ = {
 			isa = PBXGroup;
 			children = (
+				5A0FD4C520F5D8DF00AA504F /* render */,
 				5AA4B6CF20EDAC5F003F61F1 /* math */,
 				5AE9E48320ECA39200304307 /* base */,
 				5AE9E47920EC9C2000304307 /* scene */,
@@ -264,6 +277,7 @@
 				5AE9E48E20ECB37100304307 /* string_hash.cpp in Sources */,
 				5AE9E47C20EC9CB000304307 /* scene.cpp in Sources */,
 				5AA4B6D220EDACBB003F61F1 /* matrix.inl in Sources */,
+				5A0FD4C820F5D8F500AA504F /* lights.cpp in Sources */,
 				5ADC278B20F2A92B00B77B88 /* vertex.inl in Sources */,
 				5AE9E47220EC988D00304307 /* megranate.m in Sources */,
 				5AE9E48B20ECB1B800304307 /* object.cpp in Sources */,

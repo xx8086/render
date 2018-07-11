@@ -7,6 +7,7 @@
 //
 
 #include "object.h"
+#include "context.h"
 
 namespace megranate {
     

@@ -13,6 +13,7 @@
 #include "../math/quaternion.hpp"
 #include "type_render.h"
 #include "entity.hpp"
+#include "context.h"
 #include <vector>
 
 namespace megranate {
@@ -31,8 +32,6 @@ namespace megranate {
     
     class Entity : public Object{
         MEGRANATE_OBJECT(Entity, Object);
-        
-        friend class Component;
     public:
         Entity(Context* context);
     public:
@@ -55,14 +54,26 @@ namespace megranate {
         Mat3x4f make_mat3x4(const Vec3f& translation, const Quaternion& rotation, const Vec3f& scale) const;
         Mat3x4f get_tarnsform() const;
         const Mat4f& get_world_tarnsform() const;
+    public:
+        template<typename T> T* create_component(CreateMode mode, unsigned int id){
+            return static_cast<T*>(create_component(T::get_type_static(), mode, id));
+        }
         
-        Component* get_component(StringHash hash, bool recursive = false) const;
+
+        template <class T> void remove_component() {
+            remove_component(T::GetTypeStatic());
+        }
+        
         mg_bool is_visible() const{return _visible;}
         void set_visible(mg_bool v){_visible = v;}
+        Component* get_component(StringHash hash, bool recursive = false) const;
         
     private:
+        void remove_component(StringHash type);
+        Component* create_component(StringHash type, CreateMode mode = REPLICATED, unsigned id = 0);
+        void add_compoent(Component*);
+    private:
         mg_uint  _id;
-        
         mg_bool _visible = false;
         Entity* _parent = nullptr;
         std::vector<Entity*> _children;

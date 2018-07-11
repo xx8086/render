@@ -7,13 +7,43 @@
 //
 
 #include "context.h"
+#include <assert.h>
 
 namespace megranate {
-    Object* Context::get_sub_system(StringHash key) const{
+    
+    Context::~Context(){
+        _sub_system.clear();
+        //_factories.clear();
+    }
+    
+    void Context::remove_sub_system(StringHash key){
         auto search = _sub_system.find(key);
         if (search != _sub_system.end()) {
-            return search->second;//*(search->second).get();
+            _sub_system.erase(search);
         }
-        return nullptr;
+    }
+    
+    Object* Context::get_sub_system(StringHash key) const{
+        Object* obj = nullptr;
+        auto search = _sub_system.find(key);
+        if (search != _sub_system.end()) {
+            obj =  search->second;//*(search->second).get();
+        }
+        return obj;
+    }
+    
+    void Context::register_factory(ObjectFactory* factory){
+        _factories.emplace(std::make_pair(factory->get_type(), factory));
+    }
+    
+    Object* Context::create_object(StringHash key){
+        Object* obj = nullptr;
+        auto search = _factories.find(key);
+        if (search != _factories.end()) {
+            obj = search->second->create_object();
+        }else{
+            assert(false);
+        }
+        return obj;
     }
 }
