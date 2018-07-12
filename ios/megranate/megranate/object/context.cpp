@@ -33,7 +33,9 @@ namespace megranate {
     }
     
     void Context::register_factory(ObjectFactory* factory){
-        _factories.emplace(std::make_pair(factory->get_type(), factory));
+        if (_factories.find(factory->get_type()) == _factories.end()){
+            _factories.emplace(std::make_pair(factory->get_type(), factory));
+        }
     }
     
     Object* Context::create_object(StringHash key){

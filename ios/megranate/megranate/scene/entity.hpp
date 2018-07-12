@@ -39,13 +39,13 @@ namespace megranate {
         mg_bool update();
 
     public:
-        void translate(const Vec3f&, TransformSpace);
-        void set_transform(float, const Vec3f&, const Quaternion&);
-        void set_transform(const Vec3f&, const Vec3f&, const Quaternion&);
-        void set_postion(const Vec3f&);
-        void set_scale(float);
-        void set_scale(const Vec3f&);
-        void set_rotation(const Quaternion&);
+        mg_void translate(const Vec3f&, TransformSpace);
+        mg_void set_transform(float, const Vec3f&, const Quaternion&);
+        mg_void set_transform(const Vec3f&, const Vec3f&, const Quaternion&);
+        mg_void set_postion(const Vec3f&);
+        mg_void set_scale(mg_float);
+        mg_void set_scale(const Vec3f&);
+        mg_void set_rotation(const Quaternion&);
         //void set_world_postion(const Vec3f&);
         //void set_world_scale(float);
         //void set_world_scale(const Vec3f&);
@@ -55,23 +55,23 @@ namespace megranate {
         Mat3x4f get_tarnsform() const;
         const Mat4f& get_world_tarnsform() const;
     public:
-        template<typename T> T* create_component(CreateMode mode, unsigned int id){
+        template<typename T> T* create_component(CreateMode mode, mg_uint id){
             return static_cast<T*>(create_component(T::get_type_static(), mode, id));
         }
         
 
-        template <class T> void remove_component() {
+        template <class T> mg_void remove_component() {
             remove_component(T::GetTypeStatic());
         }
         
         mg_bool is_visible() const{return _visible;}
-        void set_visible(mg_bool v){_visible = v;}
-        Component* get_component(StringHash hash, bool recursive = false) const;
+        mg_void set_visible(mg_bool v){_visible = v;}
+        Component* get_component(StringHash hash, mg_bool recursive = false) const;
         
     private:
-        void remove_component(StringHash type);
-        Component* create_component(StringHash type, CreateMode mode = REPLICATED, unsigned id = 0);
-        void add_compoent(Component*);
+        mg_void remove_component(StringHash type);
+        Component* create_component(StringHash type, CreateMode mode = REPLICATED, mg_uint id = 0);
+        mg_void add_compoent(Component*);
     private:
         mg_uint  _id;
         mg_bool _visible = false;

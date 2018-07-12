@@ -17,6 +17,23 @@ namespace megranate {
         release();
     }
     
+    mg_void Scene::draw(){
+        ;
+    }
+    
+    mg_void Scene::touch_event(){
+        ;
+    }
+    
+    mg_void Scene::shutdown(){
+        ;
+    }
+    
+    mg_void Scene::keyboard(){
+        ;
+    }
+    //
+    
     mg_void Scene::release(){
         for (std::map<StringHash, Entity*>::iterator iter = _entities.begin();
              iter != _entities.end(); iter++){
@@ -32,18 +49,22 @@ namespace megranate {
         return _root->update();
     }
     
-    Entity* Scene::create_child(std::string name, CreateMode mode, unsigned int id, bool temporary){
+    Entity* Scene::create_child(std::string name, CreateMode mode, mg_uint id, mg_bool temporary){
         Entity* entity;
         return entity;
     }
     
     
-    Entity* Scene::create_child(unsigned id, CreateMode mode, bool temporary){
+    Entity* Scene::create_child(mg_uint id, CreateMode mode, mg_bool temporary){
         Entity* entity;
         return entity;
     }
     
-    mg_void add_child(Entity* e, unsigned int index){
+    mg_void Scene::add_child(Entity* e, mg_uint index){
         ;
+    }
+    
+    mg_bool Scene::load_res(const mg_char* res){
+        return true;
     }
 }

@@ -10,7 +10,7 @@
 #define math_common_hpp
 
 #include <stdio.h>
-#include "../base/type_render.h"
+#include "../object/type_render.h"
 namespace megranate {
 Vec3f cross(const Vec3f&, const Vec3f&);
 Mat4f Mat3to4(const Mat3f&);

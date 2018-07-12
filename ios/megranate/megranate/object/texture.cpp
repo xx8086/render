@@ -11,22 +11,22 @@
 #include <OpenGLES/ES3/gl.h>
 
 namespace megranate {
-    void TextureGl::bind(unsigned int texture_unit){
+    void TextureGl::bind(mg_uint texture_unit){
         glActiveTexture(texture_unit);
         glBindTexture(GL_TEXTURE_2D, _texture_id);
     }
     
-    unsigned int TextureGl::load_texture(const std::string &filename, bool gamma){
+    unsigned int TextureGl::load_texture(const std::string &filename, mg_bool gamma){
         //std::string filename = std::string(path);
         //filename = directory + '/' + filename;
         
-        unsigned int texture_id;
+        mg_uint texture_id;
         glGenTextures(1, &texture_id);
         
-        int width;
-        int height;
-        int nrComponents;
-        unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
+        mg_int width;
+        mg_int height;
+        mg_int nrComponents;
+        mg_uchar *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
         if (nullptr != data){
             GLenum format;
             if (nrComponents == 1)

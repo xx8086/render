@@ -179,20 +179,22 @@ GLboolean ESUTIL_API esCreateWindow ( ESContext *esContext, const char *title, G
     return GL_TRUE;
 }
 
-void ESUTIL_API esLogMessage ( const char *formatStr, ... ){
-    va_list params;
-    char buf[BUFSIZ];
-    
-    va_start ( params, formatStr );
-    vsprintf ( buf, formatStr, params );
-    
+void ESUTIL_API esLogMessage(const char *formatStr, ...){
+    void log_printf (const char *formatStr, ... ){
+        va_list params;
+        char buf[BUFSIZ];
+        
+        va_start ( params, formatStr );
+        vsprintf ( buf, formatStr, params );
+        
 #ifdef ANDROID
-    __android_log_print ( ANDROID_LOG_INFO, "esUtil" , "%s", buf );
+        __android_log_print ( ANDROID_LOG_INFO, "esUtil" , "%s", buf );
 #else
-    printf ( "%s", buf );
+        printf ( "%s", buf );
 #endif
-    
-    va_end ( params );
+        
+        va_end ( params );
+    }
 }
 
 const char* loadfile(const char* file){

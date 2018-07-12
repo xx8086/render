@@ -20,15 +20,20 @@ namespace megranate {
         Scene(Context* context);
         ~Scene();
     public:
-        Entity* create_child(std::string name, CreateMode mode = REPLICATED, unsigned int id = 0, bool temporary = false);
+        Entity* create_child(std::string name, CreateMode mode = REPLICATED, mg_uint id = 0, mg_bool temporary = false);
         mg_bool update();
+        mg_void draw();
+        mg_void touch_event();
+        mg_void shutdown();
+        mg_void keyboard();
     public:
+        mg_bool load_res(const mg_char*);
         mg_bool insert_entity(Entity*);
         mg_bool insert_orth(Entity*);
     private:
         mg_void release();
-        mg_void add_child(Entity* e, unsigned int index);
-        Entity* create_child(unsigned id, CreateMode mode, bool temporary = false);
+        mg_void add_child(Entity* e, mg_uint index);
+        Entity* create_child(unsigned id, CreateMode mode, mg_bool temporary = false);
         
     private:
         std::map<StringHash, Entity*> _entities;

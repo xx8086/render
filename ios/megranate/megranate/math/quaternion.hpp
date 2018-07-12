@@ -9,8 +9,8 @@
 #ifndef quaternion_hpp
 #define quaternion_hpp
 
-#include "../base/type_render.h"
-#include "../base/config_render.h"
+#include "../object/type_render.h"
+#include "../object/config_render.h"
 
 namespace megranate {
     class Quaternion{

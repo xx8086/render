@@ -11,6 +11,7 @@
 
 #include "ref_counted.hpp"
 #include "string_hash.hpp"
+#include "base_type.h"
 //#include "context.h"
 
 namespace megranate {
@@ -18,12 +19,12 @@ namespace megranate {
     
     class TypeInfo{
     public:
-        TypeInfo(const char* type_name, const TypeInfo* base_type_info);
+        TypeInfo(const mg_char* type_name, const TypeInfo* base_type_info);
         ~TypeInfo();
         
     public:
-        bool is_type_of(StringHash type) const;
-        bool is_type_of(const TypeInfo* typeInfo) const;
+        mg_bool is_type_of(StringHash type) const;
+        mg_bool is_type_of(const TypeInfo* typeInfo) const;
         template<typename T> bool is_type_of() const { return is_type_of(T::get_type_info_static()); }
         
         StringHash get_type() const { return _type; }
@@ -41,7 +42,7 @@ public: \
 typedef typeName ClassName; \
 typedef baseTypeName BaseClassName; \
 \
-virtual void register_object(){_context->register_factory<ClassName>();};\
+virtual mg_void register_object(){_context->register_factory<ClassName>();};\
 virtual megranate::StringHash get_type() const { return get_type_info_static()->get_type(); } \
 virtual const std::string& get_type_name() const { return get_type_info_static()->get_type_name(); } \
 virtual const megranate::TypeInfo* get_type_info() const { return get_type_info_static(); } \
@@ -58,7 +59,7 @@ static const megranate::TypeInfo* get_type_info_static() { static const megranat
         virtual ~Object();
         
     public:
-        virtual void register_object() = 0;
+        virtual mg_void register_object() = 0;
         virtual StringHash get_type() const = 0;
         virtual const std::string& get_type_name() const = 0;
         virtual const TypeInfo* get_type_info() const = 0;
