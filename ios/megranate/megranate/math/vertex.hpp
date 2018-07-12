@@ -29,7 +29,7 @@ namespace megranate {
         MgVertex<T, N> lerp(MgVertex<T, N> const&, T);
         T angle(MgVertex<T, N> const&);
         T dot(MgVertex<T, N> const&);
-        T length() const;
+        T length_sqrtf() const;
         T length_squared() const;
         void normalize();
         MgVertex<T, N> normalized() const;

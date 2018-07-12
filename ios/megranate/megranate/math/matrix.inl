@@ -54,6 +54,7 @@ namespace megranate {
         t[4] = &t5; t[5] = &t6; t[6] = &t7; t[7] = &t8;
         t[8] = &t9; t[9] = &t10; t[10] = &t11; t[11] = &t12;
         t[12] = &t13; t[13] = &t14; t[14] = &t15; t[15] = &t16;
+        
         for(unsigned int i = 0; i < M; i ++){
             for(unsigned int j = 0; j < N; j ++){
                 _m[i][j] = *t[i * M + j];
@@ -80,7 +81,7 @@ namespace megranate {
                     _m[i][j] = 1;
                 }
                 else{
-                    _m[i][j];
+                    _m[i][j] = 0;
                 }
             }
         }

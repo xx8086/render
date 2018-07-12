@@ -9,9 +9,10 @@
 #ifndef scene_hpp
 #define scene_hpp
 
+#include "camera.hpp"
 #include "entity.hpp"
+#include "pipeline.hpp"
 #include <map>
-
 namespace megranate {
     class Scene : public Object{
         MEGRANATE_OBJECT(Scene, Object);
@@ -36,6 +37,8 @@ namespace megranate {
         Entity* create_child(unsigned id, CreateMode mode, mg_bool temporary = false);
         
     private:
+        Camera _camera;
+        Pipeline _pipeline;
         std::map<StringHash, Entity*> _entities;
         Entity* _root = nullptr;
         std::string _dir;

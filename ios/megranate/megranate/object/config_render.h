@@ -21,7 +21,7 @@ static const float M_LARGE_EPSILON = 0.00005f;
 static const float M_MIN_NEARCLIP = 0.01f;
 static const float M_MAX_FOV = 160.0f;
 static const float M_LARGE_VALUE = 100000000.0f;
-static const float M_INFINITY = (float)HUGE_VAL;
+//ßstatic const float M_INFINITY = (float)HUGE_VAL;
 static const float M_DEGTORAD = M_PI / 180.0f;
 static const float M_DEGTORAD_2 = M_PI / 360.0f;    // M_DEGTORAD / 2.f
 static const float M_RADTODEG = 1.0f / M_DEGTORAD;
@@ -32,6 +32,12 @@ static const unsigned int LAST_REPLICATED_ID = 0xffffff;
 static const unsigned int FIRST_LOCAL_ID = 0x01000000;
 static const unsigned int LAST_LOCAL_ID = 0xffffffff;
     
+    
+#define ToRadian(x) (float)(((x) * M_PI / 180.0f))
+#define ToDegree(x) (float)(((x) * 180.0f / M_PI))
+#define FloatToInt(f) (static_cast<int>(f + 0.5f))
+    
+
 #define ARRAY_SIZE_IN_ELEMENTS(a) (sizeof(a)/sizeof(a[0]))
 #define SAFE_DELETE(ptr) \
 if(nullptr != ptr){\

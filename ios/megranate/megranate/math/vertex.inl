@@ -56,7 +56,7 @@ namespace megranate {
     }
     TEMPLARE_MG_VERTEX
     void MgVertex<T, N, AP, AT>::normalize() {
-        T length = length_squared();
+        T length = length_sqrtf();
         if (length > AT::zero() &&
             !AP::equal(length, AT::one())) {
             T invlen = AP::divide(AT::one(), length);
@@ -87,7 +87,7 @@ namespace megranate {
     }
     
     TEMPLARE_MG_VERTEX
-    T MgVertex<T, N, AP, AT>::length() const{
+    T MgVertex<T, N, AP, AT>::length_sqrtf() const{
         T t = T(0);
         for (int i = 0; i < N; i++) {
             t = AP::ride(TraitsN<T, N>::_datas[i], TraitsN<T, N>::_datas[i]);
@@ -102,7 +102,7 @@ namespace megranate {
     
     TEMPLARE_MG_VERTEX
     T MgVertex<T, N, AP, AT>::angle(const MgVertex<T, N>& other){
-        return cosf(dot(other) / (length() * other.length()));
+        return cosf(dot(other) / (length_sqrtf() * other.length()));
     }
 
 }

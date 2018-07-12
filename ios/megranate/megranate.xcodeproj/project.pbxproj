@@ -10,6 +10,9 @@
 		5A0E104A20F6FFC200D6FF95 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E104820F6FFC200D6FF95 /* shader.cpp */; };
 		5A0E104D20F7206600D6FF95 /* egl_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E104B20F7206600D6FF95 /* egl_context.cpp */; };
 		5A0E105020F73B7300D6FF95 /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E104E20F73B7300D6FF95 /* log.cpp */; };
+		5A0E105420F7494A00D6FF95 /* skeletal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E105220F7494A00D6FF95 /* skeletal.cpp */; };
+		5A0E105B20F778BB00D6FF95 /* pipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E105920F778BB00D6FF95 /* pipeline.cpp */; };
+		5A0E105E20F7794D00D6FF95 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E105C20F7794D00D6FF95 /* camera.cpp */; };
 		5A0FD4C820F5D8F500AA504F /* lights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FD4C620F5D8F500AA504F /* lights.cpp */; };
 		5A1BB46920F30CAA00D59845 /* math_common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1BB46720F30CAA00D59845 /* math_common.cpp */; };
 		5AA4B6D220EDACBB003F61F1 /* matrix.inl in Sources */ = {isa = PBXBuildFile; fileRef = 5AA4B6D020EDACBB003F61F1 /* matrix.inl */; };
@@ -51,6 +54,12 @@
 		5A0E104C20F7206600D6FF95 /* egl_context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = egl_context.hpp; sourceTree = "<group>"; };
 		5A0E104E20F73B7300D6FF95 /* log.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = log.cpp; sourceTree = "<group>"; };
 		5A0E104F20F73B7300D6FF95 /* log.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = log.hpp; sourceTree = "<group>"; };
+		5A0E105220F7494A00D6FF95 /* skeletal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = skeletal.cpp; sourceTree = "<group>"; };
+		5A0E105320F7494A00D6FF95 /* skeletal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = skeletal.hpp; sourceTree = "<group>"; };
+		5A0E105920F778BB00D6FF95 /* pipeline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pipeline.cpp; sourceTree = "<group>"; };
+		5A0E105A20F778BB00D6FF95 /* pipeline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pipeline.hpp; sourceTree = "<group>"; };
+		5A0E105C20F7794D00D6FF95 /* camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
+		5A0E105D20F7794D00D6FF95 /* camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = camera.hpp; sourceTree = "<group>"; };
 		5A0FD4C620F5D8F500AA504F /* lights.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lights.cpp; sourceTree = "<group>"; };
 		5A0FD4C720F5D8F500AA504F /* lights.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = lights.hpp; sourceTree = "<group>"; };
 		5A1BB46720F30CAA00D59845 /* math_common.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = math_common.cpp; sourceTree = "<group>"; };
@@ -125,6 +134,8 @@
 			children = (
 				5A0FD4C620F5D8F500AA504F /* lights.cpp */,
 				5A0FD4C720F5D8F500AA504F /* lights.hpp */,
+				5A0E105220F7494A00D6FF95 /* skeletal.cpp */,
+				5A0E105320F7494A00D6FF95 /* skeletal.hpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -202,6 +213,10 @@
 				5ADC278420F28D0D00B77B88 /* animatable.hpp */,
 				5A0E104B20F7206600D6FF95 /* egl_context.cpp */,
 				5A0E104C20F7206600D6FF95 /* egl_context.hpp */,
+				5A0E105920F778BB00D6FF95 /* pipeline.cpp */,
+				5A0E105A20F778BB00D6FF95 /* pipeline.hpp */,
+				5A0E105C20F7794D00D6FF95 /* camera.cpp */,
+				5A0E105D20F7794D00D6FF95 /* camera.hpp */,
 			);
 			path = scene;
 			sourceTree = "<group>";
@@ -295,6 +310,7 @@
 				5A1BB46920F30CAA00D59845 /* math_common.cpp in Sources */,
 				5ADC277B20F1EE3700B77B88 /* timer.cpp in Sources */,
 				5AE9E49220ECC9CE00304307 /* context.cpp in Sources */,
+				5A0E105E20F7794D00D6FF95 /* camera.cpp in Sources */,
 				5AE9E48220EC9CF700304307 /* entity.cpp in Sources */,
 				5ADC278520F28D0D00B77B88 /* animatable.cpp in Sources */,
 				5A0E104D20F7206600D6FF95 /* egl_context.cpp in Sources */,
@@ -303,12 +319,14 @@
 				5AA4B6D220EDACBB003F61F1 /* matrix.inl in Sources */,
 				5A0FD4C820F5D8F500AA504F /* lights.cpp in Sources */,
 				5ADC278B20F2A92B00B77B88 /* vertex.inl in Sources */,
+				5A0E105B20F778BB00D6FF95 /* pipeline.cpp in Sources */,
 				5A0E104A20F6FFC200D6FF95 /* shader.cpp in Sources */,
 				5AE9E47220EC988D00304307 /* megranate.m in Sources */,
 				5AE9E48B20ECB1B800304307 /* object.cpp in Sources */,
 				5AE9E47F20EC9CE700304307 /* component.cpp in Sources */,
 				5ADC277C20F1EE3700B77B88 /* texture.cpp in Sources */,
 				5A0E105020F73B7300D6FF95 /* log.cpp in Sources */,
+				5A0E105420F7494A00D6FF95 /* skeletal.cpp in Sources */,
 				5ADC277D20F1EE3700B77B88 /* stb_image.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,7 +445,10 @@
 				CONFIGURATION_BUILD_DIR = "~/render_bin";
 				CONFIGURATION_TEMP_DIR = "~/render_bin";
 				DEVELOPMENT_TEAM = 9846B32FFU;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../3rd/\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -442,7 +463,10 @@
 				CONFIGURATION_BUILD_DIR = "~/render_bin";
 				CONFIGURATION_TEMP_DIR = "~/render_bin";
 				DEVELOPMENT_TEAM = 9846B32FFU;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../3rd/\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

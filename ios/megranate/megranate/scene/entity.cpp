@@ -17,7 +17,19 @@ namespace megranate {
         ;
     }
     
-    mg_bool Entity::draw(){
+    mg_bool Entity::draw(const Mat4f &mat){
+        //std::vector<Component*> _components;
+        for(auto iter_comp = _components.begin();
+            iter_comp != _components.end();
+            iter_comp++){
+            (*iter_comp)->draw(mat);
+        }
+        
+        for(auto iter_entity = _children.begin();
+            iter_entity != _children.end();
+            iter_entity++){
+            (*iter_entity)->draw(mat);
+        }
         
         return true;
     }
@@ -29,20 +41,7 @@ namespace megranate {
             _children[i]->update();
         }
         
-        draw();
         return true;
-    }
-    
-    mg_void Entity::set_transform(mg_float scale, const Vec3f& position, const Quaternion& rotation){
-        _scale = Vec3f(scale, scale, scale);
-        _postion = position;
-        _rotation = rotation;
-    }
-    
-    mg_void Entity::set_transform(const Vec3f& scale, const Vec3f& position, const Quaternion& rotation){
-        _scale = scale;
-        _postion = position;
-        _rotation = rotation;
     }
     
     mg_void Entity::set_postion(const Vec3f& pos){
@@ -53,38 +52,6 @@ namespace megranate {
     }
     mg_void Entity::set_scale(const Vec3f& scale){
         _scale = scale;
-    }
-    mg_void Entity::set_rotation(const Quaternion& rotaion){
-        _rotation = rotaion;
-    }
-    
-    const Mat4f& Entity::get_world_tarnsform() const{
-        return _world_transform;
-    }
-    
-    Mat3x4f Entity::make_mat3x4(const Vec3f& translation, const Quaternion& rotation, const Vec3f& scale) const{
-        Mat3f m3f = rotation.rotation_matrix();
-        m3f.sacled(scale);
-        Mat3x4f mf = Mat3to3_4(m3f);
-        Vec4f v4f(translation.x, translation.y, translation.z, 1.0f);
-        mf.set_translation(v4f);
-        return mf;
-    }
-    
-    Mat3x4f Entity::get_tarnsform() const{
-        return make_mat3x4(_postion, _rotation, _scale);
-    }
-    
-    mg_void Entity::translate(const Vec3f& delta, TransformSpace space){
-        switch(space){
-            case TS_LOCAL:
-                _postion += _rotation * delta;
-                break;
-            case TS_PARENT:
-                break;
-            case TS_WORLD:
-                break;
-        }
     }
     
     Component* Entity::get_component(StringHash hash, mg_bool recursive)const{
@@ -125,10 +92,6 @@ namespace megranate {
     }
     
     Component* Entity::create_component(StringHash type, CreateMode mode, mg_uint id){
-        if (id > FIRST_LOCAL_ID && mode == REPLICATED){
-            id = LOCAL;
-        }
-        
         Component* new_component = dynamic_cast<Component*>(_context->create_object(type));
         add_compoent(new_component);
         return new_component;

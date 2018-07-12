@@ -8,7 +8,7 @@
 
 #ifndef quaternion_hpp
 #define quaternion_hpp
-
+/*
 #include "../object/type_render.h"
 #include "../object/config_render.h"
 
@@ -171,6 +171,6 @@ namespace megranate {
     };
 
 }
-
+*/
 #endif 
 

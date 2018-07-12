@@ -24,6 +24,10 @@ namespace megranate {
         template <class T> T* get_component() const { return static_cast<T*>(GetComponent(T::get_type_static())); }
         //void GetComponents(Vector<Component*>& dest, StringHash type) const;
         //template <class T> void get_component(Vector<T*>& dest) const;
+        virtual mg_void update(){};
+        virtual mg_void draw(const Mat4f &mat){};
+        virtual mg_void shutdown() {};
+        virtual mg_void touch_event() {};
     public:
         Entity* get_entity()const{return _entity;}
     protected:

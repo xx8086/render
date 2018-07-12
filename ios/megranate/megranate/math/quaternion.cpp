@@ -5,7 +5,7 @@
 //  Created by liu on 2018/7/9.
 //  Copyright © 2018年 hanliu. All rights reserved.
 //
-
+/*
 #include "quaternion.hpp"
 #include "math_common.hpp"
 #include <math.h>
@@ -280,3 +280,4 @@ namespace megranate {
     }
 
 }
+ */

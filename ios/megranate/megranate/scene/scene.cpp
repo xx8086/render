@@ -7,6 +7,16 @@
 //
 
 #include "scene.hpp"
+
+#ifdef __APPLE__
+#include <OpenGLES/ES3/gl.h>
+#else
+#include <GLES3/gl3.h>
+#include <EGL/egl.h>
+#include <EGL/eglext.h>
+#endif
+
+
 namespace megranate {
     Scene::Scene(Context* context) :
     Object(context){
@@ -18,7 +28,20 @@ namespace megranate {
     }
     
     mg_void Scene::draw(){
-        ;
+        if (nullptr == _root){
+            return ;
+        }
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        Pipeline p;
+        p.set_camera(Vec3f(0.0f, 0.0f, -10.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 1.0f, 0.0f));
+        p.set_perspective_proj(_camera.get_proj_info());
+        p.scale(0.1);
+        p.rotate(270.0, 180.0, 0.0);
+        p.world_pos(0.0f, -2.5f, 0.0f);
+        _root->draw(p.get_pvw_trans());
+        
     }
     
     mg_void Scene::touch_event(){

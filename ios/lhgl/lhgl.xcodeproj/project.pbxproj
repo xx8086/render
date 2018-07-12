@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0E105720F76E7200D6FF95 /* libmegranate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0E105820F76E7200D6FF95 /* libmegranate.a */; };
 		5A34FA8120E37620009D8EBF /* skinning.fs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7D20E37604009D8EBF /* skinning.fs */; };
 		5A34FA8220E37620009D8EBF /* skinning.vs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7E20E37604009D8EBF /* skinning.vs */; };
 		5A34FA8320E37620009D8EBF /* triangle.fs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7F20E37604009D8EBF /* triangle.fs */; };
@@ -27,7 +28,6 @@
 		5AA3CE0320EB896200078596 /* guard1_helmet.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFC20EB896200078596 /* guard1_helmet.tga */; };
 		5AA3CE0420EB896200078596 /* guard1_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFD20EB896200078596 /* guard1_body.tga */; };
 		5AD986CD20EC6C0F004256D0 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD986CC20EC6C0F004256D0 /* libassimp.a */; };
-		5AD986CE20EC6DDD004256D0 /* librender.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD986CF20EC6DDD004256D0 /* librender.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A02B66120E473890022AAF7 /* context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = context.hpp; sourceTree = "<group>"; };
 		5A02B66220E473890022AAF7 /* interface_render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interface_render.hpp; sourceTree = "<group>"; };
 		5A02B66320E473890022AAF7 /* rander.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rander.hpp; sourceTree = "<group>"; };
+		5A0E105820F76E7200D6FF95 /* libmegranate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libmegranate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A34FA7D20E37604009D8EBF /* skinning.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skinning.fs; sourceTree = "<group>"; };
 		5A34FA7E20E37604009D8EBF /* skinning.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skinning.vs; sourceTree = "<group>"; };
 		5A34FA7F20E37604009D8EBF /* triangle.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = triangle.fs; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD986CE20EC6DDD004256D0 /* librender.a in Frameworks */,
+				5A0E105720F76E7200D6FF95 /* libmegranate.a in Frameworks */,
 				5AD986CD20EC6C0F004256D0 /* libassimp.a in Frameworks */,
 				5A8C719220E2596000B421FD /* libz.1.tbd in Frameworks */,
 				5A8C70DF20E1FEC900B421FD /* GLKit.framework in Frameworks */,
@@ -113,7 +113,6 @@
 		5A02B66020E473890022AAF7 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				5A02B66120E473890022AAF7 /* context.hpp */,
 				5A02B66220E473890022AAF7 /* interface_render.hpp */,
 				5A02B66320E473890022AAF7 /* rander.hpp */,
 			);
@@ -174,6 +173,7 @@
 		5A594A6C20E1E4DB00888446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A0E105820F76E7200D6FF95 /* libmegranate.a */,
 				5AD986CF20EC6DDD004256D0 /* librender.a */,
 				5AD986CC20EC6C0F004256D0 /* libassimp.a */,
 				5A8C719120E2596000B421FD /* libz.1.tbd */,

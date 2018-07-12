@@ -35,25 +35,15 @@ namespace megranate {
     public:
         Entity(Context* context);
     public:
-        mg_bool draw();
+        mg_bool draw(const Mat4f &mat);
         mg_bool update();
 
     public:
         mg_void translate(const Vec3f&, TransformSpace);
-        mg_void set_transform(float, const Vec3f&, const Quaternion&);
-        mg_void set_transform(const Vec3f&, const Vec3f&, const Quaternion&);
         mg_void set_postion(const Vec3f&);
         mg_void set_scale(mg_float);
         mg_void set_scale(const Vec3f&);
-        mg_void set_rotation(const Quaternion&);
-        //void set_world_postion(const Vec3f&);
-        //void set_world_scale(float);
-        //void set_world_scale(const Vec3f&);
-        //void set_world_rotation(const Quaternion&);
         
-        Mat3x4f make_mat3x4(const Vec3f& translation, const Quaternion& rotation, const Vec3f& scale) const;
-        Mat3x4f get_tarnsform() const;
-        const Mat4f& get_world_tarnsform() const;
     public:
         template<typename T> T* create_component(CreateMode mode, mg_uint id){
             return static_cast<T*>(create_component(T::get_type_static(), mode, id));
@@ -80,8 +70,8 @@ namespace megranate {
         std::vector<Component*> _components;
         Vec3f _postion;
         Vec3f _scale;
-        Quaternion _rotation;
-        mutable Quaternion _world_rotation;
+        //Quaternion _rotation;
+        //mutable Quaternion _world_rotation;
         mutable Mat4f _world_transform;
         std::string _name;
         std::string _hash;

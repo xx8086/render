@@ -10,9 +10,9 @@
 #define bones_mesh_hpp
 
 #include <stdio.h>
-#include "texture.hpp"
 #include <vector>
 #include <map>
+#include "texture.hpp"
 #include "assimp/Importer.hpp"
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"

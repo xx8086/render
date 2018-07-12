@@ -9,10 +9,6 @@
 #include "lights.hpp"
 
 namespace megranate {
-    //void Lights::register_object(){
-    //    _context->register_factory<Lights>();
-    //};
-    
     Lights::Lights(Context* context) : Object(context){
         ;
     }
