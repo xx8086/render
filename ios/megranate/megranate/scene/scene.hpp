@@ -12,7 +12,9 @@
 #include "camera.hpp"
 #include "entity.hpp"
 #include "pipeline.hpp"
+#include "../../include/interface_render.hpp"
 #include <map>
+
 namespace megranate {
     class Scene : public Object{
         MEGRANATE_OBJECT(Scene, Object);
@@ -27,14 +29,17 @@ namespace megranate {
         mg_void shutdown();
         mg_void keyboard();
     public:
-        mg_bool load_res(const mg_char*);
+        mg_bool load_res(ESContext *esContext);
         mg_bool insert_entity(Entity*);
         mg_bool insert_orth(Entity*);
     private:
+        mg_void resize(mg_uint w, mg_uint h);
         mg_void release();
         Entity* create_child(std::string name, CreateMode mode = REPLICATED, mg_uint id = 0, mg_bool temporary = false);
         
     private:
+        mg_uint _height = 0;
+        mg_uint _width = 0;
         Camera _camera;
         Pipeline _pipeline;
         std::map<StringHash, Entity*> _entities;

@@ -41,8 +41,6 @@ namespace megranate {
 public: \
 typedef typeName ClassName; \
 typedef baseTypeName BaseClassName; \
-\
-virtual mg_void register_object(){_context->register_factory<ClassName>();};\
 virtual megranate::StringHash get_type() const { return get_type_info_static()->get_type(); } \
 virtual const std::string& get_type_name() const { return get_type_info_static()->get_type_name(); } \
 virtual const megranate::TypeInfo* get_type_info() const { return get_type_info_static(); } \
@@ -57,9 +55,7 @@ static const megranate::TypeInfo* get_type_info_static() { static const megranat
     public:
         Object(Context* context);
         virtual ~Object();
-        
     public:
-        virtual mg_void register_object() = 0;
         virtual StringHash get_type() const = 0;
         virtual const std::string& get_type_name() const = 0;
         virtual const TypeInfo* get_type_info() const = 0;

@@ -16,7 +16,6 @@
 #include <EGL/eglext.h>
 #endif
 
-
 namespace megranate {
     Scene::Scene(Context* context) :
     Object(context), _context(context){
@@ -82,9 +81,25 @@ namespace megranate {
         return entity;
     }
     
-    mg_bool Scene::load_res(const mg_char* res){
+    mg_void Scene::resize(mg_uint w, mg_uint h){
+        _width = w;
+        _height = h;
+        _camera.resize(w, h);
+        glViewport (0, 0, _width, _height);
+    }
+    
+    mg_bool Scene::load_res(ESContext *esContext){
+        resize(esContext->width, esContext->height);
+        PersProjInfo sp;
+        sp.FOV = 60;
+        sp.Width = esContext->width;
+        sp.Height = esContext->height;
+        sp.zNear = 0.1;
+        sp.zFar = 100;
+        _camera.set_proj_info(sp);
+        
         Entity* entity = create_child("skeletal");
-        entity->load(res);
+        entity->load(esContext->appdir);
         return true;
     }
 }

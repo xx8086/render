@@ -7,9 +7,14 @@
 //
 
 #include "context.h"
+#include "../core/skeletal.hpp"
 #include <assert.h>
 
 namespace megranate {
+    
+    Context::Context(){
+        register_factory<Skeletal>();
+    }
     
     Context::~Context(){
         _sub_system.clear();

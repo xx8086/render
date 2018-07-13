@@ -10,7 +10,6 @@
 #include "config_render.h"
 
 namespace megranate {
-    
     float determinant(const Mat4f& mat4f)
     {
         return mat4f.m[0][0]*mat4f.m[1][1]*mat4f.m[2][2]*mat4f.m[3][3] - mat4f.m[0][0]*mat4f.m[1][1]*mat4f.m[2][3]*mat4f.m[3][2] + mat4f.m[0][0]*mat4f.m[1][2]*mat4f.m[2][3]*mat4f.m[3][1] - mat4f.m[0][0]*mat4f.m[1][2]*mat4f.m[2][1]*mat4f.m[3][3]

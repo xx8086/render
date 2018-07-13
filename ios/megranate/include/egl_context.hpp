@@ -17,8 +17,6 @@
 #include <EGL/eglext.h>
 #endif
 
-#include "scene.hpp"
-
 namespace megranate {
     
 #ifdef WIN32
@@ -42,6 +40,7 @@ namespace megranate {
 #define TRUE 1
 #endif
     
+    class Scene;
     typedef struct ESContext ESContext;
     struct ESContext{
         void *platformData;

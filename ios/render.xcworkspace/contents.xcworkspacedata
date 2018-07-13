@@ -5,9 +5,6 @@
       location = "group:megranate/megranate.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:render/render.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:lhgl/lhgl.xcodeproj">
    </FileRef>
 </Workspace>

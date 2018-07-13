@@ -64,13 +64,10 @@
 		5A5948D320E1DA2D00888446 /* camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
 		5A5948D520E1DA2D00888446 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		5A5948D620E1DA2D00888446 /* rander.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rander.cpp; sourceTree = "<group>"; };
-		5A5948D720E1DA2D00888446 /* context.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = context.hpp; sourceTree = "<group>"; };
 		5A5948DA20E1DA2E00888446 /* stb_image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stb_image.c; sourceTree = "<group>"; };
-		5A5948DB20E1DA2E00888446 /* rander.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rander.hpp; sourceTree = "<group>"; };
 		5A5948DC20E1DA2E00888446 /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
 		5A5948DD20E1DA2E00888446 /* shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
 		5A594A2220E1DCF100888446 /* interface_render.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = interface_render.cpp; sourceTree = "<group>"; };
-		5A594A2320E1DCF100888446 /* interface_render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interface_render.hpp; sourceTree = "<group>"; };
 		5A594A2720E1DE6800888446 /* single.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = single.hpp; sourceTree = "<group>"; };
 		5A594BD720E1EA1100888446 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		5A8C718320E228A300B421FD /* mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mesh.cpp; sourceTree = "<group>"; };
@@ -94,7 +91,6 @@
 		5A5948BA20E1D94F00888446 = {
 			isa = PBXGroup;
 			children = (
-				5A594A2120E1DC2300888446 /* include */,
 				5A5948C520E1D94F00888446 /* render */,
 				5A5948C420E1D94F00888446 /* Products */,
 				5A59491E20E1DAF900888446 /* Frameworks */,
@@ -131,16 +127,6 @@
 				5A594BD720E1EA1100888446 /* OpenGLES.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5A594A2120E1DC2300888446 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				5A5948DB20E1DA2E00888446 /* rander.hpp */,
-				5A5948D720E1DA2D00888446 /* context.hpp */,
-				5A594A2320E1DCF100888446 /* interface_render.hpp */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 		5A594A2520E1DDDB00888446 /* core */ = {

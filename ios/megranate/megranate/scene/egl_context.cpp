@@ -6,10 +6,11 @@
 //  Copyright © 2018年 hanliu. All rights reserved.
 //
 
-#include "egl_context.hpp"
-
+#include "../../include/egl_context.hpp"
 #include <fstream>
 #include <sstream>
+#include "scene.hpp"
+
 //#include <iosfwd>//input output stream forward
 
 #ifdef ANDROID

@@ -20,11 +20,10 @@
 #define BONE_WEIGHT_LOCATION 4
 
 namespace megranate {
-    Skeletal::Skeletal(Context* context) : Component(context), _shader(context){
-        _vao = 0;
-        memset(_vbos, 0, sizeof(_vbos));
-        _num_bones = 0;
-        _scene = NULL;
+    
+    Skeletal::Skeletal(Context* context) : Component(context){
+        release();
+        _shader = new Shader(context);
     }
     
     Skeletal::~Skeletal(){
@@ -32,14 +31,12 @@ namespace megranate {
     }
 
     
-    mg_void update(){
+    mg_void Skeletal::update(){
         ;
     }
 
     mg_void Skeletal::draw(const Mat4f &mat){
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        _shader.use();
+        _shader->use();
         
         std::vector<Mat4f> transform;
         bone_transform(_time.interval_ms()/1000.0f, transform);//_bones_mesh
@@ -47,19 +44,26 @@ namespace megranate {
             set_bones_uniformlocation(i, transform[i]);
         }
         
-        _shader.setmat4(_shader.getuniformlocation("pvw"), mat, GL_TRUE);
+        _shader->setmat4(_shader->getuniformlocation("pvw"), mat, GL_TRUE);
         render();
-        _shader.unuse();
+        _shader->unuse();
     }
     mg_void Skeletal::shutdown(){
-        glDeleteProgram (_shader.programid());
+        glDeleteProgram (_shader->programid());
     }
     mg_void Skeletal::touch_event(){
         ;
     }
     
     mg_void Skeletal::release(){
-        ;
+        if (nullptr != _shader){
+            delete _shader;
+            _shader = nullptr;
+        }
+        _vao = 0;
+        memset(_vbos, 0, sizeof(_vbos));
+        _num_bones = 0;
+        _scene = NULL;
     }
     
     
@@ -69,13 +73,13 @@ namespace megranate {
         for (unsigned int i = 0; i < _bones_counts; i++) {
             memset(bone_name, 0, sizeof(bone_name));
             snprintf(bone_name, sizeof(bone_name), "gBones[%d]", i);
-            _vec_bones[i] = _shader.getuniformlocation(bone_name);
+            _vec_bones[i] = _shader->getuniformlocation(bone_name);
         }
     }
     
     void Skeletal::set_bones_uniformlocation(int index, Mat4f& m){
         assert(index >= 0 && _bones_counts > index);
-        _shader.setmat4(_vec_bones[index], m, GL_TRUE);
+        _shader->setmat4(_vec_bones[index], m, GL_TRUE);
     }
     
     void Skeletal::VertexBoneData::add_bone_data(unsigned int bone_id, float weight){
@@ -495,11 +499,20 @@ namespace megranate {
         return NULL;
     }
 
-    mg_bool Skeletal::load(const std::string& strmodel){
+    mg_bool Skeletal::load(const std::string& strdir){
+        if (GL_FALSE == _shader->loadshader(strdir.c_str(),
+                                           "skinning.vs",
+                                           "skinning.fs")){
+            return false;
+        }
+        
+        std::string strmodel(strdir);
+        strmodel.append("/boblampclean.md5mesh");
+        //strmodel.append("/Hyperspace_Madness_Killamari_Minion2.fbx");
         load_mesh(strmodel);
         set_bones_counts(num_bones());
         bone_uniformlocation();
-        _shader.setint(_shader.getuniformlocation("gColorMap"), 0);
+        _shader->setint(_shader->getuniformlocation("gColorMap"), 0);
         return true;
     }
 }

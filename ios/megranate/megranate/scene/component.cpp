@@ -9,7 +9,7 @@
 #include "component.hpp"
 
 namespace megranate {
-    
+
     Component* Component::get_component(StringHash type) const{
         return nullptr != _entity ? _entity->get_component(type) : nullptr;
     }

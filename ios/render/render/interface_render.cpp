@@ -8,12 +8,12 @@
 
 #include "interface_render.hpp"
 #include "single.hpp"
-#include "gl_triangle.hpp"
-#include "bones.hpp"
+//#include "gl_triangle.hpp"
+//#include "bones.hpp"
 
 CBones* get_render(){
     //return Singleton<CTriangle>::get_instance();
-    return Singleton<CBones>::get_instance();
+    //return Singleton<CBones>::get_instance();
 }
 
 CInterfaceRender::CInterfaceRender(){

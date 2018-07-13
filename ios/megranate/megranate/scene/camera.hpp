@@ -59,7 +59,7 @@ namespace megranate {
         const Vec3f& get_postion();
         const Vec3f& get_up();
         const Vec3f& get_target();
-        const PersProjInfo& get_proj_info()const;
+        const PersProjInfo& get_proj_info()const ;
         void set_proj_info(PersProjInfo proj);
         void resize(float w, float h);
         void process_key_board(Camera_Movement direction, float deltaTime);

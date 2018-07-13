@@ -34,7 +34,7 @@ namespace megranate {
         MEGRANATE_OBJECT(Entity, Object);
     public:
         Entity(Context* context);
-    public:
+
         mg_bool load(const mg_char*);
         mg_bool draw(const Mat4f &mat);
         mg_bool update();
@@ -44,11 +44,15 @@ namespace megranate {
         mg_void set_scale(const Vec3f&);
         mg_void add_children(Entity* children);
     public:
-        template<typename T> T* create_component(CreateMode mode = REPLICATED, mg_uint id = 0){
-            return static_cast<T*>(create_component(T::get_type_static(), mode, id));
+        template<typename T>
+        T* create_component(CreateMode mode = REPLICATED, mg_uint id = 0){
+            StringHash type = T::get_type_static();
+            Object* o = _context->create_object(type);
+            Component* new_component = (Component*)(o);
+            add_compoent(new_component);
+            return dynamic_cast<T*>(new_component);
         }
-        
-
+    
         template <class T> mg_void remove_component() {
             remove_component(T::GetTypeStatic());
         }
@@ -59,7 +63,8 @@ namespace megranate {
         
     private:
         mg_void remove_component(StringHash type);
-        Component* create_component(StringHash type, CreateMode mode = REPLICATED, mg_uint id = 0);
+        
+        
         mg_void add_compoent(Component*);
     private:
         mg_uint  _id;

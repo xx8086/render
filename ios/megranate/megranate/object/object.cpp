@@ -38,14 +38,14 @@ namespace megranate {
         }
         return false;
     }
-
+    
     Object::Object(Context* context) :
     _context(context){
     }
     
     Object::~Object(){
     }
-    
+
     mg_bool Object::is_instance_of(StringHash type) const{
         return get_type_info()->is_type_of(type);
     }

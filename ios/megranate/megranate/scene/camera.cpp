@@ -7,8 +7,72 @@
 //
 
 #include "../object/config_render.h"
+#include "../math/math_common.hpp"
 #include "camera.hpp"
+
 namespace megranate {
+    
+    void rotate(Vec3f& me, float Angle, const Vec3f& Axe){
+        const float SinHalfAngle = sinf(ToRadian(Angle/2));
+        const float CosHalfAngle = cosf(ToRadian(Angle/2));
+        
+        const float Rx = Axe.x * SinHalfAngle;
+        const float Ry = Axe.y * SinHalfAngle;
+        const float Rz = Axe.z * SinHalfAngle;
+        const float Rw = CosHalfAngle;
+        Quaternion RotationQ(Rx, Ry, Rz, Rw);
+        Quaternion ConjugateQ = RotationQ.conjugate();
+        Quaternion W = RotationQ * (me) * ConjugateQ;
+        
+        me.x = W.x;
+        me.y = W.y;
+        me.z = W.z;
+    }
+    
+    Camera::Camera(Vec3f position, Vec3f target, Vec3f up) : _position(position), _target(target), _up(up){
+        update_camera_vectors();
+    };
+    
+    void Camera::resize(float w, float h){
+        _width = w;
+        _height = h;
+    }
+    
+    const PersProjInfo& Camera::get_proj_info()const{
+        return _proj_info;
+    };
+    
+    void Camera::set_proj_info(PersProjInfo proj){
+        _proj_info = proj;
+    };
+    
+    void Camera::update_camera_vectors(){
+        const Vec3f Vaxis(0.0f, 1.0f, 0.0f);
+        Vec3f View(1.0f, 0.0f, 0.0f);
+        rotate(View, _angle_h, Vaxis);
+        View.normalize();
+        
+        Vec3f Haxis = cross(Vaxis, View);
+        Haxis.normalize();
+        rotate(View, _angle_v, Haxis);
+        
+        _target = View;
+        _target.normalize();
+        
+        _up = cross(_target, Haxis);
+        _up.normalize();
+        
+    }
+    
+    const Vec3f& Camera::get_postion(){
+        return _position;
+    }
+    const Vec3f& Camera::get_up(){
+        return _up;
+    }
+    const Vec3f& Camera::get_target(){
+        return _target;
+    }
     
     Quaternion::Quaternion(float _x, float _y, float _z, float _w){
         x = _x;

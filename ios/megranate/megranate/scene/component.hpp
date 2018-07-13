@@ -17,8 +17,8 @@ namespace megranate {
         MEGRANATE_OBJECT(Component, Object);
         
     public:
-        Component(Context* context);
-        virtual ~Component();
+        Component(Context* context) : Object(context){};
+        virtual ~Component(){};
     public:
         Component* get_component(StringHash type) const;
         template <class T> T* get_component() const { return static_cast<T*>(GetComponent(T::get_type_static())); }

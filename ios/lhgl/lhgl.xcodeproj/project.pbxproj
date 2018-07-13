@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A0E105720F76E7200D6FF95 /* libmegranate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0E105820F76E7200D6FF95 /* libmegranate.a */; };
 		5A34FA8120E37620009D8EBF /* skinning.fs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7D20E37604009D8EBF /* skinning.fs */; };
 		5A34FA8220E37620009D8EBF /* skinning.vs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7E20E37604009D8EBF /* skinning.vs */; };
 		5A34FA8320E37620009D8EBF /* triangle.fs in Resources */ = {isa = PBXBuildFile; fileRef = 5A34FA7F20E37604009D8EBF /* triangle.fs */; };
@@ -27,6 +26,7 @@
 		5AA3CE0220EB896200078596 /* boblampclean.md5anim in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFB20EB896200078596 /* boblampclean.md5anim */; };
 		5AA3CE0320EB896200078596 /* guard1_helmet.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFC20EB896200078596 /* guard1_helmet.tga */; };
 		5AA3CE0420EB896200078596 /* guard1_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFD20EB896200078596 /* guard1_body.tga */; };
+		5AC84CF720F87F1E0049A21F /* libmegranate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC84CF820F87F1E0049A21F /* libmegranate.a */; };
 		5AD986CD20EC6C0F004256D0 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD986CC20EC6C0F004256D0 /* libassimp.a */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A02B66220E473890022AAF7 /* interface_render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interface_render.hpp; sourceTree = "<group>"; };
-		5A02B66320E473890022AAF7 /* rander.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rander.hpp; sourceTree = "<group>"; };
 		5A0E105820F76E7200D6FF95 /* libmegranate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libmegranate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A34FA7D20E37604009D8EBF /* skinning.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skinning.fs; sourceTree = "<group>"; };
 		5A34FA7E20E37604009D8EBF /* skinning.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = skinning.vs; sourceTree = "<group>"; };
@@ -77,6 +75,9 @@
 		5AA3CDFB20EB896200078596 /* boblampclean.md5anim */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = boblampclean.md5anim; sourceTree = "<group>"; };
 		5AA3CDFC20EB896200078596 /* guard1_helmet.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_helmet.tga; sourceTree = "<group>"; };
 		5AA3CDFD20EB896200078596 /* guard1_body.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_body.tga; sourceTree = "<group>"; };
+		5AC84CF520F8798F0049A21F /* egl_context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = egl_context.hpp; sourceTree = "<group>"; };
+		5AC84CF620F8798F0049A21F /* interface_render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interface_render.hpp; sourceTree = "<group>"; };
+		5AC84CF820F87F1E0049A21F /* libmegranate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libmegranate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD986CC20EC6C0F004256D0 /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = ../3rd/libassimp.a; sourceTree = "<group>"; };
 		5AD986CF20EC6DDD004256D0 /* librender.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librender.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A0E105720F76E7200D6FF95 /* libmegranate.a in Frameworks */,
+				5AC84CF720F87F1E0049A21F /* libmegranate.a in Frameworks */,
 				5AD986CD20EC6C0F004256D0 /* libassimp.a in Frameworks */,
 				5A8C719220E2596000B421FD /* libz.1.tbd in Frameworks */,
 				5A8C70DF20E1FEC900B421FD /* GLKit.framework in Frameworks */,
@@ -110,16 +111,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A02B66020E473890022AAF7 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				5A02B66220E473890022AAF7 /* interface_render.hpp */,
-				5A02B66320E473890022AAF7 /* rander.hpp */,
-			);
-			name = include;
-			path = ../render/include;
-			sourceTree = "<group>";
-		};
 		5A34FA7C20E37604009D8EBF /* shader */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +126,8 @@
 		5A594A2920E1E36900888446 = {
 			isa = PBXGroup;
 			children = (
+				5AC84CF420F8798F0049A21F /* include */,
 				5AA3CDE920EB76D300078596 /* res */,
-				5A02B66020E473890022AAF7 /* include */,
 				5A34FA7C20E37604009D8EBF /* shader */,
 				5A594A3420E1E36900888446 /* lhgl */,
 				5A594A3320E1E36900888446 /* Products */,
@@ -173,6 +164,7 @@
 		5A594A6C20E1E4DB00888446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AC84CF820F87F1E0049A21F /* libmegranate.a */,
 				5A0E105820F76E7200D6FF95 /* libmegranate.a */,
 				5AD986CF20EC6DDD004256D0 /* librender.a */,
 				5AD986CC20EC6C0F004256D0 /* libassimp.a */,
@@ -212,6 +204,16 @@
 				5AA3CDF920EB896200078596 /* round_grill.tga */,
 			);
 			path = md5;
+			sourceTree = "<group>";
+		};
+		5AC84CF420F8798F0049A21F /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5AC84CF520F8798F0049A21F /* egl_context.hpp */,
+				5AC84CF620F8798F0049A21F /* interface_render.hpp */,
+			);
+			name = include;
+			path = ../megranate/include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

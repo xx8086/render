@@ -16,6 +16,7 @@
 		5A0FD4C820F5D8F500AA504F /* lights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0FD4C620F5D8F500AA504F /* lights.cpp */; };
 		5A1BB46920F30CAA00D59845 /* math_common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1BB46720F30CAA00D59845 /* math_common.cpp */; };
 		5AA4B6D220EDACBB003F61F1 /* matrix.inl in Sources */ = {isa = PBXBuildFile; fileRef = 5AA4B6D020EDACBB003F61F1 /* matrix.inl */; };
+		5AC84CF320F877C70049A21F /* interface_render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AC84CF220F877C70049A21F /* interface_render.cpp */; };
 		5ADC277B20F1EE3700B77B88 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC277620F1EE3600B77B88 /* timer.cpp */; };
 		5ADC277C20F1EE3700B77B88 /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC277820F1EE3700B77B88 /* texture.cpp */; };
 		5ADC277D20F1EE3700B77B88 /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC277920F1EE3700B77B88 /* stb_image.c */; };
@@ -23,8 +24,6 @@
 		5ADC278520F28D0D00B77B88 /* animatable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC278320F28D0D00B77B88 /* animatable.cpp */; };
 		5ADC278A20F2A91E00B77B88 /* quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC278820F2939E00B77B88 /* quaternion.cpp */; };
 		5ADC278B20F2A92B00B77B88 /* vertex.inl in Sources */ = {isa = PBXBuildFile; fileRef = 5AA4B6D720EDD8E5003F61F1 /* vertex.inl */; };
-		5AE9E47220EC988D00304307 /* megranate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E47120EC988D00304307 /* megranate.m */; };
-		5AE9E47320EC988D00304307 /* megranate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5AE9E47020EC988D00304307 /* megranate.h */; };
 		5AE9E47C20EC9CB000304307 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E47A20EC9CB000304307 /* scene.cpp */; };
 		5AE9E47F20EC9CE700304307 /* component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E47D20EC9CE700304307 /* component.cpp */; };
 		5AE9E48220EC9CF700304307 /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9E48020EC9CF700304307 /* entity.cpp */; };
@@ -41,7 +40,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				5AE9E47320EC988D00304307 /* megranate.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +49,6 @@
 		5A0E104820F6FFC200D6FF95 /* shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
 		5A0E104920F6FFC200D6FF95 /* shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
 		5A0E104B20F7206600D6FF95 /* egl_context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = egl_context.cpp; sourceTree = "<group>"; };
-		5A0E104C20F7206600D6FF95 /* egl_context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = egl_context.hpp; sourceTree = "<group>"; };
 		5A0E104E20F73B7300D6FF95 /* log.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = log.cpp; sourceTree = "<group>"; };
 		5A0E104F20F73B7300D6FF95 /* log.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = log.hpp; sourceTree = "<group>"; };
 		5A0E105220F7494A00D6FF95 /* skeletal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = skeletal.cpp; sourceTree = "<group>"; };
@@ -71,6 +68,8 @@
 		5AA4B6D720EDD8E5003F61F1 /* vertex.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex.inl; sourceTree = "<group>"; };
 		5AA4B6D820EDD9B9003F61F1 /* vertex_binary.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex_binary.inl; sourceTree = "<group>"; };
 		5AA4B6DA20EDDF79003F61F1 /* precision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = precision.h; sourceTree = "<group>"; };
+		5AC84CF120F84F9E0049A21F /* single.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
+		5AC84CF220F877C70049A21F /* interface_render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interface_render.cpp; sourceTree = "<group>"; };
 		5ADC277220F1AC7400B77B88 /* traits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = traits.h; sourceTree = "<group>"; };
 		5ADC277320F1ACB300B77B88 /* policy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = policy.h; sourceTree = "<group>"; };
 		5ADC277420F1BA2E00B77B88 /* matrix_binary.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = matrix_binary.inl; sourceTree = "<group>"; };
@@ -88,8 +87,6 @@
 		5ADC278720F2927A00B77B88 /* config_render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config_render.h; sourceTree = "<group>"; };
 		5ADC278820F2939E00B77B88 /* quaternion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = quaternion.cpp; sourceTree = "<group>"; };
 		5AE9E46D20EC988D00304307 /* libmegranate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmegranate.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AE9E47020EC988D00304307 /* megranate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = megranate.h; sourceTree = "<group>"; };
-		5AE9E47120EC988D00304307 /* megranate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = megranate.m; sourceTree = "<group>"; };
 		5AE9E47A20EC9CB000304307 /* scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = scene.cpp; sourceTree = "<group>"; };
 		5AE9E47B20EC9CB000304307 /* scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = scene.hpp; sourceTree = "<group>"; };
 		5AE9E47D20EC9CE700304307 /* component.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = component.cpp; sourceTree = "<group>"; };
@@ -194,8 +191,6 @@
 				5AA4B6CF20EDAC5F003F61F1 /* math */,
 				5AE9E48320ECA39200304307 /* object */,
 				5AE9E47920EC9C2000304307 /* scene */,
-				5AE9E47020EC988D00304307 /* megranate.h */,
-				5AE9E47120EC988D00304307 /* megranate.m */,
 			);
 			path = megranate;
 			sourceTree = "<group>";
@@ -203,6 +198,7 @@
 		5AE9E47920EC9C2000304307 /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				5AC84CF220F877C70049A21F /* interface_render.cpp */,
 				5AE9E47A20EC9CB000304307 /* scene.cpp */,
 				5AE9E47B20EC9CB000304307 /* scene.hpp */,
 				5AE9E47D20EC9CE700304307 /* component.cpp */,
@@ -212,7 +208,6 @@
 				5ADC278320F28D0D00B77B88 /* animatable.cpp */,
 				5ADC278420F28D0D00B77B88 /* animatable.hpp */,
 				5A0E104B20F7206600D6FF95 /* egl_context.cpp */,
-				5A0E104C20F7206600D6FF95 /* egl_context.hpp */,
 				5A0E105920F778BB00D6FF95 /* pipeline.cpp */,
 				5A0E105A20F778BB00D6FF95 /* pipeline.hpp */,
 				5A0E105C20F7794D00D6FF95 /* camera.cpp */,
@@ -244,6 +239,7 @@
 				5ADC278720F2927A00B77B88 /* config_render.h */,
 				5A0E104E20F73B7300D6FF95 /* log.cpp */,
 				5A0E104F20F73B7300D6FF95 /* log.hpp */,
+				5AC84CF120F84F9E0049A21F /* single.h */,
 			);
 			path = object;
 			sourceTree = "<group>";
@@ -321,11 +317,11 @@
 				5ADC278B20F2A92B00B77B88 /* vertex.inl in Sources */,
 				5A0E105B20F778BB00D6FF95 /* pipeline.cpp in Sources */,
 				5A0E104A20F6FFC200D6FF95 /* shader.cpp in Sources */,
-				5AE9E47220EC988D00304307 /* megranate.m in Sources */,
 				5AE9E48B20ECB1B800304307 /* object.cpp in Sources */,
 				5AE9E47F20EC9CE700304307 /* component.cpp in Sources */,
 				5ADC277C20F1EE3700B77B88 /* texture.cpp in Sources */,
 				5A0E105020F73B7300D6FF95 /* log.cpp in Sources */,
+				5AC84CF320F877C70049A21F /* interface_render.cpp in Sources */,
 				5A0E105420F7494A00D6FF95 /* skeletal.cpp in Sources */,
 				5ADC277D20F1EE3700B77B88 /* stb_image.c in Sources */,
 			);

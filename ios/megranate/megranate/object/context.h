@@ -19,6 +19,7 @@
 namespace megranate {
     class Context : public RefCounted{
     public:
+        Context();
         ~Context();
         Object* create_object(StringHash key);
         Object* get_sub_system(StringHash key) const;
@@ -29,6 +30,7 @@ namespace megranate {
             register_factory(new ObjectFactoryImpl<T>(this));
         }
     private:
+        
         void register_factory(ObjectFactory*);
         
     private:

@@ -7,12 +7,11 @@
 //
 
 #import "ViewController.h"
-//#include "context.hpp"
 #include "interface_render.hpp"
 
 @interface ViewController ()
 {
-    struct ESContext _esContext;
+    struct megranate::ESContext _esContext;
 }
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLKBaseEffect *effect;
@@ -22,7 +21,7 @@
 @end
 
 @implementation ViewController
-CInterfaceRender _triangle;
+megranate::CInterfaceRender _triangle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

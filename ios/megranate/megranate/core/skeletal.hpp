@@ -130,7 +130,7 @@ namespace megranate {
     private:
         GLuint _bones_counts = 0;
         std::vector<GLuint> _vec_bones;
-        Shader _shader;
+        Shader* _shader = nullptr;
         Timer _time;
     };
 }

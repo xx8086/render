@@ -18,7 +18,6 @@ namespace megranate {
     }
     
     mg_bool Entity::draw(const Mat4f &mat){
-        //std::vector<Component*> _components;
         for(auto iter_comp = _components.begin();
             iter_comp != _components.end();
             iter_comp++){
@@ -91,22 +90,13 @@ namespace megranate {
         }
     }
     
-    Component* Entity::create_component(StringHash type, CreateMode mode, mg_uint id){
-        Component* new_component = dynamic_cast<Component*>(_context->create_object(type));
-        add_compoent(new_component);
-        return new_component;
-    }
-    
     void Entity::add_compoent(Component* comp){
         _components.emplace_back(comp);
     }
     
     mg_bool Entity::load(const mg_char* dir){
-        std::string strmodel(dir);
-        strmodel.append("/boblampclean.md5mesh");
-        //strmodel.append("/Hyperspace_Madness_Killamari_Minion2.fbx");
         Skeletal* skele= create_component<Skeletal>();
-        skele->load(strmodel);
+        skele->load(dir);
         return true;
     }
     
