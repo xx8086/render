@@ -495,4 +495,11 @@ namespace megranate {
         return NULL;
     }
 
+    mg_bool Skeletal::load(const std::string& strmodel){
+        load_mesh(strmodel);
+        set_bones_counts(num_bones());
+        bone_uniformlocation();
+        _shader.setint(_shader.getuniformlocation("gColorMap"), 0);
+        return true;
+    }
 }

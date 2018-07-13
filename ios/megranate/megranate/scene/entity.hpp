@@ -35,17 +35,16 @@ namespace megranate {
     public:
         Entity(Context* context);
     public:
+        mg_bool load(const mg_char*);
         mg_bool draw(const Mat4f &mat);
         mg_bool update();
-
-    public:
         mg_void translate(const Vec3f&, TransformSpace);
         mg_void set_postion(const Vec3f&);
         mg_void set_scale(mg_float);
         mg_void set_scale(const Vec3f&);
-        
+        mg_void add_children(Entity* children);
     public:
-        template<typename T> T* create_component(CreateMode mode, mg_uint id){
+        template<typename T> T* create_component(CreateMode mode = REPLICATED, mg_uint id = 0){
             return static_cast<T*>(create_component(T::get_type_static(), mode, id));
         }
         

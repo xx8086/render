@@ -31,9 +31,11 @@ namespace megranate {
         virtual mg_void shutdown();
         virtual mg_void touch_event();
         mg_void release();
-    public:
-        bool load_mesh(const std::string& Filename);
+        mg_bool load(const std::string&);
         void render();
+        
+    private:
+        bool load_mesh(const std::string& Filename);
         unsigned int num_bones() const{ return _num_bones;}
         void bone_transform(float, std::vector<Mat4f>&);
         void bone_uniformlocation();

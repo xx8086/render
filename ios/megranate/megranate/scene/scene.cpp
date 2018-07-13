@@ -19,8 +19,10 @@
 
 namespace megranate {
     Scene::Scene(Context* context) :
-    Object(context){
-        ;
+    Object(context), _context(context){
+        _entities.clear();
+        _root = new Entity(context);
+        _entities.emplace(StringHash("root"), _root);
     }
     
     Scene::~Scene(){
@@ -66,6 +68,7 @@ namespace megranate {
             }
         }
         _entities.clear();
+        _root = nullptr;
     }
     
     mg_bool Scene::update(){
@@ -73,21 +76,15 @@ namespace megranate {
     }
     
     Entity* Scene::create_child(std::string name, CreateMode mode, mg_uint id, mg_bool temporary){
-        Entity* entity;
+        Entity* entity = new Entity(_context);
+        _root->add_children(entity);
+        _entities.emplace(StringHash(name), entity);
         return entity;
-    }
-    
-    
-    Entity* Scene::create_child(mg_uint id, CreateMode mode, mg_bool temporary){
-        Entity* entity;
-        return entity;
-    }
-    
-    mg_void Scene::add_child(Entity* e, mg_uint index){
-        ;
     }
     
     mg_bool Scene::load_res(const mg_char* res){
+        Entity* entity = create_child("skeletal");
+        entity->load(res);
         return true;
     }
 }

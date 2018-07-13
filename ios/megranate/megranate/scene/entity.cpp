@@ -7,7 +7,7 @@
 //
 
 #include "entity.hpp"
-#include "component.hpp"
+#include "../core/skeletal.hpp"
 #include "../math/math_common.hpp"
 #include <assert.h>
 
@@ -101,5 +101,17 @@ namespace megranate {
         _components.emplace_back(comp);
     }
     
+    mg_bool Entity::load(const mg_char* dir){
+        std::string strmodel(dir);
+        strmodel.append("/boblampclean.md5mesh");
+        //strmodel.append("/Hyperspace_Madness_Killamari_Minion2.fbx");
+        Skeletal* skele= create_component<Skeletal>();
+        skele->load(strmodel);
+        return true;
+    }
     
+    mg_void Entity::add_children(Entity* children){
+        assert(nullptr != children);
+        _children.emplace_back(children);
+    }
 }
