@@ -51,7 +51,6 @@ namespace megranate {
         
         MgMatrix<T, M, N> operator+ (MgMatrix<T, M, N> const&) const;
         MgMatrix<T, M, N> operator- (MgMatrix<T, M, N> const&) const;
-        MgMatrix<T, M, N> operator* (MgMatrix<T, M, N> const&) const;
         MgMatrix<T, M, N> operator/ (MgMatrix<T, M, N> const&) const;
         MgMatrix<T, M, N> operator% (MgMatrix<T, M, N> const&) const;
         MgMatrix<T, M, N> operator+ (T const&);
@@ -61,7 +60,6 @@ namespace megranate {
         MgMatrix<T, M, N> operator% (T const&);
         MgMatrix<T, M, N>& operator+= (MgMatrix<T, M, N> const&);
         MgMatrix<T, M, N>& operator-= (MgMatrix<T, M, N> const&);
-        MgMatrix<T, M, N>& operator*= (MgMatrix<T, M, N> const&);
         MgMatrix<T, M, N>& operator/= (MgMatrix<T, M, N> const&);
         MgMatrix<T, M, N>& operator%= (MgMatrix<T, M, N> const&);
         MgMatrix<T, M, N>& operator+= (T const&);

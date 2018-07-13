@@ -112,8 +112,8 @@ megranate::CInterfaceRender _triangle;
     //NSString *model_path = [[NSBundle mainBundle] pathForResource:@"CS_02" ofType:@"fbx"];
     //_esContext.srcfile = [model_path cStringUsingEncoding:NSASCIIStringEncoding];
     _esContext.appdir = [dir cStringUsingEncoding:NSASCIIStringEncoding];
-    _esContext.width = 80;
-    _esContext.height = 110;
+    _esContext.width = 240;
+    _esContext.height = 320;
     _triangle.esMain(&_esContext);
 }
 - (void)tearDownGL

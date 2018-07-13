@@ -58,21 +58,6 @@ namespace megranate {
         return temp;
     }
     
-
-    TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator* (MgMatrix<T, M, N> const& other) const{
-        assert(M == N);
-        MgMatrix<T, M, N> temp;
-        for (unsigned int line = 0; line < M; line++) {
-            for (unsigned int col = 0; col < N; col++) {
-                for(unsigned int i = 0; i < M; i++){
-                    temp._m[line][col] += AP::ride(_m[line][i], other._m[i][col]);
-                }
-            }
-        }
-        return temp;
-    }
-    
     TEMPLARE_MG_MATRIX
     MgMatrix<T, M, N> MgMatrix<T, M, N, AP, AT>::operator/ (MgMatrix<T, M, N> const& other) const{
         MgMatrix<T, M, N> temp;
@@ -165,16 +150,6 @@ namespace megranate {
         for (unsigned int line = 0; line < M; line++) {
             for (unsigned int col = 0; col < N; col++) {
                 _m[line][col] = AP::sub(_m[line][col], other._m[line][col]);
-            }
-        }
-        return *this;
-    }
-
-    TEMPLARE_MG_MATRIX
-    MgMatrix<T, M, N>& MgMatrix<T, M, N, AP, AT>::operator*= (MgMatrix<T, M, N> const& other){
-        for (unsigned int line = 0; line < M; line++) {
-            for (unsigned int col = 0; col < N; col++) {
-                _m[line][col] = AP::ride(_m[line][col], other._m[line][col]);
             }
         }
         return *this;

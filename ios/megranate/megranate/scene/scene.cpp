@@ -40,7 +40,7 @@ namespace megranate {
         p.set_perspective_proj(_camera.get_proj_info());
         p.scale(0.1);
         p.rotate(270.0, 180.0, 0.0);
-        p.world_pos(0.0f, -2.5f, 0.0f);
+        p.world_pos(0.0f, -2.0f, 0.0f);
         _root->draw(p.get_pvw_trans());
         
     }
@@ -86,6 +86,7 @@ namespace megranate {
         _height = h;
         _camera.resize(w, h);
         glViewport (0, 0, _width, _height);
+        glEnable(GL_DEPTH_TEST);
     }
     
     mg_bool Scene::load_res(ESContext *esContext){

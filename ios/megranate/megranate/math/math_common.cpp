@@ -10,6 +10,20 @@
 #include "config_render.h"
 
 namespace megranate {
+    
+    Mat4f operator*(const Mat4f& left, const Mat4f& right){
+        Mat4f Ret;
+        for (unsigned int i = 0 ; i < 4 ; i++) {
+            for (unsigned int j = 0 ; j < 4 ; j++) {
+                Ret.m[i][j] = left.m[i][0] * right.m[0][j] +
+                left.m[i][1] * right.m[1][j] +
+                left.m[i][2] * right.m[2][j] +
+                left.m[i][3] * right.m[3][j];
+            }
+        }
+        return Ret;
+    }
+    
     float determinant(const Mat4f& mat4f)
     {
         return mat4f.m[0][0]*mat4f.m[1][1]*mat4f.m[2][2]*mat4f.m[3][3] - mat4f.m[0][0]*mat4f.m[1][1]*mat4f.m[2][3]*mat4f.m[3][2] + mat4f.m[0][0]*mat4f.m[1][2]*mat4f.m[2][3]*mat4f.m[3][1] - mat4f.m[0][0]*mat4f.m[1][2]*mat4f.m[2][1]*mat4f.m[3][3]

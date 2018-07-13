@@ -29,7 +29,7 @@ namespace megranate {
         t[3] = &t4;
         t[4] = &t5;
         for(unsigned int i = 0; i < N; i++){
-            TraitsN<T, N>::_datas[i] = AP::ride(TraitsN<T, N>::_datas[i], *t[i]);
+            TraitsN<T, N>::_datas[i] = *t[i];
         }
     }
     

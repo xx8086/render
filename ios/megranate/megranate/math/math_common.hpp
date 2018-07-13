@@ -15,6 +15,7 @@ namespace megranate {
     Vec3f cross(const Vec3f&, const Vec3f&);
     Mat4f Mat3to4(const Mat3f&);
     Mat3x4f Mat3to3_4(const Mat3f&);
+    Mat4f operator*(const Mat4f&, const Mat4f&);
     void init_mat_scale(Mat4f&, float, float, float);
     void init_mat_translation(Mat4f&, float, float, float);
     void init_rotate_transform(Mat4f&, float, float, float);
