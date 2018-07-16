@@ -35,19 +35,22 @@ namespace megranate {
         ;
     }
 
-    mg_void Skeletal::draw(const Mat4f &mat){
+    mg_void Skeletal::draw(const Mat4f &project, const Mat4f &view, const Mat4f &world){
         _shader->use();
         
         std::vector<Mat4f> transform;
         bone_transform(_time.interval_ms()/1000.0f, transform);//_bones_mesh
-        for (unsigned int i = 0 ; i < transform.size() ; i++) {
+        for (mg_uint i = 0 ; i < transform.size() ; i++) {
             set_bones_uniformlocation(i, transform[i]);
         }
-        
-        _shader->setmat4(_shader->getuniformlocation("pvw"), mat, GL_TRUE);
+        // (project * view * world)
+        _shader->setmat4(_shader->getuniformlocation("project"), project, GL_TRUE);
+        _shader->setmat4(_shader->getuniformlocation("view"), view, GL_TRUE);
+        _shader->setmat4(_shader->getuniformlocation("world"), world, GL_TRUE);
         render();
         _shader->unuse();
     }
+    
     mg_void Skeletal::shutdown(){
         glDeleteProgram (_shader->programid());
     }
@@ -67,23 +70,23 @@ namespace megranate {
     }
     
     
-    void Skeletal::bone_uniformlocation(){
+    mg_void Skeletal::bone_uniformlocation(){
         char bone_name[128];
         _vec_bones.resize(_bones_counts);
-        for (unsigned int i = 0; i < _bones_counts; i++) {
+        for (mg_uint i = 0; i < _bones_counts; i++) {
             memset(bone_name, 0, sizeof(bone_name));
             snprintf(bone_name, sizeof(bone_name), "gBones[%d]", i);
             _vec_bones[i] = _shader->getuniformlocation(bone_name);
         }
     }
     
-    void Skeletal::set_bones_uniformlocation(int index, Mat4f& m){
+    mg_void Skeletal::set_bones_uniformlocation(int index, Mat4f& m){
         assert(index >= 0 && _bones_counts > index);
         _shader->setmat4(_vec_bones[index], m, GL_TRUE);
     }
     
-    void Skeletal::VertexBoneData::add_bone_data(unsigned int bone_id, float weight){
-        for (uint i = 0 ; i < NUM_BONES_PER_VEREX; i++) {
+    mg_void Skeletal::VertexBoneData::add_bone_data(mg_uint bone_id, mg_float weight){
+        for (mg_uint i = 0 ; i < NUM_BONES_PER_VEREX; i++) {
             if (weights[i] == 0.0) {
                 ids[i]     = bone_id;
                 weights[i] = weight;
@@ -95,10 +98,8 @@ namespace megranate {
         assert(0);
     }
     
-    void Skeletal::clear(){
-        for (uint i = 0 ; i < _textures.size() ; i++) {
-            SAFE_DELETE(_textures[i]);
-        }
+    mg_void Skeletal::clear(){
+        _materials.release();
         
         if (_vbos[0] != 0) {
             glDeleteBuffers(ARRAY_SIZE_IN_ELEMENTS(_vbos), _vbos);
@@ -111,13 +112,13 @@ namespace megranate {
     }
     
     
-    bool Skeletal::load_mesh(const std::string& strfile){
+    mg_bool Skeletal::load_mesh(const std::string& strfile){
         clear();
         
         glGenVertexArrays(1, &_vao);
         glBindVertexArray(_vao);
         glGenBuffers(ARRAY_SIZE_IN_ELEMENTS(_vbos), _vbos);
-        bool ret = false;
+        mg_bool ret = false;
         _scene = _importer.ReadFile(strfile.c_str(), ASSIMP_LOAD_FLAGS);
         if (_scene) {
             aiMatrix4x4& aimt4 = _scene->mRootNode->mTransformation;
@@ -138,11 +139,9 @@ namespace megranate {
     }
     
     
-    bool Skeletal::load_scene(const aiScene* pScene, const std::string& strfile)
-    {
+    mg_bool Skeletal::load_scene(const aiScene* pScene, const std::string& strfile){
         _entries.resize(pScene->mNumMeshes);
-        _textures.resize(pScene->mNumMaterials);
-        
+        _materials.set_texture_size(pScene->mNumMaterials);
         std::vector<Vec3f> positions;
         std::vector<Vec3f> normals;
         std::vector<Vec2f> tex_coords;
@@ -151,7 +150,7 @@ namespace megranate {
         unsigned int num_vertices = 0;
         unsigned int num_indices = 0;
         
-        for (int i = 0 ; i < _entries.size() ; i++) {
+        for (mg_uint i = 0 ; i < _entries.size() ; i++) {
             _entries[i].material_index = pScene->mMeshes[i]->mMaterialIndex;
             _entries[i].num_indices    = pScene->mMeshes[i]->mNumFaces * 3;
             _entries[i].base_vertex    = num_vertices;
@@ -169,7 +168,7 @@ namespace megranate {
         indices.reserve(num_indices);
         
         // Initialize the meshes in the scene one by one
-        for (int i = 0 ; i < _entries.size() ; i++) {
+        for (mg_uint i = 0 ; i < _entries.size() ; i++) {
             const aiMesh* paiMesh = pScene->mMeshes[i];
             load_mesh(i, paiMesh, positions, normals, tex_coords, bones, indices);
         }
@@ -199,7 +198,7 @@ namespace megranate {
         glEnableVertexAttribArray(BONE_ID_LOCATION);
         glVertexAttribIPointer(BONE_ID_LOCATION, 4, GL_INT, sizeof(VertexBoneData), (const GLvoid*)0);
         glEnableVertexAttribArray(BONE_WEIGHT_LOCATION);
-        glVertexAttribPointer(BONE_WEIGHT_LOCATION, 4, GL_FLOAT, GL_FALSE, sizeof(VertexBoneData), (const GLvoid*)(sizeof(unsigned int)*NUM_BONES_PER_VEREX) );
+        glVertexAttribPointer(BONE_WEIGHT_LOCATION, 4, GL_FLOAT, GL_FALSE, sizeof(VertexBoneData), (const GLvoid*)(sizeof(mg_uint)*NUM_BONES_PER_VEREX) );
         
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbos[INDEX_BUFFER]);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices[0]) * indices.size(), &indices[0], GL_STATIC_DRAW);
@@ -208,15 +207,15 @@ namespace megranate {
     }
     
     
-    void Skeletal::load_mesh(unsigned int mesh_index,
+    mg_void Skeletal::load_mesh(mg_uint mesh_index,
                               const aiMesh* mesh,
                               std::vector<Vec3f>& positions,
                               std::vector<Vec3f>& normals,
                               std::vector<Vec2f>& tex_coords,
                               std::vector<VertexBoneData>& bones,
-                              std::vector<unsigned int>& indices){
+                              std::vector<mg_uint>& indices){
         const aiVector3D Zero3D(0.0f, 0.0f, 0.0f);
-        for (uint i = 0 ; i < mesh->mNumVertices ; i++) {
+        for (mg_uint i = 0 ; i < mesh->mNumVertices ; i++) {
             const aiVector3D* pos      = &(mesh->mVertices[i]);
             const aiVector3D* normal   = &(mesh->mNormals[i]);
             const aiVector3D* texcoord = mesh->HasTextureCoords(0) ? &(mesh->mTextureCoords[0][i]) : &Zero3D;
@@ -227,8 +226,8 @@ namespace megranate {
         }
         
         load_bones(mesh_index, mesh, bones);
-        unsigned int basevexter = _entries[mesh_index].base_vertex;
-        for (uint i = 0 ; i < mesh->mNumFaces ; i++) {
+        mg_uint basevexter = _entries[mesh_index].base_vertex;
+        for (mg_uint i = 0 ; i < mesh->mNumFaces ; i++) {
             const aiFace& Face = mesh->mFaces[i];
             assert(Face.mNumIndices == 3);
             indices.push_back(Face.mIndices[0] + basevexter);
@@ -238,12 +237,11 @@ namespace megranate {
     }
     
     
-    void Skeletal::load_bones(unsigned int mesh_index, const aiMesh* mesh, std::vector<VertexBoneData>& bones)
+    mg_void Skeletal::load_bones(mg_uint mesh_index, const aiMesh* mesh, std::vector<VertexBoneData>& bones)
     {
-        for (int i = 0 ; i < mesh->mNumBones ; i++) {
-            unsigned int bone_index = 0;
+        for (mg_uint i = 0 ; i < mesh->mNumBones ; i++) {
+            mg_uint bone_index = 0;
             std::string bone_name(mesh->mBones[i]->mName.data);
-            
             if (_bone_mapping.find(bone_name) == _bone_mapping.end()) {
                 bone_index = _num_bones;
                 _num_bones++;
@@ -261,15 +259,15 @@ namespace megranate {
                 bone_index = _bone_mapping[bone_name];
             }
             
-            for (int j = 0 ; j < mesh->mBones[i]->mNumWeights ; j++) {
-                unsigned int vertex_id = _entries[mesh_index].base_vertex + mesh->mBones[i]->mWeights[j].mVertexId;
+            for (mg_uint j = 0 ; j < mesh->mBones[i]->mNumWeights ; j++) {
+                mg_uint vertex_id = _entries[mesh_index].base_vertex + mesh->mBones[i]->mWeights[j].mVertexId;
                 bones[vertex_id].add_bone_data(bone_index, mesh->mBones[i]->mWeights[j].mWeight);
             }
         }
     }
     
     
-    bool Skeletal::load_materials(const aiScene* pScene, const std::string& strfile){
+    mg_bool Skeletal::load_materials(const aiScene* pScene, const std::string& strfile){
         std::string::size_type slash_index = strfile.find_last_of("/");
         std::string std_dir;
         if (slash_index == std::string::npos) {
@@ -282,10 +280,9 @@ namespace megranate {
             std_dir = strfile.substr(0, slash_index);
         }
         
-        bool ret = true;
-        for (int i = 0 ; i < pScene->mNumMaterials ; i++) {
+        mg_bool ret = true;
+        for (mg_uint i = 0 ; i < pScene->mNumMaterials ; i++) {
             const aiMaterial* material = pScene->mMaterials[i];
-            _textures[i] = NULL;
             if (material->GetTextureCount(aiTextureType_DIFFUSE) > 0) {
                 aiString path;
                 if (material->GetTexture(aiTextureType_DIFFUSE, 0, &path, NULL, NULL, NULL, NULL, NULL) == AI_SUCCESS) {
@@ -295,16 +292,7 @@ namespace megranate {
                     }
                     
                     std::string full_path = std_dir + "/" + p;
-                    _textures[i] = new TextureGl();
-                    if (!_textures[i]->load_texture(full_path)) {
-                        printf("Error loading texture '%s'\n", full_path.c_str());
-                        delete _textures[i];
-                        _textures[i] = NULL;
-                        ret = false;
-                    }
-                    else {
-                        printf("%d - loaded texture '%s'\n", i, full_path.c_str());
-                    }
+                    ret = _materials.push_texture(i, full_path);
                 }
             }
         }
@@ -313,16 +301,12 @@ namespace megranate {
     }
     
     
-    void Skeletal::render(){
+    mg_void Skeletal::render(){
         glBindVertexArray(_vao);
-        int entries_size = _entries.size() - 1;
-        for (int i = 0 ; i < _entries.size() ; i++) {
-            const uint MaterialIndex = _entries[i].material_index;
-            assert(MaterialIndex < _textures.size());
-            if (_textures[MaterialIndex]) {
-                _textures[MaterialIndex]->bind(GL_TEXTURE0);
-            }
-            
+        mg_uint entries_size = _entries.size() - 1;
+        for (mg_uint i = 0 ; i < _entries.size() ; i++) {
+            const mg_uint MaterialIndex = _entries[i].material_index;
+            _materials.render(MaterialIndex);
             glDrawElements(GL_TRIANGLES,
                            _entries[i].num_indices,
                            GL_UNSIGNED_INT,
@@ -333,9 +317,9 @@ namespace megranate {
     }
     
     
-    uint Skeletal::find_position(float animation_time, const aiNodeAnim* node_anim)
+    mg_uint Skeletal::find_position(float animation_time, const aiNodeAnim* node_anim)
     {
-        for (uint i = 0 ; i < node_anim->mNumPositionKeys - 1 ; i++) {
+        for (mg_uint i = 0 ; i < node_anim->mNumPositionKeys - 1 ; i++) {
             if (animation_time < (float)node_anim->mPositionKeys[i + 1].mTime) {
                 return i;
             }
@@ -346,9 +330,9 @@ namespace megranate {
     }
     
     
-    uint Skeletal::find_rotation(float animation_time, const aiNodeAnim* node_anim){
+    mg_uint Skeletal::find_rotation(float animation_time, const aiNodeAnim* node_anim){
         assert(node_anim->mNumRotationKeys > 0);
-        for (uint i = 0 ; i < node_anim->mNumRotationKeys - 1 ; i++) {
+        for (mg_uint i = 0 ; i < node_anim->mNumRotationKeys - 1 ; i++) {
             if (animation_time < (float)node_anim->mRotationKeys[i + 1].mTime) {
                 return i;
             }
@@ -359,28 +343,27 @@ namespace megranate {
     }
     
     
-    uint Skeletal::find_scaling(float animation_time, const aiNodeAnim* node_anim){
+    mg_uint Skeletal::find_scaling(float animation_time, const aiNodeAnim* node_anim){
         assert(node_anim->mNumScalingKeys > 0);
-        for (uint i = 0 ; i < node_anim->mNumScalingKeys - 1 ; i++) {
+        for (mg_uint i = 0 ; i < node_anim->mNumScalingKeys - 1 ; i++) {
             if (animation_time < (float)node_anim->mScalingKeys[i + 1].mTime) {
                 return i;
             }
         }
         
         assert(0);
-        
         return 0;
     }
     
     
-    void Skeletal::CalcInterpolatedPosition(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim){
+    mg_void Skeletal::calc_interpolated_position(aiVector3D& Out, mg_float AnimationTime, const aiNodeAnim* pNodeAnim){
         if (pNodeAnim->mNumPositionKeys == 1) {
             Out = pNodeAnim->mPositionKeys[0].mValue;
             return;
         }
         
-        uint PositionIndex = find_position(AnimationTime, pNodeAnim);
-        uint NextPositionIndex = (PositionIndex + 1);
+        mg_uint PositionIndex = find_position(AnimationTime, pNodeAnim);
+        mg_uint NextPositionIndex = (PositionIndex + 1);
         assert(NextPositionIndex < pNodeAnim->mNumPositionKeys);
         float DeltaTime = (float)(pNodeAnim->mPositionKeys[NextPositionIndex].mTime - pNodeAnim->mPositionKeys[PositionIndex].mTime);
         float Factor = (AnimationTime - (float)pNodeAnim->mPositionKeys[PositionIndex].mTime) / DeltaTime;
@@ -392,15 +375,15 @@ namespace megranate {
     }
     
     
-    void Skeletal::CalcInterpolatedRotation(aiQuaternion& Out, float AnimationTime, const aiNodeAnim* pNodeAnim){
+    mg_void Skeletal::calc_interpolated_rotation(aiQuaternion& Out, mg_float AnimationTime, const aiNodeAnim* pNodeAnim){
         // we need at least two values to interpolate...
         if (pNodeAnim->mNumRotationKeys == 1) {
             Out = pNodeAnim->mRotationKeys[0].mValue;
             return;
         }
         
-        uint RotationIndex = find_rotation(AnimationTime, pNodeAnim);
-        uint NextRotationIndex = (RotationIndex + 1);
+        mg_uint RotationIndex = find_rotation(AnimationTime, pNodeAnim);
+        mg_uint NextRotationIndex = (RotationIndex + 1);
         assert(NextRotationIndex < pNodeAnim->mNumRotationKeys);
         float DeltaTime = (float)(pNodeAnim->mRotationKeys[NextRotationIndex].mTime - pNodeAnim->mRotationKeys[RotationIndex].mTime);
         float Factor = (AnimationTime - (float)pNodeAnim->mRotationKeys[RotationIndex].mTime) / DeltaTime;
@@ -412,14 +395,14 @@ namespace megranate {
     }
     
     
-    void Skeletal::CalcInterpolatedScaling(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim){
+    mg_void Skeletal::calc_interpolated_scaling(aiVector3D& Out, mg_float AnimationTime, const aiNodeAnim* pNodeAnim){
         if (pNodeAnim->mNumScalingKeys == 1) {
             Out = pNodeAnim->mScalingKeys[0].mValue;
             return;
         }
         
-        uint ScalingIndex = find_scaling(AnimationTime, pNodeAnim);
-        uint NextScalingIndex = (ScalingIndex + 1);
+        mg_uint ScalingIndex = find_scaling(AnimationTime, pNodeAnim);
+        mg_uint NextScalingIndex = (ScalingIndex + 1);
         assert(NextScalingIndex < pNodeAnim->mNumScalingKeys);
         float DeltaTime = (float)(pNodeAnim->mScalingKeys[NextScalingIndex].mTime - pNodeAnim->mScalingKeys[ScalingIndex].mTime);
         float Factor = (AnimationTime - (float)pNodeAnim->mScalingKeys[ScalingIndex].mTime) / DeltaTime;
@@ -431,7 +414,7 @@ namespace megranate {
     }
     
     
-    void Skeletal::read_node_heirarchy(float animation_time, const aiNode* node, const Mat4f& parent_transform){
+    mg_void Skeletal::read_node_heirarchy(float animation_time, const aiNode* node, const Mat4f& parent_transform){
         std::string node_name(node->mName.data);
         const aiAnimation* animation = _scene->mAnimations[0];
         const aiMatrix4x4& aimt4 = node->mTransformation;
@@ -440,15 +423,14 @@ namespace megranate {
                                   aimt4.c1, aimt4.c2, aimt4.c3, aimt4.c4,
                                   aimt4.d1, aimt4.d2, aimt4.d3, aimt4.d4);
         const aiNodeAnim* node_anim = find_node_anim(animation, node_name);
-        
         if (node_anim) {
             aiVector3D scaling;
-            CalcInterpolatedScaling(scaling, animation_time, node_anim);
+            calc_interpolated_scaling(scaling, animation_time, node_anim);
             Mat4f scaling_mat;
             init_mat_scale(scaling_mat, scaling.x, scaling.y, scaling.z);
             
             aiQuaternion rotation_quate;
-            CalcInterpolatedRotation(rotation_quate, animation_time, node_anim);
+            calc_interpolated_rotation(rotation_quate, animation_time, node_anim);
             const aiMatrix3x3& aimt3 = rotation_quate.GetMatrix();
             Mat4f rotation_mat = Mat4f(aimt3.a1, aimt3.a2, aimt3.a3, 0.0f,
                                        aimt3.b1, aimt3.b2, aimt3.b3, 0.0f,
@@ -456,7 +438,7 @@ namespace megranate {
                                        0.0f,     0.0f,     0.0f,     1.0f);
             
             aiVector3D translation;
-            CalcInterpolatedPosition(translation, animation_time, node_anim);
+            calc_interpolated_position(translation, animation_time, node_anim);
             Mat4f translation_mat;
             init_mat_translation(translation_mat, translation.x, translation.y, translation.z);
             node_transformation = translation_mat * rotation_mat * scaling_mat;
@@ -464,32 +446,32 @@ namespace megranate {
         
         Mat4f global_transformation = parent_transform * node_transformation;
         if (_bone_mapping.find(node_name) != _bone_mapping.end()) {
-            uint bone_index = _bone_mapping[node_name];
+            mg_uint bone_index = _bone_mapping[node_name];
             _bone_info[bone_index].FinalTransformation = _global_inverse_transform * global_transformation * _bone_info[bone_index].BoneOffset;
         }
         
-        for (uint i = 0 ; i < node->mNumChildren ; i++) {
+        for (mg_uint i = 0 ; i < node->mNumChildren ; i++) {
             read_node_heirarchy(animation_time, node->mChildren[i], global_transformation);
         }
     }
     
     
-    void Skeletal::bone_transform(float seconds, std::vector<Mat4f>& transforms){
+    mg_void Skeletal::bone_transform(mg_float seconds, std::vector<Mat4f>& transforms){
         Mat4f indentity;
         indentity.identity();
-        float ticks_per_second = (float)(_scene->mAnimations[0]->mTicksPerSecond != 0 ? _scene->mAnimations[0]->mTicksPerSecond : 25.0f);
-        float time_ticks = seconds * ticks_per_second;
-        float animation_time = fmod(time_ticks, (float)_scene->mAnimations[0]->mDuration);
+        mg_float ticks_per_second = (mg_float)(_scene->mAnimations[0]->mTicksPerSecond != 0 ? _scene->mAnimations[0]->mTicksPerSecond : 25.0f);
+        mg_float time_ticks = seconds * ticks_per_second;
+        mg_float animation_time = fmod(time_ticks, (mg_float)_scene->mAnimations[0]->mDuration);
         read_node_heirarchy(animation_time, _scene->mRootNode, indentity);
         transforms.resize(_num_bones);
-        for (uint i = 0 ; i < _num_bones ; i++) {
+        for (mg_uint i = 0 ; i < _num_bones ; i++) {
             transforms[i] = _bone_info[i].FinalTransformation;
         }
     }
     
     
     const aiNodeAnim* Skeletal::find_node_anim(const aiAnimation* animation, const std::string node_name){
-        for (uint i = 0 ; i < animation->mNumChannels ; i++) {
+        for (mg_uint i = 0 ; i < animation->mNumChannels ; i++) {
             const aiNodeAnim* node_anim = animation->mChannels[i];
             if (std::string(node_anim->mNodeName.data) == node_name) {
                 return node_anim;

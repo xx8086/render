@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:megranate/megranate/core/fonts/poly2tri"
+      name = "poly2tri">
+      <Group
+         location = "group:common"
+         name = "common">
+         <FileRef
+            location = "group:shapes.cc">
+         </FileRef>
+         <FileRef
+            location = "group:shapes.h">
+         </FileRef>
+         <FileRef
+            location = "group:utils.h">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:poly2tri.h">
+      </FileRef>
+      <Group
+         location = "group:sweep"
+         name = "sweep">
+         <FileRef
+            location = "group:advancing_front.cc">
+         </FileRef>
+         <FileRef
+            location = "group:advancing_front.h">
+         </FileRef>
+         <FileRef
+            location = "group:cdt.cc">
+         </FileRef>
+         <FileRef
+            location = "group:cdt.h">
+         </FileRef>
+         <FileRef
+            location = "group:sweep.cc">
+         </FileRef>
+         <FileRef
+            location = "group:sweep.h">
+         </FileRef>
+         <FileRef
+            location = "group:sweep_context.cc">
+         </FileRef>
+         <FileRef
+            location = "group:sweep_context.h">
+         </FileRef>
+      </Group>
+   </Group>
    <FileRef
       location = "group:megranate/megranate.xcodeproj">
    </FileRef>

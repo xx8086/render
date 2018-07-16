@@ -7,8 +7,10 @@
 //
 
 #include "entity.hpp"
-#include "../core/skeletal.hpp"
+//#include "../core/skeletal.hpp"
+#include "../core/fonts/font.h"
 #include "../math/math_common.hpp"
+#include "camera.hpp"
 #include <assert.h>
 
 namespace megranate {
@@ -17,17 +19,25 @@ namespace megranate {
         ;
     }
     
-    mg_bool Entity::draw(const Mat4f &mat){
+    mg_bool Entity::draw(Camera& camera){
+        _pipeline.set_camera(Vec3f(0.0f, 0.0f, -10.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 1.0f, 0.0f));
+        _pipeline.set_perspective_proj(camera.get_proj_info());
+        //scalae *= _generate_tri.get_sizeface_scalae(100.0);
+        _pipeline.scale(0.0001);
+        static float r = 1.0;
+        _pipeline.rotate(r++, 0.0f,0.0);
+        _pipeline.world_pos(-3.0f, 0.0f, 0.0f);
+        
         for(auto iter_comp = _components.begin();
             iter_comp != _components.end();
             iter_comp++){
-            (*iter_comp)->draw(mat);
+            (*iter_comp)->draw(_pipeline.get_proj_trans(), _pipeline.get_view_trans(), _pipeline.get_world_trans());
         }
         
         for(auto iter_entity = _children.begin();
             iter_entity != _children.end();
             iter_entity++){
-            (*iter_entity)->draw(mat);
+            (*iter_entity)->draw(camera);
         }
         
         return true;
@@ -46,6 +56,11 @@ namespace megranate {
     mg_void Entity::set_postion(const Vec3f& pos){
         _postion = pos;
     }
+    
+    mg_void Entity::set_rotation(const Vec3f& rotation){
+        _rotation = rotation;
+    }
+    
     mg_void Entity::set_scale(float scale){
         set_scale(Vec3f(scale, scale, scale));
     }
@@ -95,7 +110,7 @@ namespace megranate {
     }
     
     mg_bool Entity::load(const mg_char* dir){
-        Skeletal* skele= create_component<Skeletal>();
+        CFont* skele= create_component<CFont>();
         skele->load(dir);
         return true;
     }

@@ -31,6 +31,7 @@ namespace megranate {
         GLboolean loadshader(const mg_char* vs, const mg_char* fs);
         GLboolean loadshader(const mg_char* dir, const mg_char* vs_file_name, const mg_char* fs_file_name);
         const GLuint& programid() const;
+        mg_int getuniformlocation(const mg_char* name);
         mg_void use();
         mg_void unuse();
         mg_void setbool(GLint location, mg_bool value) const;
@@ -40,7 +41,7 @@ namespace megranate {
         mg_void setvec3(GLint location, mg_float x, mg_float y, mg_float z) const;
         mg_void setvec4(GLint location, mg_float x, mg_float y, mg_float z, mg_float w);
         mg_void setmat4(GLint location, const Mat4f &mat, GLboolean transpose = GL_FALSE) const;
-        mg_int getuniformlocation(const mg_char* name);
+        mg_void set_attrib_location(const mg_char *name, mg_int i);
     private:
         GLuint loadshader(GLenum type, const mg_char *shader_src);
     private:

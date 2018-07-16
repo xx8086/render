@@ -49,17 +49,17 @@ namespace megranate {
         EYE_RIGHT
     };
     
-    class Camera
-    {
+    class Camera{
     public:
         Camera(Vec3f position = Vec3f(0.0f, 0.0f, 0.0f),
                Vec3f target = Vec3f(0.0f, 0.0f, 1.0f),
                Vec3f up = Vec3f(0.0f, 1.0f, 0.0f));
         
-        const Vec3f& get_postion();
+        const Vec3f& get_position();
         const Vec3f& get_up();
         const Vec3f& get_target();
         const PersProjInfo& get_proj_info()const ;
+        void set_postion(Vec3f);
         void set_proj_info(PersProjInfo proj);
         void resize(float w, float h);
         void process_key_board(Camera_Movement direction, float deltaTime);

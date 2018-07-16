@@ -10,6 +10,7 @@
 
 #ifdef __APPLE__
 #include <OpenGLES/ES3/gl.h>
+#include <OpenGLES/ES3/glext.h>
 #else
 #include <GLES3/gl3.h>
 #include <EGL/egl.h>
@@ -34,14 +35,7 @@ namespace megranate {
         }
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
-        Pipeline p;
-        p.set_camera(Vec3f(0.0f, 0.0f, -10.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 1.0f, 0.0f));
-        p.set_perspective_proj(_camera.get_proj_info());
-        p.scale(0.1);
-        p.rotate(270.0, 180.0, 0.0);
-        p.world_pos(0.0f, -2.0f, 0.0f);
-        _root->draw(p.get_pvw_trans());
+        _root->draw(_camera);
         
     }
     
@@ -56,7 +50,6 @@ namespace megranate {
     mg_void Scene::keyboard(){
         ;
     }
-    //
     
     mg_void Scene::release(){
         for (std::map<StringHash, Entity*>::iterator iter = _entities.begin();
@@ -92,14 +85,14 @@ namespace megranate {
     mg_bool Scene::load_res(ESContext *esContext){
         resize(esContext->width, esContext->height);
         PersProjInfo sp;
-        sp.FOV = 60;
+        sp.FOV = 45;
         sp.Width = esContext->width;
         sp.Height = esContext->height;
         sp.zNear = 0.1;
         sp.zFar = 100;
         _camera.set_proj_info(sp);
-        
-        Entity* entity = create_child("skeletal");
+        _camera.set_postion(Vec3f(0.0f, 0.0f, 0.0f));
+        Entity* entity = create_child("fonts");
         entity->load(esContext->appdir);
         return true;
     }

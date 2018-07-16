@@ -8,12 +8,14 @@
 
 #include "context.h"
 #include "../core/skeletal.hpp"
+#include "../core/fonts/font.h"
 #include <assert.h>
 
 namespace megranate {
     
     Context::Context(){
         register_factory<Skeletal>();
+        register_factory<CFont>();
     }
     
     Context::~Context(){

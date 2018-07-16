@@ -16,6 +16,7 @@
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
 #include "timer.hpp"
+#include "../render/materials.hpp"
 #include <vector>
 #include <map>
 
@@ -27,20 +28,20 @@ namespace megranate {
         ~Skeletal();
     public:
         virtual mg_void update();
-        virtual mg_void draw(const Mat4f &mat);
+        virtual mg_void draw(const Mat4f &project, const Mat4f &view, const Mat4f &world);
         virtual mg_void shutdown();
         virtual mg_void touch_event();
         mg_void release();
+        mg_void render();
         mg_bool load(const std::string&);
-        void render();
         
     private:
-        bool load_mesh(const std::string& Filename);
-        unsigned int num_bones() const{ return _num_bones;}
-        void bone_transform(float, std::vector<Mat4f>&);
-        void bone_uniformlocation();
-        void set_bones_uniformlocation(int index, Mat4f& m);
-        void set_bones_counts(GLuint counts){_bones_counts = counts;};
+        mg_bool load_mesh(const std::string& Filename);
+        mg_uint num_bones() const{ return _num_bones;}
+        mg_void bone_transform(float, std::vector<Mat4f>&);
+        mg_void bone_uniformlocation();
+        mg_void set_bones_uniformlocation(mg_int index, Mat4f& m);
+        mg_void set_bones_counts(GLuint counts){_bones_counts = counts;};
     private:
 #define NUM_BONES_PER_VEREX 24
         struct BoneInfo{
@@ -54,40 +55,39 @@ namespace megranate {
         };
         
         struct VertexBoneData{
-            unsigned int ids[NUM_BONES_PER_VEREX];
-            float weights[NUM_BONES_PER_VEREX];
+            mg_uint ids[NUM_BONES_PER_VEREX];
+            mg_float weights[NUM_BONES_PER_VEREX];
             VertexBoneData(){
                 reset();
             };
             
-            void reset(){
+            mg_void reset(){
                 memset(ids, 0, sizeof(ids));
                 memset(weights, 0, sizeof(weights));
             }
             
-            void add_bone_data(unsigned int, float);
+            mg_void add_bone_data(mg_uint, mg_float);
         };
         
-        void CalcInterpolatedScaling(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
-        void CalcInterpolatedRotation(aiQuaternion& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
-        void CalcInterpolatedPosition(aiVector3D& Out, float AnimationTime, const aiNodeAnim* pNodeAnim);
-        uint find_scaling(float, const aiNodeAnim*);
-        uint find_rotation(float, const aiNodeAnim*);
-        uint find_position(float, const aiNodeAnim*);
-        const aiNodeAnim* find_node_anim(const aiAnimation*, const std::string);
-        void read_node_heirarchy(float, const aiNode*, const Mat4f&);
-        bool load_scene(const aiScene*, const std::string&);
-        void load_mesh(unsigned int,
+        mg_uint find_scaling(mg_float, const aiNodeAnim*);
+        mg_uint find_rotation(mg_float, const aiNodeAnim*);
+        mg_uint find_position(mg_float, const aiNodeAnim*);
+        mg_void calc_interpolated_scaling(aiVector3D& Out, mg_float AnimationTime, const aiNodeAnim* pNodeAnim);
+        mg_void calc_interpolated_rotation(aiQuaternion& Out, mg_float AnimationTime, const aiNodeAnim* pNodeAnim);
+        mg_void calc_interpolated_position(aiVector3D& Out, mg_float AnimationTime, const aiNodeAnim* pNodeAnim);
+        mg_void read_node_heirarchy(mg_float, const aiNode*, const Mat4f&);
+        mg_void load_mesh(mg_uint,
                        const aiMesh*,
                        std::vector<Vec3f>&,
                        std::vector<Vec3f>&,
                        std::vector<Vec2f>&,
                        std::vector<VertexBoneData>&,
-                       std::vector<unsigned int>&);
-        void load_bones(unsigned int, const aiMesh*, std::vector<VertexBoneData>&);
-        bool load_materials(const aiScene*, const std::string&);
-        void clear();
-        
+                       std::vector<mg_uint>&);
+        mg_void load_bones(mg_uint, const aiMesh*, std::vector<VertexBoneData>&);
+        mg_void clear();
+        mg_bool load_materials(const aiScene*, const std::string&);
+        mg_bool load_scene(const aiScene*, const std::string&);
+        const aiNodeAnim* find_node_anim(const aiAnimation*, const std::string);
 #define INVALID_MATERIAL 0xFFFFFFFF
         
         enum VB_TYPES {
@@ -118,15 +118,13 @@ namespace megranate {
         };
         
         std::vector<MeshEntry> _entries;
-        std::vector<TextureGl*> _textures;
-        std::map<std::string,unsigned int> _bone_mapping;
-        unsigned int _num_bones;
+        std::map<std::string, mg_uint> _bone_mapping;
         std::vector<BoneInfo> _bone_info;
-        Mat4f _global_inverse_transform;
-        
-        const aiScene* _scene;
+        mg_uint _num_bones;
         Assimp::Importer _importer;
-
+        Materials _materials;
+        Mat4f _global_inverse_transform;
+        const aiScene* _scene;
     private:
         GLuint _bones_counts = 0;
         std::vector<GLuint> _vec_bones;

@@ -7,6 +7,7 @@
 //
 
 #include "component.hpp"
+#include "entity.hpp"
 
 namespace megranate {
 

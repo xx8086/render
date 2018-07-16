@@ -19,6 +19,11 @@
 		5A594A4520E1E36900888446 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A594A4420E1E36900888446 /* main.m */; };
 		5A8C70DF20E1FEC900B421FD /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A594A6E20E1E54D00888446 /* GLKit.framework */; };
 		5A8C719220E2596000B421FD /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8C719120E2596000B421FD /* libz.1.tbd */; };
+		5A9838EA20FC8B6100D85749 /* hz.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 5A9838E920FC8B6100D85749 /* hz.ttc */; };
+		5A98390020FC920200D85749 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9838CE20FC636800D85749 /* libfreetype.a */; };
+		5A98390220FC921E00D85749 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A98390120FC921D00D85749 /* libbz2.tbd */; };
+		5A98390520FC9A7B00D85749 /* fonts.vs in Resources */ = {isa = PBXBuildFile; fileRef = 5A98390320FC9A7A00D85749 /* fonts.vs */; };
+		5A98390620FC9A7B00D85749 /* fonts.fs in Resources */ = {isa = PBXBuildFile; fileRef = 5A98390420FC9A7A00D85749 /* fonts.fs */; };
 		5AA3CDFE20EB896200078596 /* boblampclean.md5mesh in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDF720EB896200078596 /* boblampclean.md5mesh */; };
 		5AA3CDFF20EB896200078596 /* guard1_face.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDF820EB896200078596 /* guard1_face.tga */; };
 		5AA3CE0020EB896200078596 /* round_grill.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDF920EB896200078596 /* round_grill.tga */; };
@@ -68,6 +73,11 @@
 		5A594A6E20E1E54D00888446 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		5A8C70EC20E2035D00B421FD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		5A8C719120E2596000B421FD /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		5A9838CE20FC636800D85749 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../3rd/libfreetype.a; sourceTree = "<group>"; };
+		5A9838E920FC8B6100D85749 /* hz.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = hz.ttc; sourceTree = "<group>"; };
+		5A98390120FC921D00D85749 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		5A98390320FC9A7A00D85749 /* fonts.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fonts.vs; sourceTree = "<group>"; };
+		5A98390420FC9A7A00D85749 /* fonts.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fonts.fs; sourceTree = "<group>"; };
 		5AA3CDF720EB896200078596 /* boblampclean.md5mesh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = boblampclean.md5mesh; sourceTree = "<group>"; };
 		5AA3CDF820EB896200078596 /* guard1_face.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = guard1_face.tga; sourceTree = "<group>"; };
 		5AA3CDF920EB896200078596 /* round_grill.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = round_grill.tga; sourceTree = "<group>"; };
@@ -87,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A98390220FC921E00D85749 /* libbz2.tbd in Frameworks */,
+				5A98390020FC920200D85749 /* libfreetype.a in Frameworks */,
 				5AC84CF720F87F1E0049A21F /* libmegranate.a in Frameworks */,
 				5AD986CD20EC6C0F004256D0 /* libassimp.a in Frameworks */,
 				5A8C719220E2596000B421FD /* libz.1.tbd in Frameworks */,
@@ -114,6 +126,8 @@
 		5A34FA7C20E37604009D8EBF /* shader */ = {
 			isa = PBXGroup;
 			children = (
+				5A98390420FC9A7A00D85749 /* fonts.fs */,
+				5A98390320FC9A7A00D85749 /* fonts.vs */,
 				5A34FA7D20E37604009D8EBF /* skinning.fs */,
 				5A34FA7E20E37604009D8EBF /* skinning.vs */,
 				5A34FA7F20E37604009D8EBF /* triangle.fs */,
@@ -164,6 +178,8 @@
 		5A594A6C20E1E4DB00888446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A98390120FC921D00D85749 /* libbz2.tbd */,
+				5A9838CE20FC636800D85749 /* libfreetype.a */,
 				5AC84CF820F87F1E0049A21F /* libmegranate.a */,
 				5A0E105820F76E7200D6FF95 /* libmegranate.a */,
 				5AD986CF20EC6DDD004256D0 /* librender.a */,
@@ -178,6 +194,7 @@
 		5AA3CDE920EB76D300078596 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				5A9838E920FC8B6100D85749 /* hz.ttc */,
 				5AA3CDEA20EB76D300078596 /* fbx */,
 				5AA3CDEE20EB76D300078596 /* md5 */,
 			);
@@ -331,7 +348,10 @@
 				5A594A3D20E1E36900888446 /* Main.storyboard in Resources */,
 				5AA3CE0220EB896200078596 /* boblampclean.md5anim in Resources */,
 				5AA3CE0020EB896200078596 /* round_grill.tga in Resources */,
+				5A98390620FC9A7B00D85749 /* fonts.fs in Resources */,
+				5A98390520FC9A7B00D85749 /* fonts.vs in Resources */,
 				5A34FA8120E37620009D8EBF /* skinning.fs in Resources */,
+				5A9838EA20FC8B6100D85749 /* hz.ttc in Resources */,
 				5A34FA8220E37620009D8EBF /* skinning.vs in Resources */,
 				5AA3CDFE20EB896200078596 /* boblampclean.md5mesh in Resources */,
 				5A34FA8320E37620009D8EBF /* triangle.fs in Resources */,

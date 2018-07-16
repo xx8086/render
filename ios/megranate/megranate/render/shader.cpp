@@ -161,5 +161,14 @@ namespace megranate {
     int Shader::getuniformlocation(const char* name){
         return glGetUniformLocation(_program, name);
     }
+    
+    mg_void Shader::set_attrib_location(const mg_char *name, mg_int i){
+        glGetError();
+        glBindAttribLocation(_program, i, name);
+        int error = glGetError();
+        if (error != GL_NO_ERROR) {
+            log_printf("set_attrib_location is error(%d)! %s\n", error, name);
+        };
+    }
 
 }

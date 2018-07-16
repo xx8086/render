@@ -14,11 +14,12 @@
 #include "type_render.h"
 #include "entity.hpp"
 #include "context.h"
+#include "pipeline.hpp"
 #include <vector>
 
 namespace megranate {
     class Component;
-    
+    class Camera;
     enum CreateMode{
         REPLICATED = 0,
         LOCAL = 1,
@@ -36,10 +37,11 @@ namespace megranate {
         Entity(Context* context);
 
         mg_bool load(const mg_char*);
-        mg_bool draw(const Mat4f &mat);
+        mg_bool draw(Camera& camera);
         mg_bool update();
         mg_void translate(const Vec3f&, TransformSpace);
         mg_void set_postion(const Vec3f&);
+        mg_void set_rotation(const Vec3f&);
         mg_void set_scale(mg_float);
         mg_void set_scale(const Vec3f&);
         mg_void add_children(Entity* children);
@@ -63,8 +65,6 @@ namespace megranate {
         
     private:
         mg_void remove_component(StringHash type);
-        
-        
         mg_void add_compoent(Component*);
     private:
         mg_uint  _id;
@@ -72,13 +72,20 @@ namespace megranate {
         Entity* _parent = nullptr;
         std::vector<Entity*> _children;
         std::vector<Component*> _components;
+        Vec3f _rotation;
         Vec3f _postion;
         Vec3f _scale;
         //Quaternion _rotation;
         //mutable Quaternion _world_rotation;
         mutable Mat4f _world_transform;
+        /*
+         p.scale(0.1);
+         p.rotate(270.0, 180.0, 0.0);
+         p.world_pos(0.0f, -2.0f, 0.0f);
+         */
         std::string _name;
         std::string _hash;
+        Pipeline _pipeline;
         
     };
 }

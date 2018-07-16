@@ -28,6 +28,11 @@ namespace megranate {
         me.y = W.y;
         me.z = W.z;
     }
+
+    void Camera::set_postion(Vec3f position){
+        _position = position;
+        //update_camera_vectors();
+    }
     
     Camera::Camera(Vec3f position, Vec3f target, Vec3f up) : _position(position), _target(target), _up(up){
         update_camera_vectors();
@@ -64,12 +69,14 @@ namespace megranate {
         
     }
     
-    const Vec3f& Camera::get_postion(){
+    const Vec3f& Camera::get_position(){
         return _position;
     }
+    
     const Vec3f& Camera::get_up(){
         return _up;
     }
+    
     const Vec3f& Camera::get_target(){
         return _target;
     }
