@@ -15,6 +15,7 @@
 #include "entity.hpp"
 #include "context.h"
 #include "pipeline.hpp"
+#include "component.hpp"
 #include <vector>
 
 namespace megranate {
@@ -36,7 +37,7 @@ namespace megranate {
     public:
         Entity(Context* context);
 
-        mg_bool load(const mg_char*);
+        mg_bool load_res(const std::string&);
         mg_bool draw(Camera& camera);
         mg_bool update();
         mg_void translate(const Vec3f&, TransformSpace);

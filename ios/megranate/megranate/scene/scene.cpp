@@ -17,6 +17,9 @@
 #include <EGL/eglext.h>
 #endif
 
+#include "../core/skeletal.hpp"
+#include "../core/fonts/font.h"
+
 namespace megranate {
     Scene::Scene(Context* context) :
     Object(context), _context(context){
@@ -92,8 +95,22 @@ namespace megranate {
         sp.zFar = 100;
         _camera.set_proj_info(sp);
         _camera.set_postion(Vec3f(0.0f, 0.0f, 0.0f));
-        Entity* entity = create_child("fonts");
-        entity->load(esContext->appdir);
+        
+        Entity* entity_fonts = create_child("fonts");
+        CFont* fonts = entity_fonts->create_component<CFont>();
+        entity_fonts->load_res(esContext->appdir);
+        entity_fonts->set_postion(Vec3f(-3.0f, 0.0f, 0.0f));
+        entity_fonts->set_rotation(Vec3f(0.0f, 0.0f, 0.0f));
+        entity_fonts->set_scale(fonts->get_scalae());
+/*
+        Entity* entity_skeletal = create_child("Skeletal");
+        Skeletal* skeletal = entity_skeletal->create_component<Skeletal>();
+        entity_skeletal->load_res(esContext->appdir);
+        entity_skeletal->set_postion(Vec3f(0.0f, 0.0f, 0.0f));
+        entity_skeletal->set_rotation(Vec3f(0.0f, 0.0f, 0.0f));
+        entity_skeletal->set_scale(0.1f);
+*/
+        //Skeletal* skeletal = entity->create_component<Skeletal>();
         return true;
     }
 }

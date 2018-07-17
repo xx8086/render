@@ -481,7 +481,7 @@ namespace megranate {
         return NULL;
     }
 
-    mg_bool Skeletal::load(const std::string& strdir){
+    mg_bool Skeletal::load_res(const std::string& strdir){
         if (GL_FALSE == _shader->loadshader(strdir.c_str(),
                                            "skinning.vs",
                                            "skinning.fs")){

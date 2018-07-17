@@ -25,15 +25,16 @@ namespace megranate {
         MEGRANATE_OBJECT(Skeletal, Object);
     public:
         Skeletal(Context* context);
-        ~Skeletal();
+        virtual ~Skeletal();
     public:
+        virtual mg_bool load_res(const std::string&);
         virtual mg_void update();
         virtual mg_void draw(const Mat4f &project, const Mat4f &view, const Mat4f &world);
         virtual mg_void shutdown();
         virtual mg_void touch_event();
         mg_void release();
         mg_void render();
-        mg_bool load(const std::string&);
+        
         
     private:
         mg_bool load_mesh(const std::string& Filename);

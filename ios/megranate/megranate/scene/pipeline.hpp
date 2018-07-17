@@ -10,6 +10,7 @@
 #define pipeline_hpp
 
 #include "camera.hpp"
+#include "../object/base_type.h"
 
 namespace megranate {
     
@@ -32,56 +33,56 @@ namespace megranate {
         _world_pos(0.0f, 0.0f, 0.0f),
         _rotate_info(0.0f, 0.0f, 0.0f){}
         
-        void scale(float s){
+        mg_void scale(mg_float s){
             scale(s, s, s);
         }
         
         
-        void scale(const Vec3f& s){
+        mg_void scale(const Vec3f& s){
             scale(s.x, s.y, s.z);
         }
         
-        void scale(float scale_x, float scale_y, float scale_z){
+        mg_void scale(mg_float scale_x, mg_float scale_y, mg_float scale_z){
             _scale.x = scale_x;
             _scale.y = scale_y;
             _scale.z = scale_z;
         }
         
-        void world_pos(float x, float y, float z){
+        mg_void world_pos(mg_float x, mg_float y, mg_float z){
             _world_pos.x = x;
             _world_pos.y = y;
             _world_pos.z = z;
         }
         
-        void world_pos(const Vec3f& pos){
+        mg_void world_pos(const Vec3f& pos){
             _world_pos = pos;
         }
         
-        void rotate(float rotate_x, float rotate_y, float rotate_z){
+        mg_void rotate(mg_float rotate_x, mg_float rotate_y, mg_float rotate_z){
             _rotate_info.x = rotate_x;
             _rotate_info.y = rotate_y;
             _rotate_info.z = rotate_z;
         }
         
-        void rotate(const Vec3f& r){
+        mg_void rotate(const Vec3f& r){
             rotate(r.x, r.y, r.z);
         }
         
-        void set_perspective_proj(const PersProjInfo& p){
+        mg_void set_perspective_proj(const PersProjInfo& p){
             _pers_proj_info = p;
         }
         
-        void set_orthographic_proj(const OrthoProjInfo& p){
+        mg_void set_orthographic_proj(const OrthoProjInfo& p){
             _ortho_proj_info = p;
         }
         
-        void set_camera(const Vec3f& pos, const Vec3f& target, const Vec3f& up){
+        mg_void set_camera(const Vec3f& pos, const Vec3f& target, const Vec3f& up){
             _camera.pos = pos;
             _camera.target = target;
             _camera.up = up;
         }
         
-        void orient(const Orientation& o){
+        mg_void orient(const Orientation& o){
             _scale      = o.scale;
             _world_pos   = o.pos;
             _rotate_info = o.rotation;
@@ -92,6 +93,12 @@ namespace megranate {
         const Mat4f& get_world_trans();
         const Mat4f& get_view_trans();
         const Mat4f& get_proj_trans();
+        
+        mg_void set_wvp_trans();
+        mg_void set_pvw_trans();
+        mg_void set_world_trans();
+        mg_void set_view_trans();
+        mg_void set_proj_trans();
         
         void init_persproj_transform(Mat4f& m4f, const PersProjInfo& p);
     private:

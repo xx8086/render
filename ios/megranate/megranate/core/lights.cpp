@@ -9,7 +9,7 @@
 #include "lights.hpp"
 
 namespace megranate {
-    Lights::Lights(Context* context) : Object(context){
+    Lights::Lights(Context* context) : Component(context){
         ;
     }
 }

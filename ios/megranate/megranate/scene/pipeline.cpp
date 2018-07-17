@@ -24,42 +24,51 @@ namespace megranate {
         m4f.m[3][0] = 0.0f;                   m4f.m[3][1] = 0.0f;            m4f.m[3][2] = 1.0f;            m4f.m[3][3] = 0.0;
     }
     
-    const Mat4f& Pipeline::get_proj_trans(){
-        init_persproj_transform(_proj_transformation, _pers_proj_info);
-        return _proj_transformation;
+    mg_void Pipeline::set_wvp_trans(){
+        get_world_trans();
+        get_view_trans();
+        get_proj_trans();
+        _wvp_transformation = _w_transformation * _v_transformation * _proj_transformation;
     }
-    
-    const Mat4f& Pipeline::get_world_trans(){
+    mg_void Pipeline::set_pvw_trans(){
+        get_world_trans();
+        get_view_trans();
+        get_proj_trans();
+        _pvw_transformation = _proj_transformation * _v_transformation * _w_transformation;
+    }
+    mg_void Pipeline::set_world_trans(){
         Mat4f ScaleTrans, RotateTrans, TranslationTrans;
         init_mat_scale(ScaleTrans, _scale.x, _scale.y, _scale.z);
         init_rotate_transform(RotateTrans, _rotate_info.x, _rotate_info.y, _rotate_info.z);
         init_mat_translation(TranslationTrans, _world_pos.x, _world_pos.y, _world_pos.z);
         _w_transformation = TranslationTrans * RotateTrans * ScaleTrans;
-        return _w_transformation;
     }
-    
-    const Mat4f& Pipeline::get_view_trans(){
+    mg_void Pipeline::set_view_trans(){
         Mat4f CameraTranslationTrans, CameraRotateTrans;
         init_mat_translation(CameraTranslationTrans, -_camera.pos.x, -_camera.pos.y, -_camera.pos.z);
         init_camera_transform(CameraRotateTrans, _camera.target, _camera.up);
         _v_transformation = CameraRotateTrans * CameraTranslationTrans;
-        
+    }
+    mg_void Pipeline::set_proj_trans(){
+        init_persproj_transform(_proj_transformation, _pers_proj_info);
+    }
+    const Mat4f& Pipeline::get_proj_trans(){
+        return _proj_transformation;
+    }
+    
+    const Mat4f& Pipeline::get_world_trans(){
+        return _w_transformation;
+    }
+    
+    const Mat4f& Pipeline::get_view_trans(){
         return _v_transformation;
     }
     
     const Mat4f& Pipeline::get_wvp_trans(){
-        get_world_trans();
-        get_view_trans();
-        get_proj_trans();
-        _wvp_transformation = _w_transformation * _v_transformation * _proj_transformation;
         return _wvp_transformation;
     }
     
     const Mat4f& Pipeline::get_pvw_trans(){
-        get_world_trans();
-        get_view_trans();
-        get_proj_trans();
-        _pvw_transformation = _proj_transformation * _v_transformation * _w_transformation;
         return _pvw_transformation;
     }
 }

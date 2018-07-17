@@ -67,14 +67,14 @@ namespace megranate{
     }
     void CFont::shader3dfont(){
         _c3dfont.set_fontfile(_str_fontttf.c_str());
-        _scalae *= _c3dfont.get_sizeface_scalae(400.0);
+        _scalae *= _c3dfont.get_sizeface_scalae(1.0);
         _c3dfont.set_depth(800.0);
         _c3dfont.set_outset(1.0, 1.0);
         _c3dfont.load_freetype();
         _c3dfont.insert_words((wchar_t*)_wstr_content.c_str(), _wstr_content.size());
     }
     
-    mg_bool CFont::load(const std::string& strdir){
+    mg_bool CFont::load_res(const std::string& strdir){
         if (GL_FALSE == _fontshader->loadshader(strdir.c_str(),
                                                 "fonts.vs",
                                                 "fonts.fs")){

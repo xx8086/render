@@ -7,8 +7,6 @@
 //
 
 #include "entity.hpp"
-//#include "../core/skeletal.hpp"
-#include "../core/fonts/font.h"
 #include "../math/math_common.hpp"
 #include "camera.hpp"
 #include <assert.h>
@@ -22,12 +20,12 @@ namespace megranate {
     mg_bool Entity::draw(Camera& camera){
         _pipeline.set_camera(Vec3f(0.0f, 0.0f, -10.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 1.0f, 0.0f));
         _pipeline.set_perspective_proj(camera.get_proj_info());
-        //scalae *= _generate_tri.get_sizeface_scalae(100.0);
-        _pipeline.scale(0.0001);
-        static float r = 1.0;
-        _pipeline.rotate(r++, 0.0f,0.0);
-        _pipeline.world_pos(-3.0f, 0.0f, 0.0f);
-        
+        _pipeline.scale(_scale);
+        _pipeline.rotate(_rotation);
+        _pipeline.world_pos(_postion);
+        _pipeline.set_proj_trans();
+        _pipeline.set_view_trans();
+        _pipeline.set_world_trans();
         for(auto iter_comp = _components.begin();
             iter_comp != _components.end();
             iter_comp++){
@@ -75,7 +73,8 @@ namespace megranate {
         for (std::vector<Component*>::iterator iter = _components.begin();
             iter != _components.end();
             iter++){
-            if ((*iter)->get_type() == hash){
+            if ((*iter)->get_type() == hash)
+            {
                 comp = *iter ;
                 break;
             }
@@ -98,7 +97,8 @@ namespace megranate {
         for (auto iter = _components.begin();
             iter != _components.end();
             iter++){
-            if ((*iter)->get_type() == type){
+            if ((*iter)->get_type() == type)
+            {
                 _components.erase(iter);
                 break;
             }
@@ -109,9 +109,12 @@ namespace megranate {
         _components.emplace_back(comp);
     }
     
-    mg_bool Entity::load(const mg_char* dir){
-        CFont* skele= create_component<CFont>();
-        skele->load(dir);
+    mg_bool Entity::load_res(const std::string& dir){
+        for(auto iter_comp = _components.begin();
+            iter_comp != _components.end();
+            iter_comp++){
+            (*iter_comp)->load_res(dir);
+        }
         return true;
     }
     

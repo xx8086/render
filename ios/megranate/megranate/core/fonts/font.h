@@ -19,13 +19,13 @@ namespace megranate{
         MEGRANATE_OBJECT(CFont, Object);
     public:
         CFont(Context* context);
-        ~CFont() {};
-        
-    public:
+        virtual ~CFont() {};
+        virtual mg_bool load_res(const std::string&);
         virtual mg_void draw(const Mat4f&, const Mat4f&, const Mat4f&);
         void set_ttf(std::string _ttf);
+        mg_float get_scalae() const {return _scalae;};
+    private:
         void shader3dfont();
-        mg_bool load(const std::string&);
     private: 
         std::string _str_fontttf;
         std::wstring _wstr_content = L"abc3@烤&串";
@@ -38,7 +38,7 @@ namespace megranate{
         
     private:
         CGenerateTri _c3dfont;
-        float _scalae = 2.0;
+        mg_float _scalae = 1.0;
     };
 }
 
