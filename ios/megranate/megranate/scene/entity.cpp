@@ -42,6 +42,12 @@ namespace megranate {
     }
     
     mg_bool Entity::update(){
+        for(auto iter_comp = _components.begin();
+            iter_comp != _components.end();
+            iter_comp++){
+            (*iter_comp)->update();
+        }
+        
         size_t children_size = _children.size();
         for(mg_int i = 0; i < children_size; i++){
             assert(nullptr != _children[i]);

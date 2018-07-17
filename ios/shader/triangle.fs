@@ -1,5 +1,5 @@
 #version 300 es
-precision mediump float;
+precision highp float;
 in vec2 TexCoords;
 uniform sampler2D texture_diffuse1;
 layout(location = 0) out vec4 o_FragColor;

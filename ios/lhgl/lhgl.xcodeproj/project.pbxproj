@@ -32,6 +32,9 @@
 		5AA3CE0320EB896200078596 /* guard1_helmet.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFC20EB896200078596 /* guard1_helmet.tga */; };
 		5AA3CE0420EB896200078596 /* guard1_body.tga in Resources */ = {isa = PBXBuildFile; fileRef = 5AA3CDFD20EB896200078596 /* guard1_body.tga */; };
 		5AC84CF720F87F1E0049A21F /* libmegranate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC84CF820F87F1E0049A21F /* libmegranate.a */; };
+		5AD966A620FDC55A004E8587 /* niuyan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AD966A520FDC55A004E8587 /* niuyan.jpg */; };
+		5AD966A920FDCD33004E8587 /* effect_face.vs in Resources */ = {isa = PBXBuildFile; fileRef = 5AD966A720FDCD33004E8587 /* effect_face.vs */; };
+		5AD966AA20FDCD33004E8587 /* effect_face.fs in Resources */ = {isa = PBXBuildFile; fileRef = 5AD966A820FDCD33004E8587 /* effect_face.fs */; };
 		5AD986CD20EC6C0F004256D0 /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD986CC20EC6C0F004256D0 /* libassimp.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +91,9 @@
 		5AC84CF520F8798F0049A21F /* egl_context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = egl_context.hpp; sourceTree = "<group>"; };
 		5AC84CF620F8798F0049A21F /* interface_render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = interface_render.hpp; sourceTree = "<group>"; };
 		5AC84CF820F87F1E0049A21F /* libmegranate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libmegranate.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD966A520FDC55A004E8587 /* niuyan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = niuyan.jpg; sourceTree = "<group>"; };
+		5AD966A720FDCD33004E8587 /* effect_face.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = effect_face.vs; sourceTree = "<group>"; };
+		5AD966A820FDCD33004E8587 /* effect_face.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = effect_face.fs; sourceTree = "<group>"; };
 		5AD986CC20EC6C0F004256D0 /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = ../3rd/libassimp.a; sourceTree = "<group>"; };
 		5AD986CF20EC6DDD004256D0 /* librender.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librender.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +132,7 @@
 		5A34FA7C20E37604009D8EBF /* shader */ = {
 			isa = PBXGroup;
 			children = (
+				5AD966A120FDC385004E8587 /* effect */,
 				5A98390420FC9A7A00D85749 /* fonts.fs */,
 				5A98390320FC9A7A00D85749 /* fonts.vs */,
 				5A34FA7D20E37604009D8EBF /* skinning.fs */,
@@ -194,6 +201,7 @@
 		5AA3CDE920EB76D300078596 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				5AD966A520FDC55A004E8587 /* niuyan.jpg */,
 				5A9838E920FC8B6100D85749 /* hz.ttc */,
 				5AA3CDEA20EB76D300078596 /* fbx */,
 				5AA3CDEE20EB76D300078596 /* md5 */,
@@ -231,6 +239,15 @@
 			);
 			name = include;
 			path = ../megranate/include;
+			sourceTree = "<group>";
+		};
+		5AD966A120FDC385004E8587 /* effect */ = {
+			isa = PBXGroup;
+			children = (
+				5AD966A820FDCD33004E8587 /* effect_face.fs */,
+				5AD966A720FDCD33004E8587 /* effect_face.vs */,
+			);
+			path = effect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,11 +368,14 @@
 				5A98390620FC9A7B00D85749 /* fonts.fs in Resources */,
 				5A98390520FC9A7B00D85749 /* fonts.vs in Resources */,
 				5A34FA8120E37620009D8EBF /* skinning.fs in Resources */,
+				5AD966A920FDCD33004E8587 /* effect_face.vs in Resources */,
 				5A9838EA20FC8B6100D85749 /* hz.ttc in Resources */,
 				5A34FA8220E37620009D8EBF /* skinning.vs in Resources */,
 				5AA3CDFE20EB896200078596 /* boblampclean.md5mesh in Resources */,
+				5AD966AA20FDCD33004E8587 /* effect_face.fs in Resources */,
 				5A34FA8320E37620009D8EBF /* triangle.fs in Resources */,
 				5A34FA8420E37620009D8EBF /* triangle.vs in Resources */,
+				5AD966A620FDC55A004E8587 /* niuyan.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

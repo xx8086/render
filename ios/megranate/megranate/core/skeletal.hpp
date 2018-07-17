@@ -9,7 +9,7 @@
 #ifndef skeletal_hpp
 #define skeletal_hpp
 
-#include "component.hpp"
+#include "../scene/component.hpp"
 #include "shader.hpp"
 #include "texture.hpp"
 #include "assimp/Importer.hpp"

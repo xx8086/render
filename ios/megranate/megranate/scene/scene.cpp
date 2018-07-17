@@ -19,6 +19,7 @@
 
 #include "../core/skeletal.hpp"
 #include "../core/fonts/font.h"
+#include "../core/effect/effect.hpp"
 
 namespace megranate {
     Scene::Scene(Context* context) :
@@ -95,21 +96,30 @@ namespace megranate {
         sp.zFar = 100;
         _camera.set_proj_info(sp);
         _camera.set_postion(Vec3f(0.0f, 0.0f, -10.0f));
- /*
+#if 0
         Entity* entity_fonts = create_child("fonts");
         CFont* fonts = entity_fonts->create_component<CFont>();
         entity_fonts->load_res(esContext->appdir);
         entity_fonts->set_postion(Vec3f(-3.0f, 0.0f, 0.0f));
         entity_fonts->set_rotation(Vec3f(0.0f, 0.0f, 0.0f));
         entity_fonts->set_scale(fonts->get_scalae());
-*/
+#endif
+#if 0
         Entity* entity_skeletal = create_child("Skeletal");
         Skeletal* skeletal = entity_skeletal->create_component<Skeletal>();
         entity_skeletal->load_res(esContext->appdir);
         entity_skeletal->set_postion(Vec3f(0.0f, -3.3f, 0.0f));
         entity_skeletal->set_rotation(Vec3f(-90.0f, 180.0f, 0.0f));
         entity_skeletal->set_scale(0.1f);
-
+#endif
+#if 1
+        Entity* entity_effect = create_child("Effect");
+        Effect* effect = entity_effect->create_component<Effect>();
+        entity_effect->load_res(esContext->appdir);
+      //effect.hpp
+#endif
+        
+        
         //Skeletal* skeletal = entity->create_component<Skeletal>();
         return true;
     }

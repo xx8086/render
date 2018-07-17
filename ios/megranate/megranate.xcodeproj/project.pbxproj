@@ -30,6 +30,7 @@
 		5A9838FE20FC8C1E00D85749 /* sweep_context.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A9838F820FC8C1E00D85749 /* sweep_context.cc */; };
 		5AA4B6D220EDACBB003F61F1 /* matrix.inl in Sources */ = {isa = PBXBuildFile; fileRef = 5AA4B6D020EDACBB003F61F1 /* matrix.inl */; };
 		5AC84CF320F877C70049A21F /* interface_render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AC84CF220F877C70049A21F /* interface_render.cpp */; };
+		5AD966A420FDC3DF004E8587 /* effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AD966A220FDC3DF004E8587 /* effect.cpp */; };
 		5ADC277B20F1EE3700B77B88 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC277620F1EE3600B77B88 /* timer.cpp */; };
 		5ADC277C20F1EE3700B77B88 /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC277820F1EE3700B77B88 /* texture.cpp */; };
 		5ADC277D20F1EE3700B77B88 /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ADC277920F1EE3700B77B88 /* stb_image.c */; };
@@ -114,6 +115,16 @@
 		5AA4B6DA20EDDF79003F61F1 /* precision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = precision.h; sourceTree = "<group>"; };
 		5AC84CF120F84F9E0049A21F /* single.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		5AC84CF220F877C70049A21F /* interface_render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interface_render.cpp; sourceTree = "<group>"; };
+		5AD966A220FDC3DF004E8587 /* effect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = effect.cpp; sourceTree = "<group>"; };
+		5AD966A320FDC3DF004E8587 /* effect.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = effect.hpp; sourceTree = "<group>"; };
+		5AD966AE20FDD9AB004E8587 /* effect_face.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = effect_face.fs; sourceTree = "<group>"; };
+		5AD966AF20FDD9AB004E8587 /* effect_face.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = effect_face.vs; sourceTree = "<group>"; };
+		5AD966B020FDD9AB004E8587 /* fonts.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fonts.fs; sourceTree = "<group>"; };
+		5AD966B120FDD9AB004E8587 /* fonts.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = fonts.vs; sourceTree = "<group>"; };
+		5AD966B220FDD9AB004E8587 /* skinning.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = skinning.fs; sourceTree = "<group>"; };
+		5AD966B320FDD9AB004E8587 /* skinning.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = skinning.vs; sourceTree = "<group>"; };
+		5AD966B420FDD9AB004E8587 /* triangle.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = triangle.fs; sourceTree = "<group>"; };
+		5AD966B520FDD9AB004E8587 /* triangle.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = triangle.vs; sourceTree = "<group>"; };
 		5ADC277220F1AC7400B77B88 /* traits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = traits.h; sourceTree = "<group>"; };
 		5ADC277320F1ACB300B77B88 /* policy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = policy.h; sourceTree = "<group>"; };
 		5ADC277420F1BA2E00B77B88 /* matrix_binary.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = matrix_binary.inl; sourceTree = "<group>"; };
@@ -175,6 +186,8 @@
 		5A0FD4C520F5D8DF00AA504F /* core */ = {
 			isa = PBXGroup;
 			children = (
+				5AD966AC20FDD9AB004E8587 /* shader */,
+				5AD9669F20FDC35A004E8587 /* effect */,
 				5A9838D020FC847700D85749 /* fonts */,
 				5A0FD4C620F5D8F500AA504F /* lights.cpp */,
 				5A0FD4C720F5D8F500AA504F /* lights.hpp */,
@@ -270,6 +283,39 @@
 				5A705A7F20F4E3CB000AFB16 /* matrix_specialization.inl */,
 			);
 			path = math;
+			sourceTree = "<group>";
+		};
+		5AD9669F20FDC35A004E8587 /* effect */ = {
+			isa = PBXGroup;
+			children = (
+				5AD966A220FDC3DF004E8587 /* effect.cpp */,
+				5AD966A320FDC3DF004E8587 /* effect.hpp */,
+			);
+			path = effect;
+			sourceTree = "<group>";
+		};
+		5AD966AC20FDD9AB004E8587 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				5AD966AD20FDD9AB004E8587 /* effect */,
+				5AD966B020FDD9AB004E8587 /* fonts.fs */,
+				5AD966B120FDD9AB004E8587 /* fonts.vs */,
+				5AD966B220FDD9AB004E8587 /* skinning.fs */,
+				5AD966B320FDD9AB004E8587 /* skinning.vs */,
+				5AD966B420FDD9AB004E8587 /* triangle.fs */,
+				5AD966B520FDD9AB004E8587 /* triangle.vs */,
+			);
+			name = shader;
+			path = ../../../shader;
+			sourceTree = "<group>";
+		};
+		5AD966AD20FDD9AB004E8587 /* effect */ = {
+			isa = PBXGroup;
+			children = (
+				5AD966AE20FDD9AB004E8587 /* effect_face.fs */,
+				5AD966AF20FDD9AB004E8587 /* effect_face.vs */,
+			);
+			path = effect;
 			sourceTree = "<group>";
 		};
 		5ADC277F20F1EF1800B77B88 /* Frameworks */ = {
@@ -416,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD966A420FDC3DF004E8587 /* effect.cpp in Sources */,
 				5A9838FE20FC8C1E00D85749 /* sweep_context.cc in Sources */,
 				5A9838E520FC847700D85749 /* ftpoint.cpp in Sources */,
 				5A9838FA20FC8C1E00D85749 /* shapes.cc in Sources */,

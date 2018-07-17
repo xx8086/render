@@ -9,6 +9,7 @@
 #include "context.h"
 #include "../core/skeletal.hpp"
 #include "../core/fonts/font.h"
+#include "../core/effect/effect.hpp"
 #include <assert.h>
 
 namespace megranate {
@@ -16,6 +17,7 @@ namespace megranate {
     Context::Context(){
         register_factory<Skeletal>();
         register_factory<CFont>();
+        register_factory<Effect>();
     }
     
     Context::~Context(){

@@ -11,7 +11,7 @@
 #include "basefont.h"
 #include "./3dfontskit/ftgenerate_tri.h"
 #include "shader.hpp"
-#include "component.hpp"
+#include "../../scene/component.hpp"
 #include <string>
 
 namespace megranate{
