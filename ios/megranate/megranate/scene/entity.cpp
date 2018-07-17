@@ -18,7 +18,7 @@ namespace megranate {
     }
     
     mg_bool Entity::draw(Camera& camera){
-        _pipeline.set_camera(Vec3f(0.0f, 0.0f, -10.0f), Vec3f(0.0f, 0.0f, 1.0f), Vec3f(0.0f, 1.0f, 0.0f));
+        _pipeline.set_camera(camera.get_position(), camera.get_target(), camera.get_up());
         _pipeline.set_perspective_proj(camera.get_proj_info());
         _pipeline.scale(_scale);
         _pipeline.rotate(_rotation);

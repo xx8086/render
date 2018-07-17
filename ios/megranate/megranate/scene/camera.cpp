@@ -53,7 +53,7 @@ namespace megranate {
     
     void Camera::update_camera_vectors(){
         const Vec3f Vaxis(0.0f, 1.0f, 0.0f);
-        Vec3f View(1.0f, 0.0f, 0.0f);
+        Vec3f View(0.0f, 0.0f, 1.0f);
         rotate(View, _angle_h, Vaxis);
         View.normalize();
         
