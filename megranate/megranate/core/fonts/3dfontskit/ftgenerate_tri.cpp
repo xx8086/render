@@ -12,6 +12,7 @@
 #include <cstdio>
 #include <clocale>
 #include <assert.h>
+#include <stdlib.h>
 
 #ifdef __APPLE__
 #include <OpenGLES/ES3/gl.h>
@@ -39,7 +40,14 @@ std::string ws2s(const std::wstring &ws)
     size_t _Dsize = 2 * ws.size() + 1;
     char *_Dest = new char[_Dsize];
     memset(_Dest, 0, _Dsize);
-    std::wcstombs(_Dest, _Source, _Dsize);
+    
+#ifdef _WIN32 
+	size_t   i;
+	wcstombs_s(&i, _Dest, _Dsize, _Source, _Dsize);
+#else
+	std::wcstombs(_Dest, _Source, _Dsize);
+#endif
+
     std::string result = _Dest;
     delete[] _Dest;
 

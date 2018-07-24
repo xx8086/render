@@ -310,7 +310,7 @@ namespace megranate {
             glDrawElements(GL_TRIANGLES,
                            _entries[i].num_indices,
                            GL_UNSIGNED_INT,
-                           (void*)(sizeof(uint) * _entries[i].base_index));
+                           (void*)(sizeof(mg_uint) * _entries[i].base_index));
         }
         
         glBindVertexArray(0);

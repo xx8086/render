@@ -8,7 +8,7 @@
 
 #ifndef animatable_hpp
 #define animatable_hpp
-#include "object.h"
+#include "../object/object.h"
 
 namespace megranate {
     class Animatable : public Object{

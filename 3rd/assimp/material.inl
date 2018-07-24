@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef AI_MATERIAL_INL_INC
 #define AI_MATERIAL_INL_INC
-
+#include <math.h>
 //! @cond never
 
 // ---------------------------------------------------------------------------
@@ -87,8 +87,13 @@ inline aiReturn aiMaterial::Get(const char* pKey,unsigned int type,
         if (prop->mType != aiPTI_Buffer) {
             return AI_FAILURE;
         }
-
-        iNum = std::min((size_t)iNum,prop->mDataLength / sizeof(Type));
+#ifdef _WIN32
+        size_t ms_inum = (size_t)iNum;
+        size_t ms_len = prop->mDataLength / sizeof(Type);
+        iNum = ms_inum < ms_len ? ms_inum : ms_len;
+#else
+        iNum = std::min((size_t)iNum, prop->mDataLength / sizeof(Type));
+#endif
         ::memcpy(pOut,prop->mData,iNum * sizeof(Type));
         if (pMax) {
             *pMax = iNum;

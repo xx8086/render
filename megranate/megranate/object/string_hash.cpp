@@ -41,8 +41,12 @@ namespace megranate {
     }
     
     std::string StringHash::to_std_string() const{
-        mg_char temp_buffer[CONVERSION_BUFFER_LENGTH];
-        sprintf(temp_buffer, "%08X", _hash_value);
+        mg_char temp_buffer[CONVERSION_BUFFER_LENGTH];   
+#ifdef _WIN32 
+		sprintf_s(temp_buffer, CONVERSION_BUFFER_LENGTH, "%08X", _hash_value);
+#else
+		sprintf(temp_buffer, "%08X", _hash_value);
+#endif    
         return std::string(temp_buffer);
     }
 

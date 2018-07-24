@@ -17,9 +17,8 @@
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 #endif
+namespace megranate{
 
-namespace megranate {
-    
 #ifdef WIN32
 #define ESUTIL_API  __cdecl
 #define ESCALLBACK  __cdecl

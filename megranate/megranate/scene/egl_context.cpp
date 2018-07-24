@@ -10,7 +10,7 @@
 #include <fstream>
 #include <sstream>
 #include "scene.hpp"
-
+#include "esUtil_win.h"
 //#include <iosfwd>//input output stream forward
 
 #ifdef ANDROID

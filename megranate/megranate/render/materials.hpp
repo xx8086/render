@@ -8,7 +8,7 @@
 
 #ifndef materials_hpp
 #define materials_hpp
-#include "texture.hpp"
+#include "../object/texture.hpp"
 #include <vector>
 
 namespace megranate {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0D4AF121065B70005262FE /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D4AF021065B70005262FE /* stb_image.cpp */; };
 		5AA673002105052900578C2A /* effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672A02105052900578C2A /* effect.cpp */; };
 		5AA673012105052900578C2A /* ftcontour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672A42105052900578C2A /* ftcontour.cpp */; };
 		5AA673022105052900578C2A /* ftfreetype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672A62105052900578C2A /* ftfreetype.cpp */; };
@@ -28,7 +29,6 @@
 		5AA673122105052900578C2A /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672DC2105052900578C2A /* log.cpp */; };
 		5AA673132105052900578C2A /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672DE2105052900578C2A /* object.cpp */; };
 		5AA673142105052900578C2A /* ref_counted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672E02105052900578C2A /* ref_counted.cpp */; };
-		5AA673152105052900578C2A /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672E32105052900578C2A /* stb_image.c */; };
 		5AA673162105052900578C2A /* string_hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672E52105052900578C2A /* string_hash.cpp */; };
 		5AA673172105052900578C2A /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672E72105052900578C2A /* texture.cpp */; };
 		5AA673182105052900578C2A /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672E92105052900578C2A /* timer.cpp */; };
@@ -58,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A0D4AF021065B70005262FE /* stb_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
 		5A9838CC20FC634B00D85749 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../3rd/libfreetype.a; sourceTree = "<group>"; };
 		5AA672A02105052900578C2A /* effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = effect.cpp; sourceTree = "<group>"; };
 		5AA672A12105052900578C2A /* effect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = effect.hpp; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		5AA672E02105052900578C2A /* ref_counted.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ref_counted.cpp; sourceTree = "<group>"; };
 		5AA672E12105052900578C2A /* ref_counted.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ref_counted.hpp; sourceTree = "<group>"; };
 		5AA672E22105052900578C2A /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
-		5AA672E32105052900578C2A /* stb_image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stb_image.c; sourceTree = "<group>"; };
 		5AA672E42105052900578C2A /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		5AA672E52105052900578C2A /* string_hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = string_hash.cpp; sourceTree = "<group>"; };
 		5AA672E62105052900578C2A /* string_hash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = string_hash.hpp; sourceTree = "<group>"; };
@@ -288,6 +288,7 @@
 		5AA672D62105052900578C2A /* object */ = {
 			isa = PBXGroup;
 			children = (
+				5A0D4AF021065B70005262FE /* stb_image.cpp */,
 				5AA672D72105052900578C2A /* base_type.h */,
 				5AA672D82105052900578C2A /* config_render.h */,
 				5AA672D92105052900578C2A /* context.cpp */,
@@ -300,7 +301,6 @@
 				5AA672E02105052900578C2A /* ref_counted.cpp */,
 				5AA672E12105052900578C2A /* ref_counted.hpp */,
 				5AA672E22105052900578C2A /* single.h */,
-				5AA672E32105052900578C2A /* stb_image.c */,
 				5AA672E42105052900578C2A /* stb_image.h */,
 				5AA672E52105052900578C2A /* string_hash.cpp */,
 				5AA672E62105052900578C2A /* string_hash.hpp */,
@@ -430,6 +430,7 @@
 			files = (
 				5AA673202105052900578C2A /* interface_render.cpp in Sources */,
 				5AA673072105052900578C2A /* font.cpp in Sources */,
+				5A0D4AF121065B70005262FE /* stb_image.cpp in Sources */,
 				5AA673142105052900578C2A /* ref_counted.cpp in Sources */,
 				5AA673082105052900578C2A /* shapes.cc in Sources */,
 				5AA6730F2105052900578C2A /* math_common.cpp in Sources */,
@@ -459,7 +460,6 @@
 				5AA6731B2105052900578C2A /* animatable.cpp in Sources */,
 				5AA6731A2105052900578C2A /* shader.cpp in Sources */,
 				5AA673032105052900578C2A /* ftgenerate_tri.cpp in Sources */,
-				5AA673152105052900578C2A /* stb_image.c in Sources */,
 				5AA673172105052900578C2A /* texture.cpp in Sources */,
 				5AA673122105052900578C2A /* log.cpp in Sources */,
 				5AA673002105052900578C2A /* effect.cpp in Sources */,

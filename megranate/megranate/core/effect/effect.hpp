@@ -9,7 +9,7 @@
 #ifndef effect_hpp
 #define effect_hpp
 
-#include "shader.hpp"
+#include "../../render/shader.hpp"
 #include "../../scene/component.hpp"
 #include "../../render/materials.hpp"
 #include "../../object/timer.hpp"
@@ -30,7 +30,7 @@ namespace megranate {
     private:
         Shader* _shader = nullptr;
         Timer _timer;
-        mg_float _step = 0.03f;
+        mg_float _step = 0.05f;
         mg_float _ratio = 1.0f;
         Materials _materials;
         mg_uint _vbo;

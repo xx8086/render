@@ -1,7 +1,7 @@
 #pragma once
 
-#include "ft2build.h"
-#include "freetype/ftglyph.h"
+#include "freetype2/ft2build.h"
+#include "freetype2/freetype/ftglyph.h"
 #include <math.h>
 #include <assert.h>
 #include <string>

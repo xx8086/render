@@ -9,7 +9,7 @@
 #include "shader.hpp"
 #include <fstream>
 #include <sstream>
-#include "log.hpp"
+#include "../object/log.hpp"
 
 namespace megranate {
     Shader::Shader(Context* context) : Object(context){

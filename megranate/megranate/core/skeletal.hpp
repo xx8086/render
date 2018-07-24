@@ -10,12 +10,12 @@
 #define skeletal_hpp
 
 #include "../scene/component.hpp"
-#include "shader.hpp"
-#include "texture.hpp"
+#include "../render/shader.hpp"
+#include "../object/texture.hpp"
 #include "assimp/Importer.hpp"
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
-#include "timer.hpp"
+#include "../object/timer.hpp"
 #include "../render/materials.hpp"
 #include <vector>
 #include <map>

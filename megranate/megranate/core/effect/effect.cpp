@@ -57,11 +57,11 @@ namespace megranate {
     }
     mg_void Effect::update(){
         if (_timer.count_time()){
-            if (_ratio <= 0.2 || _ratio > 1.0){//0.45
+            if (_ratio <= 0.0 || _ratio >= 1.0){//0.45
                 _step = -_step;
             }
             _ratio += _step;
-            _timer.set_count_time(50);
+            _timer.set_count_time(30);
         }
     }
     mg_void Effect::draw(const Mat4f &project, const Mat4f &view, const Mat4f &world){

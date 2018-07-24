@@ -22,6 +22,9 @@ namespace megranate{
         _fontshader_side = new Shader(context);
         _fontshader_deep = new Shader(context);
         _fontshader = new Shader(context);
+		_wstr_content = L"abc3@";
+		_anglex = 30.0f;
+		_angley = 20.0f;
     };
     
     void CFont::set_ttf(std::string _ttf){

@@ -10,7 +10,7 @@
 
 #include "basefont.h"
 #include "./3dfontskit/ftgenerate_tri.h"
-#include "shader.hpp"
+#include "../../render/shader.hpp"
 #include "../../scene/component.hpp"
 #include <string>
 
@@ -28,9 +28,9 @@ namespace megranate{
         void shader3dfont();
     private: 
         std::string _str_fontttf;
-        std::wstring _wstr_content = L"abc3@烤&串";
-        float _anglex = 30.0f;
-        float _angley = 20.0f;
+        std::wstring _wstr_content;
+        float _anglex;
+        float _angley;
         Shader* _fontshader;
         Shader* _fontshader_deep;
         Shader* _fontshader_side;

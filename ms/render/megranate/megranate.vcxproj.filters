@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="scene">
+      <UniqueIdentifier>{c9dd9dc9-26a7-49c8-9d0c-52c67cc28cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render">
+      <UniqueIdentifier>{ad4cb787-dee4-428a-9a48-035b7e8e731a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="object">
+      <UniqueIdentifier>{192938e1-6219-48ad-8f7c-63115a71913a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{c7527df5-a43c-4189-bc14-5261e9408a84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{a5463968-9bbc-4127-afbc-b585a3e5e3e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\effect">
+      <UniqueIdentifier>{d7645082-cd88-410b-8a91-c7eadecf08b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\fonts">
+      <UniqueIdentifier>{938670a5-9235-4c77-912b-b0d490ff75cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\fonts\3dfontskit">
+      <UniqueIdentifier>{82b01cc8-cd85-4369-8470-baef10f0d7c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\fonts\poly2tri">
+      <UniqueIdentifier>{6428cc69-0926-4644-9fc8-5a86b7a6c6bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\fonts\poly2tri\sweep">
+      <UniqueIdentifier>{077f2ddf-d6c4-4c00-89fb-8bc9e68ed91a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\fonts\poly2tri\common">
+      <UniqueIdentifier>{6c086010-31b5-460b-9bd5-10a69c3d9607}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\megranate\megranate\core\lights.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\skeletal.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\effect\effect.cpp">
+      <Filter>core\effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\basefont.cpp">
+      <Filter>core\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\font.cpp">
+      <Filter>core\fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftcontour.cpp">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftfreetype.cpp">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftgenerate_tri.cpp">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftpoint.cpp">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftptri.cpp">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\common\shapes.cc">
+      <Filter>core\fonts\poly2tri\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\advancing_front.cc">
+      <Filter>core\fonts\poly2tri\sweep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\cdt.cc">
+      <Filter>core\fonts\poly2tri\sweep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\sweep.cc">
+      <Filter>core\fonts\poly2tri\sweep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\sweep_context.cc">
+      <Filter>core\fonts\poly2tri\sweep</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\math\math_common.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\math\quaternion.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\object\context.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\object\log.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\object\object.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\object\ref_counted.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\object\string_hash.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\object\texture.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\object\timer.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\render\materials.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\render\shader.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\animatable.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\camera.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\component.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\egl_context.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\entity.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\interface_render.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\pipeline.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\scene.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\scene\egl_context_win32.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\megranate\megranate\object\stb_image.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\megranate\megranate\core\lights.hpp">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\skeletal.hpp">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\effect\effect.hpp">
+      <Filter>core\effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\basefont.h">
+      <Filter>core\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\font.h">
+      <Filter>core\fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftcontour.h">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftfreetype.h">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftgenerate_tri.h">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftpoint.h">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftptri.h">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\fttype.h">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftvector.h">
+      <Filter>core\fonts\3dfontskit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\poly2tri.h">
+      <Filter>core\fonts\poly2tri</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\common\shapes.h">
+      <Filter>core\fonts\poly2tri\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\common\utils.h">
+      <Filter>core\fonts\poly2tri\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\advancing_front.h">
+      <Filter>core\fonts\poly2tri\sweep</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\cdt.h">
+      <Filter>core\fonts\poly2tri\sweep</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\sweep.h">
+      <Filter>core\fonts\poly2tri\sweep</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\sweep_context.h">
+      <Filter>core\fonts\poly2tri\sweep</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\math\math_common.hpp">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\math\matrix.hpp">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\math\policy.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\math\precision.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\math\quaternion.hpp">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\math\traits.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\math\vertex.hpp">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\base_type.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\config_render.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\context.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\debug_new.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\log.hpp">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\object.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\ref_counted.hpp">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\single.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\stb_image.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\string_hash.hpp">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\texture.hpp">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\timer.hpp">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\object\type_render.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\render\materials.hpp">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\render\shader.hpp">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\scene\animatable.hpp">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\scene\camera.hpp">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\scene\component.hpp">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\scene\entity.hpp">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\scene\pipeline.hpp">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\scene\scene.hpp">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\megranate\megranate\scene\esUtil_win.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\megranate\megranate\math\matrix.inl">
+      <Filter>math</Filter>
+    </None>
+    <None Include="..\..\..\megranate\megranate\math\matrix_binary.inl">
+      <Filter>math</Filter>
+    </None>
+    <None Include="..\..\..\megranate\megranate\math\matrix_specialization.inl">
+      <Filter>math</Filter>
+    </None>
+    <None Include="..\..\..\megranate\megranate\math\vertex.inl">
+      <Filter>math</Filter>
+    </None>
+    <None Include="..\..\..\megranate\megranate\math\vertex_binary.inl">
+      <Filter>math</Filter>
+    </None>
+  </ItemGroup>
+</Project>

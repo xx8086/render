@@ -27,13 +27,13 @@
 
         const FTPoint &point(size_t index) const { return pointList[index]; }
         const FTPoint &outset(size_t index) const { return outsetPointList[index]; }
-        const FTPoint &　front_point(size_t index) const
+        const FTPoint & front_point(size_t index) const
         {
-            if (　front_pointList.size() == 0)
+            if ( front_pointList.size() == 0)
             {
                 return point(index);
             }
-            return 　front_pointList[index];
+            return front_pointList[index];
         }
         const FTPoint &back_point(size_t index) const
         {
@@ -47,26 +47,26 @@
         {
             return pointList.size();
         }
-        void 　set_parity(int parity);
+        void set_parity(int parity);
 
         // FIXME: this should probably go away.
-        void 　build_front_outset(FTPoint, float);
-        void 　build_back_outset(FTPoint, float);
+        void build_front_outset(FTPoint, float);
+        void build_back_outset(FTPoint, float);
 
     private:
-        inline void 　add_point(FTPoint point);
-        inline void 　add_outset_point(FTPoint point);
-        inline void 　add_front_point(FTPoint point);
-        inline void 　add_back_point(FTPoint point);
-        inline void 　evaluate_quadratic_curve(FTPoint, FTPoint, FTPoint);
-        inline void 　evaluate_cubic_curve(FTPoint, FTPoint, FTPoint, FTPoint);
-        inline FTPoint 　compute_outset_point(FTPoint a, FTPoint b, FTPoint c);
+        inline void add_point(FTPoint point);
+        inline void add_outset_point(FTPoint point);
+        inline void add_front_point(FTPoint point);
+        inline void add_back_point(FTPoint point);
+        inline void evaluate_quadratic_curve(FTPoint, FTPoint, FTPoint);
+        inline void evaluate_cubic_curve(FTPoint, FTPoint, FTPoint, FTPoint);
+        inline FTPoint compute_outset_point(FTPoint a, FTPoint b, FTPoint c);
 
     private:
         typedef FTVector<FTPoint> PointVector;
         PointVector pointList;
         PointVector outsetPointList;
-        PointVector 　front_pointList;
+        PointVector front_pointList;
         PointVector backPointList;
         bool clockwise;
     };

@@ -7,7 +7,7 @@
 //
 
 #include "math_common.hpp"
-#include "config_render.h"
+#include "../object/config_render.h"
 
 namespace megranate {
     

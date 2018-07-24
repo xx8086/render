@@ -14,10 +14,12 @@ namespace megranate {
     void log_printf (const char *formatStr, ... ){
         va_list params;
         char buf[BUFSIZ];
-        
         va_start ( params, formatStr );
+#ifdef _WIN32 
+		vsprintf_s(buf, BUFSIZ, formatStr, params);
+#else
         vsprintf ( buf, formatStr, params );
-        
+#endif    
 #ifdef ANDROID
         __android_log_print ( ANDROID_LOG_INFO, "esUtil" , "%s", buf );
 #else

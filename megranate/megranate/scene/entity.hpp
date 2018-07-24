@@ -9,11 +9,11 @@
 #ifndef entity_hpp
 #define entity_hpp
 
-#include "object.h"
+#include "../object/object.h"
 #include "../math/quaternion.hpp"
-#include "type_render.h"
+#include "../object/type_render.h"
 #include "entity.hpp"
-#include "context.h"
+#include "../object/context.h"
 #include "pipeline.hpp"
 #include "component.hpp"
 #include <vector>

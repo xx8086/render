@@ -191,7 +191,11 @@ unsigned int CLFreetype::side(A_CHAEACTER_QUAD &aword)
 unsigned int CLFreetype::make(FTPoint offset, A_CHAEACTER &aword, FTGL_DOUBLE znormal, int outsettype, float outsetsize)
 {
     char filename[128] = {0};
-    sprintf(filename, "/Users/baidu/myfile2.txt_%d", outsettype);
+#ifdef _WIN32 
+	sprintf_s(filename, 127, "/Users/baidu/myfile2.txt_%d", outsettype);
+#else
+	sprintf(filename, "/Users/baidu/myfile2.txt_%d", outsettype);
+#endif    
     _ofile.open(filename); //作为输出文件打开
     unsigned int tol = 0;
     for (size_t c = 0; c < _contour_current_num; ++c)
@@ -199,10 +203,10 @@ unsigned int CLFreetype::make(FTPoint offset, A_CHAEACTER &aword, FTGL_DOUBLE zn
         switch (outsettype)
         {
         case 1:
-            _contour_list[c]->　build_front_outset(offset, outsetsize);
+            _contour_list[c]->build_front_outset(offset, outsetsize);
             break;
         case 2:
-            _contour_list[c]->　build_back_outset(offset, outsetsize);
+            _contour_list[c]->build_back_outset(offset, outsetsize);
             break;
         }
 
@@ -214,7 +218,7 @@ unsigned int CLFreetype::make(FTPoint offset, A_CHAEACTER &aword, FTGL_DOUBLE zn
             switch (outsettype)
             {
             case 1:
-                d = contour->　front_point(p);
+                d = contour->front_point(p);
                 break;
             case 2:
                 d = contour->back_point(p);
@@ -342,7 +346,7 @@ bool CLFreetype::process_contours(FT_GlyphSlot &slot)
         }
 
         // 3. Make sure the glyph has the proper parity.
-        c1->　set_parity(parity);
+        c1->set_parity(parity);
     }
 
     return true;

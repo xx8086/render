@@ -6,7 +6,7 @@
 //  Copyright © 2018年 hanliu. All rights reserved.
 //
 #include "texture.hpp"
-#define STB_IMAGE_IMPLEMENTATION
+//#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #ifdef __APPLE__
 #include <OpenGLES/ES3/gl.h>

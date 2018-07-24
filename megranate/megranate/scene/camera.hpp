@@ -8,7 +8,7 @@
 
 #ifndef camera_hpp
 #define camera_hpp
-#include "type_render.h"
+#include "../object/type_render.h"
 
 namespace megranate {
     

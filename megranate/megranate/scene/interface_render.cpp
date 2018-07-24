@@ -7,7 +7,7 @@
 //
 
 #include "../../include/interface_render.hpp"
-#include "single.h"
+#include "../object/single.h"
 #include "scene.hpp"
 
 namespace megranate {

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\megranate\megranate\core\effect\effect.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftcontour.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftfreetype.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftgenerate_tri.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftpoint.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftptri.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\basefont.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\font.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\common\shapes.cc" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\advancing_front.cc" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\cdt.cc" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\sweep.cc" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\sweep_context.cc" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\lights.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\core\skeletal.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\math\math_common.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\math\quaternion.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\object\context.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\object\log.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\object\object.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\object\ref_counted.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\object\stb_image.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\object\string_hash.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\object\texture.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\object\timer.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\render\materials.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\render\shader.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\animatable.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\camera.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\component.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\egl_context.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\egl_context_win32.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\entity.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\interface_render.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\pipeline.cpp" />
+    <ClCompile Include="..\..\..\megranate\megranate\scene\scene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\megranate\megranate\core\effect\effect.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftcontour.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftfreetype.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftgenerate_tri.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftpoint.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftptri.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\fttype.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\3dfontskit\ftvector.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\basefont.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\font.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\common\shapes.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\common\utils.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\poly2tri.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\advancing_front.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\cdt.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\sweep.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\fonts\poly2tri\sweep\sweep_context.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\lights.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\core\skeletal.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\math\math_common.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\math\matrix.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\math\policy.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\math\precision.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\math\quaternion.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\math\traits.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\math\vertex.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\base_type.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\config_render.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\context.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\debug_new.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\log.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\object.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\ref_counted.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\single.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\stb_image.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\string_hash.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\texture.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\timer.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\object\type_render.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\render\materials.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\render\shader.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\scene\animatable.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\scene\camera.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\scene\component.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\scene\entity.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\scene\esUtil_win.h" />
+    <ClInclude Include="..\..\..\megranate\megranate\scene\pipeline.hpp" />
+    <ClInclude Include="..\..\..\megranate\megranate\scene\scene.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\megranate\megranate\math\matrix.inl" />
+    <None Include="..\..\..\megranate\megranate\math\matrix_binary.inl" />
+    <None Include="..\..\..\megranate\megranate\math\matrix_specialization.inl" />
+    <None Include="..\..\..\megranate\megranate\math\vertex.inl" />
+    <None Include="..\..\..\megranate\megranate\math\vertex_binary.inl" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{55FDFA1B-7F17-4F07-92B4-4CAD75E32C23}</ProjectGuid>
+    <RootNamespace>megranate</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ReferencePath>
+    </ReferencePath>
+    <LibraryPath>$(SolutionDir)..\..\3rd\;$(SolutionDir)..\..\3rd\opengles3_ms\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\..\3rd\;$(SolutionDir)..\..\3rd\freetype2\;$(SolutionDir)..\..\3rd\opengles3_ms\include\;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)..\..\msbin\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\msmiddle\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ReferencePath>
+    </ReferencePath>
+    <IncludePath>$(SolutionDir)..\..\3rd\;$(SolutionDir)..\..\3rd\freetype2\;$(SolutionDir)..\..\3rd\opengles3_ms\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\3rd\;$(SolutionDir)..\..\3rd\opengles3_ms\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)..\..\msbin\</OutDir>
+    <IntDir>$(SolutionDir)..\..\..\msmiddle\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>freetype.lib;assimp-vc140-mt.lib;libEGL.lib;libGLESv2.lib;libMaliEmulator.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>freetype.lib;assimp-vc140-mt.lib;libEGL.lib;libGLESv2.lib;libMaliEmulator.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

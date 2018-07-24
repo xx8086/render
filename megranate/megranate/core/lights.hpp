@@ -8,7 +8,7 @@
 
 #ifndef lights_hpp
 #define lights_hpp
-#include "component.hpp"
+#include "../scene/component.hpp"
 
 namespace megranate {
     class Lights : public Component{

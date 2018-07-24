@@ -8,10 +8,13 @@
 
 #include "ftcontour.h"
 #include <math.h>
+#ifndef M_PI
+#define M_PI 3.14159265358979323846264338327
+#endif
 
 static const unsigned int BEZIER_STEPS = 5;
 
-void FTContour::　add_point(FTPoint point)
+void FTContour:: add_point(FTPoint point)
 {
     if (pointList.empty() || (point != pointList[pointList.size() - 1] && point != pointList[0]))
     {
@@ -19,22 +22,22 @@ void FTContour::　add_point(FTPoint point)
     }
 }
 
-void FTContour::　add_outset_point(FTPoint point)
+void FTContour:: add_outset_point(FTPoint point)
 {
     outsetPointList.push_back(point);
 }
 
-void FTContour::　add_front_point(FTPoint point)
+void FTContour:: add_front_point(FTPoint point)
 {
-    　front_pointList.push_back(point);
+     front_pointList.push_back(point);
 }
 
-void FTContour::　add_back_point(FTPoint point)
+void FTContour:: add_back_point(FTPoint point)
 {
     backPointList.push_back(point);
 }
 
-void FTContour::　evaluate_quadratic_curve(FTPoint A, FTPoint B, FTPoint C)
+void FTContour:: evaluate_quadratic_curve(FTPoint A, FTPoint B, FTPoint C)
 {
     for (unsigned int i = 1; i < BEZIER_STEPS; i++)
     {
@@ -43,11 +46,11 @@ void FTContour::　evaluate_quadratic_curve(FTPoint A, FTPoint B, FTPoint C)
         FTPoint U = (1.0f - t) * A + t * B;
         FTPoint V = (1.0f - t) * B + t * C;
 
-        　add_point((1.0f - t) * U + t * V);
+         add_point((1.0f - t) * U + t * V);
     }
 }
 
-void FTContour::　evaluate_cubic_curve(FTPoint A, FTPoint B, FTPoint C, FTPoint D)
+void FTContour:: evaluate_cubic_curve(FTPoint A, FTPoint B, FTPoint C, FTPoint D)
 {
     for (unsigned int i = 0; i < BEZIER_STEPS; i++)
     {
@@ -60,7 +63,7 @@ void FTContour::　evaluate_cubic_curve(FTPoint A, FTPoint B, FTPoint C, FTPoint
         FTPoint M = (1.0f - t) * U + t * V;
         FTPoint N = (1.0f - t) * V + t * W;
 
-        　add_point((1.0f - t) * M + t * N);
+         add_point((1.0f - t) * M + t * N);
     }
 }
 
@@ -78,7 +81,7 @@ void FTContour::　evaluate_cubic_curve(FTPoint A, FTPoint B, FTPoint C, FTPoint
 //                 \                       \                 .
 //                C X                     C X
 //
-FTPoint FTContour::　compute_outset_point(FTPoint A, FTPoint B, FTPoint C)
+FTPoint FTContour:: compute_outset_point(FTPoint A, FTPoint B, FTPoint C)
 {
     /* Build the rotation matrix from 'ba' vector */
     FTPoint ba = (A - B).normalise();
@@ -99,7 +102,7 @@ FTPoint FTContour::　compute_outset_point(FTPoint A, FTPoint B, FTPoint C)
                    tmp.x() * -ba.y() + tmp.y() * -ba.x());
 }
 
-void FTContour::　set_parity(int parity)
+void FTContour:: set_parity(int parity)
 {
     size_t size = point_count();
     FTPoint vOutset;
@@ -128,8 +131,8 @@ void FTContour::　set_parity(int parity)
         cur = i;
         next = (i + size + 1) % size;
 
-        vOutset = 　compute_outset_point(point(prev), point(cur), point(next));
-        　add_outset_point(vOutset);
+        vOutset =  compute_outset_point(point(prev), point(cur), point(next));
+         add_outset_point(vOutset);
     }
 }
 
@@ -165,7 +168,7 @@ FTContour::FTContour(FT_Vector *contour, char *tags, unsigned int n)
         // Only process point tags we know.
         if (n < 2 || FT_CURVE_TAG(tags[i]) == FT_Curve_Tag_On)
         {
-            　add_point(cur);
+             add_point(cur);
         }
         else if (FT_CURVE_TAG(tags[i]) == FT_Curve_Tag_Conic)
         {
@@ -178,7 +181,7 @@ FTContour::FTContour(FT_Vector *contour, char *tags, unsigned int n)
             if (FT_CURVE_TAG(tags[(i - 1 + n) % n]) == FT_Curve_Tag_Conic)
             {
                 prev2 = (cur + prev) * 0.5;
-                　add_point(prev2);
+                 add_point(prev2);
             }
 
             // Next point is either the real next point or the midpoint.
@@ -187,11 +190,11 @@ FTContour::FTContour(FT_Vector *contour, char *tags, unsigned int n)
                 next2 = (cur + next) * 0.5;
             }
 
-            　evaluate_quadratic_curve(prev2, cur, next2);
+             evaluate_quadratic_curve(prev2, cur, next2);
         }
         else if (FT_CURVE_TAG(tags[i]) == FT_Curve_Tag_Cubic && FT_CURVE_TAG(tags[(i + 1) % n]) == FT_Curve_Tag_Cubic)
         {
-            　evaluate_cubic_curve(prev, cur, next,
+             evaluate_cubic_curve(prev, cur, next,
                                FTPoint(contour[(i + 2) % n]));
         }
     }
@@ -201,21 +204,21 @@ FTContour::FTContour(FT_Vector *contour, char *tags, unsigned int n)
     clockwise = (angle < 0.0);
 }
 
-void FTContour::　build_front_outset(FTPoint offset, float scale)
+void FTContour:: build_front_outset(FTPoint offset, float scale)
 {
     for (size_t i = 0; i < point_count(); ++i)
     {
         const FTPoint &cp = point(i);
         const FTPoint &out = outset(i);
-        　add_front_point((cp + out + offset) * scale);
-        //　add_front_point(point(i) + outset(i) * outset);
+         add_front_point((cp + out + offset) * scale);
+        // add_front_point(point(i) + outset(i) * outset);
     }
 }
 
-void FTContour::　build_back_outset(FTPoint offset, float scale)
+void FTContour:: build_back_outset(FTPoint offset, float scale)
 {
     for (size_t i = 0; i < point_count(); ++i)
     {
-        　add_back_point((point(i) + outset(i) + offset) * scale);
+         add_back_point((point(i) + outset(i) + offset) * scale);
     }
 }
