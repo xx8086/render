@@ -7,16 +7,7 @@
 //
 
 #include "scene.hpp"
-
-#ifdef __APPLE__
-#include <OpenGLES/ES3/gl.h>
-#include <OpenGLES/ES3/glext.h>
-#else
-#include <GLES3/gl3.h>
-#include <EGL/egl.h>
-#include <EGL/eglext.h>
-#endif
-
+#include "../object/gl_file.h"
 #include "../core/skeletal.hpp"
 #include "../core/fonts/font.h"
 #include "../core/effect/effect.hpp"

@@ -11,14 +11,7 @@
 
 #include "../object/context.h"
 #include "../object/type_render.h"
-
-#ifdef __APPLE__
-#include <OpenGLES/ES3/gl.h>
-#else
-#include <GLES3/gl3.h>
-#include <EGL/egl.h>
-#include <EGL/eglext.h>
-#endif
+#include "../object/gl_file.h"
 
 namespace megranate {
     class Shader : public Object{

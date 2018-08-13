@@ -42,6 +42,7 @@
 		5AA673202105052900578C2A /* interface_render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672FB2105052900578C2A /* interface_render.cpp */; };
 		5AA673212105052900578C2A /* pipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672FC2105052900578C2A /* pipeline.cpp */; };
 		5AA673222105052900578C2A /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AA672FE2105052900578C2A /* scene.cpp */; };
+		5ADACCEB21211D000023D644 /* framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADACCE921211D000023D644 /* framebuffer.cpp */; };
 		5ADC278120F1EF1900B77B88 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADC278020F1EF1900B77B88 /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +147,9 @@
 		5AA672FD2105052900578C2A /* pipeline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pipeline.hpp; sourceTree = "<group>"; };
 		5AA672FE2105052900578C2A /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scene.cpp; sourceTree = "<group>"; };
 		5AA672FF2105052900578C2A /* scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = scene.hpp; sourceTree = "<group>"; };
+		5ADACCE921211D000023D644 /* framebuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = framebuffer.cpp; sourceTree = "<group>"; };
+		5ADACCEA21211D000023D644 /* framebuffer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = framebuffer.hpp; sourceTree = "<group>"; };
+		5ADACCEC212120C90023D644 /* gl_file.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gl_file.h; sourceTree = "<group>"; };
 		5ADC278020F1EF1900B77B88 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		5AE9E46D20EC988D00304307 /* libmegranate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmegranate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -309,6 +313,7 @@
 				5AA672E92105052900578C2A /* timer.cpp */,
 				5AA672EA2105052900578C2A /* timer.hpp */,
 				5AA672EB2105052900578C2A /* type_render.h */,
+				5ADACCEC212120C90023D644 /* gl_file.h */,
 			);
 			path = object;
 			sourceTree = "<group>";
@@ -316,6 +321,8 @@
 		5AA672EC2105052900578C2A /* render */ = {
 			isa = PBXGroup;
 			children = (
+				5ADACCE921211D000023D644 /* framebuffer.cpp */,
+				5ADACCEA21211D000023D644 /* framebuffer.hpp */,
 				5AA672ED2105052900578C2A /* materials.cpp */,
 				5AA672EE2105052900578C2A /* materials.hpp */,
 				5AA672EF2105052900578C2A /* shader.cpp */,
@@ -441,6 +448,7 @@
 				5AA673022105052900578C2A /* ftfreetype.cpp in Sources */,
 				5AA673222105052900578C2A /* scene.cpp in Sources */,
 				5AA6730B2105052900578C2A /* sweep.cc in Sources */,
+				5ADACCEB21211D000023D644 /* framebuffer.cpp in Sources */,
 				5AA673012105052900578C2A /* ftcontour.cpp in Sources */,
 				5AA6731C2105052900578C2A /* camera.cpp in Sources */,
 				5AA6730D2105052900578C2A /* lights.cpp in Sources */,

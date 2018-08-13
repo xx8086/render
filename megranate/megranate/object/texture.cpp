@@ -8,14 +8,7 @@
 #include "texture.hpp"
 //#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-#ifdef __APPLE__
-#include <OpenGLES/ES3/gl.h>
-#include <OpenGLES/ES3/glext.h>
-#else
-#include <GLES3/gl3.h>
-#include <EGL/egl.h>
-#include <EGL/eglext.h>
-#endif
+#include "gl_file.h"
 
 namespace megranate {
     void TextureGl::bind(mg_uint texture_unit){

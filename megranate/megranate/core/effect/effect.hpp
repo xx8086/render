@@ -26,7 +26,7 @@ namespace megranate {
         virtual mg_void draw(const Mat4f &project, const Mat4f &view, const Mat4f &world);
     private:
         mg_void release();
-        mg_void bind();
+        mg_void gen();
     private:
         Shader* _shader = nullptr;
         Timer _timer;

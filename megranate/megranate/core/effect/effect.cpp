@@ -17,7 +17,7 @@ namespace megranate {
         release();
     }
     
-    mg_void Effect::bind(){
+    mg_void Effect::gen(){
         glGenVertexArrays(1, &_vao);
         glGenBuffers(1, &_vbo);
         glGenBuffers(1, &_ebo);
@@ -52,7 +52,7 @@ namespace megranate {
         str_imge.append("/niuyan.jpg");
         _materials.set_texture_size(1);
         _materials.push_texture(1, str_imge);
-        bind();
+        gen();
         return true;
     }
     mg_void Effect::update(){

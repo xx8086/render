@@ -6,16 +6,9 @@
 //
 
 #include "font.h"
+#include "../../object/gl_file.h"
 //#include "../render/render_system.h"
 //#include "../utils/glutils.h"
-#ifdef __APPLE__
-#include <OpenGLES/ES3/gl.h>
-#include <OpenGLES/ES3/glext.h>
-#else
-#include <GLES3/gl3.h>
-#include <EGL/egl.h>
-#include <EGL/eglext.h>
-#endif
 
 namespace megranate{
     CFont::CFont(Context* context): Component(context){
